@@ -1,0 +1,65 @@
+{
+	"compilerOptions": {
+		"target": "ES3",
+		"module": "commonjs",
+		"noImplicitAny": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"out": "build/writeup.js",
+		"sourceMap": true,
+		"sourceRoot": "../source"
+	},
+	"files": [
+		"source/Error/Position.ts",
+		"source/Error/Location.ts",
+		"source/Error/Region.ts",
+		"source/Error/Type.ts",
+		"source/Error/Level.ts",
+		"source/Error/Message.ts",
+		"source/Error/Handler.ts",
+		"source/Error/ConsoleHandler.ts",
+
+		"source/Utilities/Iterator.ts",
+		"source/Utilities/ArrayIterator.ts",
+		"source/Utilities/BufferedIterator.ts",
+		"source/Utilities/String.ts",
+
+		"source/IO/Reader.ts",
+		"source/IO/StringReader.ts",
+		"source/IO/BufferedReader.ts",
+		"source/IO/FileReader.ts",
+		"source/IO/FolderReader.ts",
+
+		"source/Unit/Test.ts",
+		"source/Unit/TestFailedError.ts",
+		"source/Unit/Fixture.ts",
+		"source/Unit/Constraints/Modifier.ts",
+		"source/Unit/Constraints/Constraint.ts",
+		"source/Unit/Constraints/EmptyConstraint.ts",
+		"source/Unit/Constraints/CompareConstraint.ts",
+		"source/Unit/Constraints/EqualModifier.ts",
+		"source/Unit/Constraints/FalseConstraint.ts",
+		"source/Unit/Constraints/NotModifier.ts",
+		"source/Unit/Constraints/NullConstraint.ts",
+		"source/Unit/Constraints/NullOrUndefinedConstraint.ts",
+		"source/Unit/Constraints/UndefinedConstraint.ts",
+		"source/Unit/Constraints/TrueConstraint.ts",
+		"source/Unit/Constraints/Is.ts",
+
+		"source/Unit/Constraints/Tests/BooleanTest.ts",
+		"source/Unit/Constraints/Tests/EmptyTest.ts",
+		"source/Unit/Constraints/Tests/EqualTest.ts",
+		"source/Unit/Constraints/Tests/NotTest.ts",
+		"source/Unit/Constraints/Tests/NullOrUndefinedTest.ts",
+		"source/Unit/Constraints/Tests/NullTest.ts",
+		"source/Unit/Constraints/Tests/UndefinedTest.ts",
+
+		"source/IO/Tests/StringReaderTest.ts",
+		"source/IO/Tests/BufferedReaderTest.ts",
+
+		"source/Utilities/Tests/ArrayIteratorTest.ts",
+		"source/Utilities/Tests/BufferedIteratorTest.ts",
+
+		"source/writeup.ts"
+	]
+}
