@@ -1,7 +1,7 @@
 /// <reference path="../Error/Location" />
 /// <reference path="../Error/Region" />
 
-module Magic.IO {
+module Cogneco.IO {
 	export interface Reader {
 		isEmpty(): boolean
 		read(): string;

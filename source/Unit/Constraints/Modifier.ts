@@ -1,4 +1,4 @@
-module Magic.Unit.Constraints {
+module Cogneco.Unit.Constraints {
 	export class Modifier {
 		private child: Modifier
 		constructor(private parent: Modifier = null) {

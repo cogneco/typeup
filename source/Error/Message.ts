@@ -1,7 +1,7 @@
 /// <reference path="Type" />
 /// <reference path="Level" />
 
-module Magic.Error {
+module Cogneco.Error {
 	export class Message {
 		constructor(private description: string, private level: Level, private type: Type, private region: Region) {
 		}

@@ -1,4 +1,4 @@
-module Magic.Utilities {
+module Cogneco.Utilities {
 	export class String {
 		static padLeft(value: string, paddingCharacter: string, width: number) {
 			return String.pad(value, paddingCharacter, width, true)

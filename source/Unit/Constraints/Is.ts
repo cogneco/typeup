@@ -7,7 +7,7 @@
 /// <reference path="NotModifier" />
 /// <reference path="EmptyConstraint" />
 
-module Magic.Unit.Constraints {
+module Cogneco.Unit.Constraints {
 	export class Is {
 		static True() { return new TrueConstraint() }
 		static False() { return new FalseConstraint() }

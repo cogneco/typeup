@@ -7,7 +7,7 @@
 /// <reference path="../../Unit/Fixture" />
 /// <reference path="../../Unit/Constraints/Is" />
 
-module Magic.IO.Tests {
+module Cogneco.IO.Tests {
 	import Is = Unit.Constraints.Is
 	export class BufferedReaderTest extends Unit.Fixture {
 		constructor() {

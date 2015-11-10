@@ -1,4 +1,4 @@
-module Magic.Error {
+module Cogneco.Error {
 	export class Position {
 		constructor(private line: number, private column: number) { }
 		getLine() { return this.line }

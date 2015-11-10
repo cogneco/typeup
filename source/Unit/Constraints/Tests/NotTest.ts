@@ -1,7 +1,7 @@
 /// <reference path="../../Fixture" />
 /// <reference path="../../Constraints/Is" />
 
-module Magic.Unit.Tests {
+module Cogneco.Unit.Tests {
 	import Is = Constraints.Is
 	export class NotTest extends Fixture {
 		constructor() {

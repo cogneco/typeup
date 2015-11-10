@@ -1,4 +1,4 @@
-module Magic.Error {
+module Cogneco.Error {
 	export enum Level {
 		Logging,
 		Debug,

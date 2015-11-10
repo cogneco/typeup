@@ -3,7 +3,7 @@
 /// <reference path="../Iterator" />
 /// <reference path="../ArrayIterator" />
 
-module Magic.Utilities.Tests {
+module Cogneco.Utilities.Tests {
 	import Is = Unit.Constraints.Is
 	export class ArrayIteratorTest extends Unit.Fixture {
 		constructor() {

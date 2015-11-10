@@ -3,7 +3,7 @@
 
 var fs = require("fs");
 
-module Magic.IO {
+module Cogneco.IO {
 	export class FileReader extends StringReader {
 		constructor(path: string) {
 			super(fs.readFileSync(path, "utf-8"), path)

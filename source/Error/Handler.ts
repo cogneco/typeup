@@ -3,7 +3,7 @@
 /// <reference path="Region" />
 /// <reference path="Message" />
 
-module Magic.Error {
+module Cogneco.Error {
 	export interface Handler {
 		raise: {
 			(message: Message): void

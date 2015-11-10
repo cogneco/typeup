@@ -2,7 +2,7 @@
 /// <reference path="../../Constraints/Is" />
 /// <reference path="../../Constraints/NotModifier" />
 
-module Magic.Unit.Tests {
+module Cogneco.Unit.Tests {
 	import Is = Constraints.Is
 	export class EmptyTest extends Fixture {
 		constructor() {

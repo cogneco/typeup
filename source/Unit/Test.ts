@@ -1,4 +1,4 @@
-module Magic.Unit {
+module Cogneco.Unit {
 	export class Test {
 		constructor(private name: string, private action: () => void) {
 		}

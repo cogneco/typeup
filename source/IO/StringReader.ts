@@ -8,7 +8,7 @@
 
 var fs = require("fs");
 
-module Magic.IO {
+module Cogneco.IO {
 	export class StringReader implements Reader {
 		private count: number = 0
 		private line: number = 1

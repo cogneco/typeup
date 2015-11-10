@@ -8,7 +8,7 @@
 /// <reference path="UndefinedConstraint" />
 /// <reference path="EmptyConstraint" />
 
-module Magic.Unit.Constraints {
+module Cogneco.Unit.Constraints {
 	export class NotModifier extends Modifier {
 		constructor(parent: Modifier = null) {
 			super(parent)

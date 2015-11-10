@@ -1,7 +1,7 @@
 /// <reference path="Position" />
 /// <reference path="Location" />
 
-module Magic.Error {
+module Cogneco.Error {
 	export class Region {
 		constructor(private resource: string, private start: Position, private end: Position, private content: string) { }
 		getResource() { return this.resource }

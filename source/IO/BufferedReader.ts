@@ -2,7 +2,7 @@
 /// <reference path="../Error/Region" />
 /// <reference path="Reader" />
 
-module Magic.IO {
+module Cogneco.IO {
 	export class BufferedReader implements Reader {
 		buffer: string = ""
 		private line: number = 1

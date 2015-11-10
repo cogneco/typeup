@@ -7,7 +7,7 @@
 
 var fs = require("fs")
 
-module Magic {
+module Cogneco {
 	export class Program {
 		private defaultCommand = "compile"
 		constructor(private commands: string[]) {
@@ -53,15 +53,15 @@ module Magic {
 			}
 		}
 		getVersion(): string {
-			return "0.2"
+			return "0.1"
 		}
 	}
 }
 
 try {
-	var magic = new Magic.Program(process.argv)
+	var magic = new Cogneco.Program(process.argv)
 	magic.run()
-	console.log("magic " + magic.getVersion())
+	console.log("writeup " + magic.getVersion())
 } catch (Error) {
 	console.log(Error.toString())
 }

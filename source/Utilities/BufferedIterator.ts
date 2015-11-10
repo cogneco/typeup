@@ -1,6 +1,6 @@
 /// <reference path="Iterator" />
 
-module Magic.Utilities {
+module Cogneco.Utilities {
 	export class BufferedIterator<T> implements Iterator<T> {
 		private buffer: T[] = []
 		constructor(private backend: Iterator<T>) {

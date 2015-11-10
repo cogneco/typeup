@@ -1,6 +1,6 @@
 /// <reference path="Constraint" />
 
-module Magic.Unit.Constraints {
+module Cogneco.Unit.Constraints {
 	export class NullOrUndefinedConstraint extends Constraint {
 		constructor(parent: Modifier = null) {
 			super(parent)

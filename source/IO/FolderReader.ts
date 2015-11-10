@@ -4,7 +4,7 @@
 
 var fs = require("fs");
 
-module Magic.IO {
+module Cogneco.IO {
 	export class FolderReader implements Reader {
 		private files: string[]
 		private current: Reader

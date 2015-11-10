@@ -3,7 +3,7 @@
 /// <reference path="../Iterator" />
 /// <reference path="../BufferedIterator" />
 
-module Magic.Utilities.Tests {
+module Cogneco.Utilities.Tests {
 	import Is = Unit.Constraints.Is
 	class StringIterator implements Iterator<string> {
 		private position: number = 0

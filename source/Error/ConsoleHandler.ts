@@ -4,7 +4,7 @@
 /// <reference path="Message" />
 /// <reference path="Handler" />
 
-module Magic.Error {
+module Cogneco.Error {
 	export class ConsoleHandler implements Handler {
 		raise(message: string | Message, level?: Level, type?: Type, region?: Region): void {
 			if (message instanceof String) {

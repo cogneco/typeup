@@ -5,7 +5,7 @@
 /// <reference path="./Constraints/TrueConstraint" />
 /// <reference path="../Utilities/String" />
 
-module Magic.Unit {
+module Cogneco.Unit {
 	export class Fixture {
 		private tests: Test[] = []
 		private expectId = 0

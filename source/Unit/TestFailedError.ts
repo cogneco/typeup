@@ -1,6 +1,6 @@
 /// <reference path="./Constraints/Constraint" />
 
-module Magic.Unit {
+module Cogneco.Unit {
 	export class TestFailedError implements Error {
 		public name = "TestFailedError"
 		private test: Test
