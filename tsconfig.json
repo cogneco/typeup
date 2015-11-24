@@ -60,6 +60,18 @@
 		"source/Utilities/Tests/ArrayIteratorTest.ts",
 		"source/Utilities/Tests/BufferedIteratorTest.ts",
 
+		"source/Writeup/Source.ts",
+		"source/Writeup/Node.ts",
+		"source/Writeup/Document.ts",
+		"source/Writeup/Inline.ts",
+		"source/Writeup/Text.ts",
+		"source/Writeup/Block.ts",
+		"source/Writeup/Assignment.ts",
+		"source/Writeup/EmptyLine.ts",
+		"source/Writeup/ContentBlock.ts",
+		"source/Writeup/Paragraph.ts",
+		"source/Writeup/Heading.ts",
+
 		"source/writeup.ts"
 	]
 }

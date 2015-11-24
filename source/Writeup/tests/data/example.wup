@@ -1,0 +1,31 @@
+template = https://github.com/cogneco/Writeup/
+style = document
+title = Document Title
+date = 2015-11-10
+author = Simon Mika
+
+# Header Level 1
+Paragraph A _tarext_ fas afsdfasasd f
+
+* unordered list
+* list item 2
+ * sublist
+ * sublist item 2
+* last item
+
+Paragraph B
+
+## Header Level 2
+Paragraph C
+
+Paragraph D
+
+### Header Level 3
+Paragraph E
+
+// one line comment
+Paragraph F
+
+/* Multiline comment
+Bla bla
+*/
