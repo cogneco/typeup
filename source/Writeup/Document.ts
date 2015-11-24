@@ -7,8 +7,12 @@ module Cogneco.Writeup {
 		constructor(private blocks: Block[], region: Error.Region) {
 			super(region)
 		}
-		static parse(source: Source): Document {
+		static parse(reader: IO.Reader, handler: Error.Handler): Document {
+			var source = new Writeup.Source(reader, handler)
 			return new Document(Block.parseAll(source), source.mark())
+		}
+		static open(path: string, handler: Error.Handler): Document {
+			return Document.parse(IO.Reader.open(path, "wup"), handler)
 		}
 	}
 }

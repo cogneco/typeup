@@ -4,6 +4,7 @@
 /// <reference path="IO/FileReader" />
 /// <reference path="IO/FolderReader" />
 /// <reference path="Unit/Fixture" />
+/// <reference path="WriteUp/Document" />
 
 var fs = require("fs")
 
@@ -17,16 +18,15 @@ module Cogneco {
 				this.commands.push(".")
 			}
 		}
-		private openReader(path: string) {
-			return path.slice(-4) == ".wup" ? new IO.FileReader(path) : new IO.FolderReader(path, "*.wup")
-		}
 		private runHelper(command: string, commands: string[]) {
 			var handler = new Error.ConsoleHandler()
 			switch (command) {
 				case "compile":
 					console.log("compile")
+					var document = Writeup.Document.open(this.commands.shift(), handler)
 				case "verify":
 					console.log("verify")
+					var document = Writeup.Document.open(this.commands.shift(), handler)
 					break
 				case "self-test":
 					Unit.Fixture.run()
