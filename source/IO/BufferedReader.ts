@@ -3,13 +3,14 @@
 /// <reference path="Reader" />
 
 module Cogneco.IO {
-	export class BufferedReader implements Reader {
+	export class BufferedReader extends Reader {
 		buffer: string = ""
 		private line: number = 1
 		private column: number = 1
 		private lastMark: Error.Position
 		private lastContent: string = ""
 		constructor(private backend: Reader) {
+			super()
 			this.lastMark = new Error.Position(1, 1)
 		}
 		isEmpty(): boolean {

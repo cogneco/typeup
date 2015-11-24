@@ -5,10 +5,11 @@
 var fs = require("fs");
 
 module Cogneco.IO {
-	export class FolderReader implements Reader {
+	export class FolderReader extends Reader {
 		private files: string[]
 		private current: Reader
 		constructor(private path: string, pattern: string) {
+			super()
 			this.files = FolderReader.getFiles(this.path, pattern)
 		}
 		isEmpty(): boolean {
