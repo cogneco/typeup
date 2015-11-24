@@ -20,5 +20,12 @@ module Cogneco.Writeup {
 			while (!result && i < Block.parsers.length)
 			return result
 		}
+		static parseAll(source: Source): Block[] {
+			var result: Block[] = []
+			var r: Block
+			while ((r = Block.parse(source)))
+				result.push(r)
+			return result
+		}
 	}
 }

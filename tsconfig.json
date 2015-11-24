@@ -62,7 +62,6 @@
 
 		"source/Writeup/Source.ts",
 		"source/Writeup/Node.ts",
-		"source/Writeup/Document.ts",
 		"source/Writeup/Inline.ts",
 		"source/Writeup/Text.ts",
 		"source/Writeup/Block.ts",
@@ -71,6 +70,7 @@
 		"source/Writeup/ContentBlock.ts",
 		"source/Writeup/Paragraph.ts",
 		"source/Writeup/Heading.ts",
+		"source/Writeup/Document.ts",
 
 		"source/writeup.ts"
 	]
