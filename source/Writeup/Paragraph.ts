@@ -6,10 +6,10 @@ module Cogneco.Writeup {
 		constructor(content: Inline[], region: Error.Region) {
 			super(content, region)
 		}
-		static parse(source: Source): Inline {
+		static parse(source: Source): Block {
 			var result = Inline.parseAll(source)
-			return result ? new Paragraph(result, source.mark()) : undefined
+			return result && result.length > 0 ? new Paragraph(result, source.mark()) : undefined
 		}
 	}
-	Inline.addParser(Paragraph.parse, -1)
+	Block.addParser(Paragraph.parse, -1)
 }

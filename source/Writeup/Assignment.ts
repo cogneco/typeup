@@ -6,6 +6,9 @@ module Cogneco.Writeup {
 		constructor(private name: string, private value: string, region: Error.Region) {
 			super(region)
 		}
+		toString() {
+			return this.name + " = " + this.value + "\n"
+		}
 		static parse(source: Source): Block {
 			var result: Block
 			var i = 1
@@ -13,10 +16,11 @@ module Cogneco.Writeup {
 				i++
 			if (source.peek(i + 2).slice(-3) == " = ") {
 				var name = source.read(i - 1)
-				source.read(i + 2) // consume " = "
+				source.read(3) // consume " = "
 				var value = ""
 				while (source.peek() != "\n")
 					value += source.read()
+				source.read() // consume "\n"
 				result = new Assignment(name, value, source.mark())
 			}
 			return result

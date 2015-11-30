@@ -4,7 +4,7 @@
 /// <reference path="IO/FileReader" />
 /// <reference path="IO/FolderReader" />
 /// <reference path="Unit/Fixture" />
-/// <reference path="WriteUp/Document" />
+/// <reference path="Writeup/Document" />
 
 var fs = require("fs")
 
@@ -27,6 +27,7 @@ module Cogneco {
 				case "verify":
 					console.log("verify")
 					var document = Writeup.Document.open(this.commands.shift(), handler)
+					console.log(document.toString())
 					break
 				case "self-test":
 					Unit.Fixture.run()

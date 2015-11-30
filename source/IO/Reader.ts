@@ -10,7 +10,7 @@ module Cogneco.IO {
 		abstract getRegion(): Error.Region
 		abstract mark(): Error.Region
 		static open(path: string, extension: string): Reader {
-			return path.slice(-4) == ".wup" ? new IO.FileReader(path) : new IO.FolderReader(path, "*.wup")
+			return path.slice(-4) == "." + extension ? new IO.FileReader(path) : new IO.FolderReader(path, "." + extension)
 		}
 	}
 }

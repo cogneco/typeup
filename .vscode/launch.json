@@ -1,64 +1,49 @@
 {
-	"version": "0.1.0",
-	// List of configurations. Add new configurations or edit existing ones.
-	// ONLY "node" and "mono" are supported, change "type" to switch.
+	"version": "0.2.0",
 	"configurations": [
 		{
-			// Name of configuration; appears in the launch configuration drop down menu.
-			"name": "Self-test",
-			// Type of configuration. Possible values: "node", "mono".
+			"name": "verify",
 			"type": "node",
-			// Workspace relative or absolute path to the program.
+			"request": "launch",
 			"program": "build/writeup.js",
-			// Automatically stop program after launch.
 			"stopOnEntry": false,
-			// Command line arguments passed to the program.
-			"args": ["self-test"],
-			// Workspace relative or absolute path to the working directory of the program being debugged. Default is the current workspace.
+			"args": ["verify", "source/Writeup/Tests/data"],
 			"cwd": ".",
-			// Workspace relative or absolute path to the runtime executable to be used. Default is the runtime executable on the PATH.
 			"runtimeExecutable": null,
-			// Optional arguments passed to the runtime executable.
-			"runtimeArgs": [],
-			// Environment variables passed to the program.
-			"env": { },
-			// Use JavaScript source maps (if they exist).
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"externalConsole": false,
 			"sourceMaps": true,
-			// If JavaScript source maps are enabled, the generated code is expected in this directory.
 			"outDir": "build"
 		},
 		{
-			// Name of configuration; appears in the launch configuration drop down menu.
-			"name": "Run writeup",
-			// Type of configuration. Possible values: "node", "mono".
+			"name": "self-test",
 			"type": "node",
-			// Workspace relative or absolute path to the program.
+			"request": "launch",
 			"program": "build/writeup.js",
-			// Automatically stop program after launch.
 			"stopOnEntry": false,
-			// Command line arguments passed to the program.
-			"args": ["verify", "Writeup/test/"],
-			// Workspace relative or absolute path to the working directory of the program being debugged. Default is the current workspace.
+			"args": ["self-test"],
 			"cwd": ".",
-			// Workspace relative or absolute path to the runtime executable to be used. Default is the runtime executable on the PATH.
 			"runtimeExecutable": null,
-			// Optional arguments passed to the runtime executable.
-			"runtimeArgs": [],
-			// Environment variables passed to the program.
-			"env": { },
-			// Use JavaScript source maps (if they exist).
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"externalConsole": false,
 			"sourceMaps": true,
-			// If JavaScript source maps are enabled, the generated code is expected in this directory.
 			"outDir": "build"
 		},
 		{
 			"name": "Attach",
 			"type": "node",
-			// TCP/IP address. Default is "localhost".
-			"address": "localhost",
-			// Port to attach to.
-			"port": 5858,
-			"sourceMaps": true
+			"request": "attach",
+			"port": 5858
 		}
 	]
 }

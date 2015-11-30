@@ -7,6 +7,13 @@ module Cogneco.Writeup {
 		constructor(private level: number, content: Inline[], region: Error.Region) {
 			super(content, region)
 		}
+		toString() {
+			var result = ""
+			for (var i = 0; i < this.level; i++)
+				result += "#"
+			result += super.toString()
+			return result
+		}
 		static parse(source: Source): Block {
 			var level = 0
 			while (source.peek() == "#") {

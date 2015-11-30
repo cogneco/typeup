@@ -6,5 +6,12 @@ module Cogneco.Writeup {
 		constructor(private content: Inline[], region: Error.Region) {
 			super(region)
 		}
+		toString() {
+			var result = ""
+			for (var i = 0; i < this.content.length; i++)
+				result += this.content[i].toString()
+			return result + "\n"
+		}
+
 	}
 }

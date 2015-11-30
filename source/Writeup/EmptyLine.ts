@@ -5,6 +5,9 @@ module Cogneco.Writeup {
 		constructor(region: Error.Region) {
 			super(region)
 		}
+		toString(): string {
+			return "\n"
+		}
 		static parse(source: Source): Block {
 			var result: Block
 			if (source.peek() == "\n") {
