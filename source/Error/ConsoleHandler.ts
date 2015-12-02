@@ -9,7 +9,7 @@ module Cogneco.Error {
 		raise(message: string | Message, level?: Level, type?: Type, region?: Region): void {
 			if (!(message instanceof Error.Message))
 				message = new Message(<string>message, level, type, region)
-			console.log((<string>message).toString())
+			console.error((<string>message).toString())
 		}
 	}
 }
