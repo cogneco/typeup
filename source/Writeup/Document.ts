@@ -30,7 +30,7 @@ module Cogneco.Writeup {
 			var body = ""
 			for (var i = 0; i < this.content.length; i++)
 				body += this.content[i].toHtml(variables)
-			return `!DOCTYPE html\n<html><head></head><body>${body}</body></html>`
+			return `<!doctype html><html><head></head><body>${body}</body></html>`
 		}
 		toString(): string {
 			var result = ""
