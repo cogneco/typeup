@@ -2,12 +2,12 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "verify",
+			"name": "html",
 			"type": "node",
 			"request": "launch",
 			"program": "build/writeup.js",
 			"stopOnEntry": false,
-			"args": ["verify", "source/Writeup/Tests/data"],
+			"args": ["html", "source/Writeup/Tests/data"],
 			"cwd": ".",
 			"runtimeExecutable": null,
 			"runtimeArgs": [

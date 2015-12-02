@@ -10,7 +10,7 @@ var fs = require("fs")
 
 module Cogneco {
 	export class Program {
-		private defaultCommand = "compile"
+		private defaultCommand = "html"
 		constructor(private commands: string[]) {
 			this.commands = this.commands.slice(2)
 			if (this.commands.length == 0) {
@@ -21,24 +21,11 @@ module Cogneco {
 		private runHelper(command: string, commands: string[]) {
 			var handler = new Error.ConsoleHandler()
 			switch (command) {
-				case "compile":
-					console.log("compile")
-					var document = Writeup.Document.open(this.commands.shift(), handler)
-					console.log(document.toHtml())
-				case "verify":
-					console.log("verify")
-					var document = Writeup.Document.open(this.commands.shift(), handler)
-					console.log(JSON.stringify(document, (key, value) => key != "region" ? value : undefined, "\t"))
-					break
-				case "self-test":
-					Unit.Fixture.run()
-					break
-				case "version":
-					console.log("writeup " + this.getVersion())
-					break
-				case "help":
-					console.log("help")
-					break
+				case "html": console.log(Writeup.Document.open(this.commands.shift(), handler).toHtml()); break
+				case "writeup": console.log(Writeup.Document.open(this.commands.shift(), handler).toString()); break
+				case "self-test": Unit.Fixture.run(); break
+				case "version": console.log("writeup " + this.getVersion()); break
+				case "help": console.log("help"); break
 				default:
 					commands.push(command)
 					command = undefined
@@ -50,9 +37,8 @@ module Cogneco {
 		}
 		run() {
 			var command: string
-			while (command = this.commands.shift()) {
+			while (command = this.commands.shift())
 				this.runHelper(command, this.commands)
-			}
 		}
 		getVersion(): string {
 			return "0.1"
@@ -61,9 +47,7 @@ module Cogneco {
 }
 
 try {
-	var magic = new Cogneco.Program(process.argv)
-	magic.run()
-	console.log("writeup " + magic.getVersion())
+	new Cogneco.Program(process.argv).run()
 } catch (Error) {
 	console.log(Error.toString())
 }
