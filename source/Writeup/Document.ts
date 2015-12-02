@@ -4,13 +4,44 @@
 
 module Cogneco.Writeup {
 	export class Document extends Node {
-		constructor(private blocks: Block[], region: Error.Region) {
+		private content: Block[] = []
+		constructor(content: Block[], region: Error.Region) {
 			super(region)
+			var last: Paragraph
+			for (var i = 0; i < content.length; i++) {
+				if (content[i] instanceof(Paragraph))
+					last = last ? last.merge(<Paragraph>content[i]) : <Paragraph>content[i]
+				else {
+					if (last) {
+						this.content.push(last)
+						last = null
+					}
+					if (!(content[i] instanceof(EmptyLine)))
+						this.content.push(content[i])
+				}
+			}
+			if (last) {
+				this.content.push(last)
+				last = null
+			}
+		}
+		toHtml(): string {
+			var variables: { [name: string] : string } = {};
+			var body = ""
+			for (var i = 0; i < this.content.length; i++)
+				body += this.content[i].toHtml(variables)
+			return `!DOCTYPE html\n<html><head></head><body>${body}</body></html>`
 		}
 		toString(): string {
 			var result = ""
-			for (var i = 0; i < this.blocks.length; i++)
-				result += this.blocks[i].toString()
+			var wasParagraph = false
+			for (var i = 0; i < this.content.length; i++) {
+				var isParagraph = this.content[i] instanceof(Paragraph)
+				if (isParagraph && wasParagraph)
+					result += "\n"
+				result += this.content[i].toString()
+				wasParagraph = isParagraph
+			}
 			return result
 		}
 		static parse(reader: IO.Reader, handler: Error.Handler): Document {

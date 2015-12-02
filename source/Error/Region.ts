@@ -8,6 +8,7 @@ module Cogneco.Error {
 		getStart() { return this.start }
 		getEnd() { return this.end }
 		getContent() { return this.content; }
+		merge(other: Region) { return new Region(this.resource, this.start, other.end, this.content + other.content) }
 		toString() {
 			return this.resource + " (" + this.start.toString() + " - " + this.end.toString() + ") " + this.content
 		}

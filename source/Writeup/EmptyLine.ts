@@ -5,6 +5,9 @@ module Cogneco.Writeup {
 		constructor(region: Error.Region) {
 			super(region)
 		}
+		toHtml(variables: { [name: string] : string }): string {
+			return ""
+		}
 		toString(): string {
 			return "\n"
 		}

@@ -9,7 +9,7 @@ module Cogneco.Writeup {
 		private static parsers: { parse: ((source: Source) => Inline), priority: number }[] = []
 		static addParser(parser: (source: Source) => Inline, priority = 0) {
 			Inline.parsers.push({ parse: parser, priority: priority})
-			Inline.parsers.sort((left, right) => left.priority < right.priority ? -1 : left.priority > right.priority ? 1 : 0)
+			Inline.parsers = Inline.parsers.sort((left, right) => right.priority - left.priority)
 		}
 		static parse(source: Source): Inline {
 			var result: Inline

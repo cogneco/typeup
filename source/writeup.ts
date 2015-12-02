@@ -24,10 +24,11 @@ module Cogneco {
 				case "compile":
 					console.log("compile")
 					var document = Writeup.Document.open(this.commands.shift(), handler)
+					console.log(document.toHtml())
 				case "verify":
 					console.log("verify")
 					var document = Writeup.Document.open(this.commands.shift(), handler)
-					console.log(document.toString())
+					console.log(JSON.stringify(document, (key, value) => key != "region" ? value : undefined, "\t"))
 					break
 				case "self-test":
 					Unit.Fixture.run()

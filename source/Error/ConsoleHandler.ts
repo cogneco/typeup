@@ -7,10 +7,9 @@
 module Cogneco.Error {
 	export class ConsoleHandler implements Handler {
 		raise(message: string | Message, level?: Level, type?: Type, region?: Region): void {
-			if (message instanceof String) {
+			if (!(message instanceof Error.Message))
 				message = new Message(<string>message, level, type, region)
-			}
-			console.log(message.toString())
+			console.log((<string>message).toString())
 		}
 	}
 }

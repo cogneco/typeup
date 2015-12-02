@@ -6,6 +6,12 @@ module Cogneco.Writeup {
 		constructor(private name: string, private value: string, region: Error.Region) {
 			super(region)
 		}
+		getName(): string { return this.name }
+		getValue(): string { return this.value }
+		toHtml(variables: { [name: string] : string }): string {
+			variables[this.name] = this.value
+			return ""
+		}
 		toString() {
 			return this.name + " = " + this.value + "\n"
 		}

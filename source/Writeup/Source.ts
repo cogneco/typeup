@@ -8,13 +8,12 @@ module Cogneco.Writeup {
 			super(reader)
 		}
 		raise(message: string | Error.Message, level = Error.Level.Critical, type = Error.Type.Lexical, region?: Error.Region): void {
-			if (message instanceof String) {
-				if (!region) {
+			if (!(message instanceof Error.Message)) {
+				if (!region)
 					region = this.getRegion()
-				}
 				message = new Error.Message(<string>message, level, type, region)
 			}
-			console.log(message.toString())
+			this.errorHandler.raise(<Error.Message>message)
 		}
 	}
 }
