@@ -60,6 +60,7 @@
 		"source/Utilities/Tests/ArrayIteratorTest.ts",
 		"source/Utilities/Tests/BufferedIteratorTest.ts",
 
+		"source/Writeup/CommentStripper.ts",
 		"source/Writeup/Source.ts",
 		"source/Writeup/Node.ts",
 		"source/Writeup/Inline.ts",
