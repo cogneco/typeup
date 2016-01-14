@@ -5,7 +5,7 @@
 module Cogneco.Writeup {
 	export class Document extends Node {
 		private content: Block[] = []
-		constructor(content: Block[], region: Error.Region) {
+		constructor(private location: string, content: Block[], region: Error.Region) {
 			super(region)
 			var last: Paragraph
 			for (var i = 0; i < content.length; i++) {
@@ -27,6 +27,7 @@ module Cogneco.Writeup {
 		}
 		toHtml(): string {
 			var variables: { [name: string] : string } = {};
+			variables["location"] = this.location
 			var body = ""
 			for (var i = 0; i < this.content.length; i++)
 				body += this.content[i].toHtml(variables)
@@ -46,7 +47,7 @@ module Cogneco.Writeup {
 		}
 		static parse(reader: IO.Reader, handler: Error.Handler): Document {
 			var source = new Writeup.Source(reader, handler)
-			return new Document(Block.parseAll(source), source.mark())
+			return new Document(reader.getResource(), Block.parseAll(source), source.mark())
 		}
 		static open(path: string, handler: Error.Handler): Document {
 			return Document.parse(IO.Reader.open(path, "wup"), handler)

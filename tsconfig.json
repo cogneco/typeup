@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "ES3",
+		"target": "es3",
 		"module": "commonjs",
 		"noImplicitAny": true,
 		"removeComments": true,
@@ -10,6 +10,11 @@
 		"sourceRoot": "../source"
 	},
 	"files": [
+		"source/Uri/User.ts",
+		"source/Uri/Endpoint.ts",
+		"source/Uri/Authority.ts",
+		"source/Uri/Locator.ts",
+
 		"source/Error/Position.ts",
 		"source/Error/Location.ts",
 		"source/Error/Region.ts",
@@ -30,6 +35,22 @@
 		"source/IO/FileReader.ts",
 		"source/IO/FolderReader.ts",
 
+		"source/Writeup/CommentStripper.ts",
+		"source/Writeup/Source.ts",
+		"source/Writeup/Tag.ts",
+		"source/Writeup/Style.ts",
+		"source/Writeup/Node.ts",
+		"source/Writeup/Inline.ts",
+		"source/Writeup/Text.ts",
+		"source/Writeup/Block.ts",
+		"source/Writeup/Assignment.ts",
+		"source/Writeup/EmptyLine.ts",
+		"source/Writeup/ContentBlock.ts",
+		"source/Writeup/Paragraph.ts",
+		"source/Writeup/Heading.ts",
+		"source/Writeup/Document.ts",
+
+		"source/Unit/ErrorHandler.ts",
 		"source/Unit/Test.ts",
 		"source/Unit/TestFailedError.ts",
 		"source/Unit/Fixture.ts",
@@ -54,24 +75,13 @@
 		"source/Unit/Constraints/Tests/NullTest.ts",
 		"source/Unit/Constraints/Tests/UndefinedTest.ts",
 
+		"source/Uri/Tests/LocatorParseTest.ts",
+
 		"source/IO/Tests/StringReaderTest.ts",
 		"source/IO/Tests/BufferedReaderTest.ts",
 
 		"source/Utilities/Tests/ArrayIteratorTest.ts",
 		"source/Utilities/Tests/BufferedIteratorTest.ts",
-
-		"source/Writeup/CommentStripper.ts",
-		"source/Writeup/Source.ts",
-		"source/Writeup/Node.ts",
-		"source/Writeup/Inline.ts",
-		"source/Writeup/Text.ts",
-		"source/Writeup/Block.ts",
-		"source/Writeup/Assignment.ts",
-		"source/Writeup/EmptyLine.ts",
-		"source/Writeup/ContentBlock.ts",
-		"source/Writeup/Paragraph.ts",
-		"source/Writeup/Heading.ts",
-		"source/Writeup/Document.ts",
 
 		"source/writeup.ts"
 	]

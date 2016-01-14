@@ -4,14 +4,16 @@
 /// <reference path="./Constraints/Constraint" />
 /// <reference path="./Constraints/TrueConstraint" />
 /// <reference path="../Utilities/String" />
+/// <reference path="ErrorHandler" />
+
 
 module Cogneco.Unit {
 	export class Fixture {
 		private tests: Test[] = []
 		private expectId = 0
-		private consoleHandler: Error.ConsoleHandler
+		private errorHandler: Error.Handler
 		constructor(private name: string, private reportOnPass = true) {
-			this.consoleHandler = new Error.ConsoleHandler()
+			this.errorHandler = new ErrorHandler(new Error.ConsoleHandler(), new Error.Region(name))
 		}
 		getName(): string { return this.name }
 		add(name: string, action: () => void): void {
@@ -42,9 +44,9 @@ module Cogneco.Unit {
 
 			if (!result) {
 				failures.forEach(failure => {
-					var expectedMessage = "expected '" + failure.getConstraint().getExpectedValue().toString() + "', found '" + failure.getValue() + "'"
+					var expectedMessage = "expected '" + failure.getConstraint().getExpectedValue() + "', found '" + failure.getValue() + "'"
 					var whereMessage = "[expect #" + failure.getExpectId() + " in '" + failure.getTest().toString() + "']"
-					this.consoleHandler.raise("  -> " + expectedMessage + " " + whereMessage)
+					this.errorHandler.raise("  -> " + expectedMessage + " " + whereMessage)
 				})
 			}
 			return result;

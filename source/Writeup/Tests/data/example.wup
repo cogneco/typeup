@@ -1,5 +1,4 @@
-template = https://github.com/cogneco/Writeup/
-style = document
+template = document
 title = Document Title
 date = 2015-11-10
 author = Simon Mika

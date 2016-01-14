@@ -8,8 +8,15 @@ module Cogneco.Writeup {
 		}
 		getName(): string { return this.name }
 		getValue(): string { return this.value }
-		toHtml(variables: { [name: string] : string }): string {
-			variables[this.name] = this.value
+		toHtml(variables: { [name: string]: string }): string {
+			switch(this.name) {
+				case "template":
+					variables[this.name] = this.value
+				break
+				default:
+					variables[this.name] = this.value
+				break
+			}
 			return ""
 		}
 		toString() {

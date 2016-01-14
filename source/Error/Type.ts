@@ -6,5 +6,6 @@ module Cogneco.Error {
 		Type,
 		Formatting,
 		BestPractice,
+		SelfTest,
 	}
 }

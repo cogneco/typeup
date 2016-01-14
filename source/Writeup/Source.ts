@@ -3,7 +3,6 @@
 /// <reference path="../Error/Handler" />
 /// <reference path="CommentStripper" />
 
-
 module Cogneco.Writeup {
 	export class Source extends IO.BufferedReader implements Error.Handler {
 		constructor(reader: IO.Reader, private errorHandler: Error.Handler) {
