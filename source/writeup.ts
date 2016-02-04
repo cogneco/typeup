@@ -4,6 +4,7 @@
 /// <reference path="U10sil/IO/FileReader" />
 /// <reference path="U10sil/IO/FolderReader" />
 /// <reference path="Writeup/Document" />
+/// <reference path="U10sil/Test" />
 
 var fs = require("fs")
 
@@ -23,6 +24,7 @@ module Cogneco {
 				case "json": console.log(Writeup.Document.open(this.commands.shift(), handler).toJson("  ")); break
 				case "html": console.log(Writeup.Document.open(this.commands.shift(), handler).toHtml()); break
 				case "writeup": console.log(Writeup.Document.open(this.commands.shift(), handler).toString()); break
+				case "self-test": U10sil.Unit.Fixture.run(); break
 				case "version": console.log("writeup " + this.getVersion()); break
 				case "help": console.log("help"); break
 				default:
