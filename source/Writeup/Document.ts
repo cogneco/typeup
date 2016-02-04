@@ -1,11 +1,17 @@
 /// <reference path="Source" />
 /// <reference path="Node" />
 /// <reference path="Block" />
+// Used via dependency injection in Block
+/// <reference path="Paragraph" />
+/// <reference path="Heading" />
+/// <reference path="EmptyLine" />
+/// <reference path="Assignment" />
+
 
 module Cogneco.Writeup {
 	export class Document extends Node {
 		private content: Block[] = []
-		constructor(private location: string, content: Block[], region: Error.Region) {
+		constructor(private location: string, content: Block[], region: U10sil.Error.Region) {
 			super(region)
 			var last: Paragraph
 			for (var i = 0; i < content.length; i++) {
@@ -45,12 +51,12 @@ module Cogneco.Writeup {
 			}
 			return result
 		}
-		static parse(reader: IO.Reader, handler: Error.Handler): Document {
+		static parse(reader: U10sil.IO.Reader, handler: U10sil.Error.Handler): Document {
 			var source = new Writeup.Source(reader, handler)
 			return new Document(reader.getResource(), Block.parseAll(source), source.mark())
 		}
-		static open(path: string, handler: Error.Handler): Document {
-			return Document.parse(IO.Reader.open(path, "wup"), handler)
+		static open(path: string, handler: U10sil.Error.Handler): Document {
+			return Document.parse(U10sil.IO.Reader.open(path, "wup"), handler)
 		}
 	}
 }

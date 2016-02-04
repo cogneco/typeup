@@ -4,7 +4,7 @@
 module Cogneco.Writeup {
 	export abstract class ContentBlock extends Block {
 		private content: Inline[] = []
-		constructor(content: Inline[], region: Error.Region) {
+		constructor(content: Inline[], region: U10sil.Error.Region) {
 			super(region)
 			var last: Text
 			for (var i = 0; i < content.length; i++) {

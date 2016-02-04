@@ -1,14 +1,14 @@
-/// <reference path="../Error/Location" />
-/// <reference path="../Error/Region" />
-/// <reference path="../IO/Reader" />
-/// <reference path="../IO/BufferedReader" />
+/// <reference path="../U10sil/Error/Location" />
+/// <reference path="../U10sil/Error/Region" />
+/// <reference path="../U10sil/IO/Reader" />
+/// <reference path="../U10sil/IO/BufferedReader" />
 
 module Cogneco.Writeup {
-	export class CommentStripper extends IO.Reader {
-		private backend: IO.BufferedReader
-		constructor(backend: IO.Reader) {
+	export class CommentStripper extends U10sil.IO.Reader {
+		private backend: U10sil.IO.BufferedReader
+		constructor(backend: U10sil.IO.Reader) {
 			super()
-			this.backend = backend instanceof IO.BufferedReader ? <IO.BufferedReader>backend : new IO.BufferedReader(backend)
+			this.backend = backend instanceof U10sil.IO.BufferedReader ? <U10sil.IO.BufferedReader>backend : new U10sil.IO.BufferedReader(backend)
 		}
 		isEmpty(): boolean {
 			return this.backend.isEmpty()
@@ -30,13 +30,13 @@ module Cogneco.Writeup {
 		getResource(): string {
 			return this.backend.getResource()
 		}
-		getLocation(): Error.Location {
+		getLocation(): U10sil.Error.Location {
 			return this.backend.getLocation()
 		}
-		getRegion(): Error.Region {
+		getRegion(): U10sil.Error.Region {
 			return this.backend.getRegion()
 		}
-		mark(): Error.Region {
+		mark(): U10sil.Error.Region {
 			return this.backend.mark()
 		}
 	}

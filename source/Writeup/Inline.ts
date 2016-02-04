@@ -3,7 +3,7 @@
 
 module Cogneco.Writeup {
 	export abstract class Inline extends Node {
-		constructor(region: Error.Region) {
+		constructor(region: U10sil.Error.Region) {
 			super(region)
 		}
 		private static parsers: { parse: ((source: Source) => Inline), priority: number }[] = []

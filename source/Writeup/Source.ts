@@ -1,20 +1,20 @@
-/// <reference path="../Error/Region" />
-/// <reference path="../IO/BufferedReader" />
-/// <reference path="../Error/Handler" />
+/// <reference path="../U10sil/Error/Region" />
+/// <reference path="../U10sil/IO/BufferedReader" />
+/// <reference path="../U10sil/Error/Handler" />
 /// <reference path="CommentStripper" />
 
 module Cogneco.Writeup {
-	export class Source extends IO.BufferedReader implements Error.Handler {
-		constructor(reader: IO.Reader, private errorHandler: Error.Handler) {
+	export class Source extends U10sil.IO.BufferedReader implements U10sil.Error.Handler {
+		constructor(reader: U10sil.IO.Reader, private errorHandler: U10sil.Error.Handler) {
 			super(new CommentStripper(reader))
 		}
-		raise(message: string | Error.Message, level = Error.Level.Critical, type = Error.Type.Lexical, region?: Error.Region): void {
-			if (!(message instanceof Error.Message)) {
+		raise(message: string | U10sil.Error.Message, level = U10sil.Error.Level.Critical, type = U10sil.Error.Type.Lexical, region?: U10sil.Error.Region): void {
+			if (!(message instanceof U10sil.Error.Message)) {
 				if (!region)
 					region = this.getRegion()
-				message = new Error.Message(<string>message, level, type, region)
+				message = new U10sil.Error.Message(<string>message, level, type, region)
 			}
-			this.errorHandler.raise(<Error.Message>message)
+			this.errorHandler.raise(<U10sil.Error.Message>message)
 		}
 	}
 }

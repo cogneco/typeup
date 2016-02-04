@@ -1,10 +1,12 @@
 /// <reference path="Node" />
-/// <reference path="Inline" />
 /// <reference path="Source" />
+/// <reference path="Inline" />
+// Used via dependency injection in Inline
+/// <reference path="Text" />
 
 module Cogneco.Writeup {
 	export abstract class Block extends Node {
-		constructor(region: Error.Region) {
+		constructor(region: U10sil.Error.Region) {
 			super(region)
 		}
 		private static parsers: { parse: ((source: Source) => Block), priority: number }[] = []
@@ -29,3 +31,4 @@ module Cogneco.Writeup {
 		}
 	}
 }
+

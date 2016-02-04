@@ -1,9 +1,8 @@
 /// <reference path="../typings/node/node" />
-/// <reference path="Error/ConsoleHandler" />
-/// <reference path="IO/Reader" />
-/// <reference path="IO/FileReader" />
-/// <reference path="IO/FolderReader" />
-/// <reference path="Unit/Fixture" />
+/// <reference path="U10sil/Error/ConsoleHandler" />
+/// <reference path="U10sil/IO/Reader" />
+/// <reference path="U10sil/IO/FileReader" />
+/// <reference path="U10sil/IO/FolderReader" />
 /// <reference path="Writeup/Document" />
 
 var fs = require("fs")
@@ -19,11 +18,10 @@ module Cogneco {
 			}
 		}
 		private runHelper(command: string, commands: string[]) {
-			var handler = new Error.ConsoleHandler()
+			var handler = new U10sil.Error.ConsoleHandler()
 			switch (command) {
 				case "html": console.log(Writeup.Document.open(this.commands.shift(), handler).toHtml()); break
 				case "writeup": console.log(Writeup.Document.open(this.commands.shift(), handler).toString()); break
-				case "self-test": Unit.Fixture.run(); break
 				case "version": console.log("writeup " + this.getVersion()); break
 				case "help": console.log("help"); break
 				default:
@@ -45,9 +43,4 @@ module Cogneco {
 		}
 	}
 }
-
-try {
-	new Cogneco.Program(process.argv).run()
-} catch (Error) {
-	console.log(Error.toString())
-}
+new Cogneco.Program(process.argv).run()

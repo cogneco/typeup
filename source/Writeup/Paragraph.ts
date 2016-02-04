@@ -3,7 +3,7 @@
 
 module Cogneco.Writeup {
 	export class Paragraph extends ContentBlock {
-		constructor(content: Inline[], region: Error.Region) {
+		constructor(content: Inline[], region: U10sil.Error.Region) {
 			super(content, region)
 		}
 		toHtml(variables: { [name: string] : string }): string {

@@ -4,7 +4,7 @@
 
 module Cogneco.Writeup {
 	export class Heading extends ContentBlock {
-		constructor(private level: number, content: Inline[], region: Error.Region) {
+		constructor(private level: number, content: Inline[], region: U10sil.Error.Region) {
 			super(content, region)
 		}
 		toHtml(variables: { [name: string] : string }): string {

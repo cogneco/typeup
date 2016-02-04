@@ -3,7 +3,7 @@
 
 module Cogneco.Writeup {
 	export class Text extends Inline {
-		constructor(private value: string, region: Error.Region) {
+		constructor(private value: string, region: U10sil.Error.Region) {
 			super(region)
 		}
 		merge(other: Text): Text {

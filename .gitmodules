@@ -1,0 +1,3 @@
+[submodule "source/U10sil"]
+	path = source/U10sil
+	url = https://github.com/cogneco/u10sil

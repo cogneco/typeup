@@ -3,7 +3,7 @@
 
 module Cogneco.Writeup {
 	export class Assignment extends Block {
-		constructor(private name: string, private value: string, region: Error.Region) {
+		constructor(private name: string, private value: string, region: U10sil.Error.Region) {
 			super(region)
 		}
 		getName(): string { return this.name }

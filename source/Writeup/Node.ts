@@ -1,10 +1,10 @@
-/// <reference path="../Error/Region" />
+/// <reference path="../U10sil/Error/Region" />
 
 module Cogneco.Writeup {
 	export abstract class Node {
-		constructor(private region: Error.Region) {
+		constructor(private region: U10sil.Error.Region) {
 		}
-		getRegion(): Error.Region { return this.region }
+		getRegion(): U10sil.Error.Region { return this.region }
 		abstract toHtml(variables: { [name: string] : string }): string
 	}
 }

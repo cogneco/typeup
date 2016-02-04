@@ -2,7 +2,7 @@
 
 module Cogneco.Writeup {
 	export class EmptyLine extends Block {
-		constructor(region: Error.Region) {
+		constructor(region: U10sil.Error.Region) {
 			super(region)
 		}
 		toHtml(variables: { [name: string] : string }): string {
