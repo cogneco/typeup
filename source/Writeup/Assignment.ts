@@ -19,6 +19,9 @@ module Cogneco.Writeup {
 			}
 			return ""
 		}
+		toObject(): any {
+			return { "type": "Assignment", "name": this.name, "value": this.value }
+		}
 		toString() {
 			return this.name + " = " + this.value + "\n"
 		}

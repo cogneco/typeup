@@ -20,6 +20,9 @@ module Cogneco.Writeup {
 			}
 			return result
 		}
+		toObject(): any {
+			return { "type": "Heading", "level": this.level, "content": this.getContent().map(element => element.toObject()) }
+		}
 		toString() {
 			var result = ""
 			for (var i = 0; i < this.level; i++)

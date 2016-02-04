@@ -10,6 +10,9 @@ module Cogneco.Writeup {
 			var content = super.toHtml(variables)
 			return `<p>${content}</p>`
 		}
+		toObject(): any {
+			return { "type": "Paragraph", "content": this.getContent().map(element => element.toObject()) }
+		}
 		merge(other: Paragraph): Paragraph {
 			var result: Inline[] = []
 			var content = this.getContent()

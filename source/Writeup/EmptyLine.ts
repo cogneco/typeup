@@ -8,6 +8,9 @@ module Cogneco.Writeup {
 		toHtml(variables: { [name: string] : string }): string {
 			return ""
 		}
+		toObject(): any {
+			return { "type": "EmptyLine" }
+		}
 		toString(): string {
 			return "\n"
 		}

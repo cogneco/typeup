@@ -39,6 +39,12 @@ module Cogneco.Writeup {
 				body += this.content[i].toHtml(variables)
 			return `<!doctype html><html><head></head><body>${body}</body></html>`
 		}
+		toObject(): any {
+			return { "type": "Document", "content": this.content.map(element => element.toObject()) }
+		}
+		toJson(indent = ""): string {
+			return JSON.stringify(this.toObject(), null, indent)
+		}
 		toString(): string {
 			var result = ""
 			var wasParagraph = false

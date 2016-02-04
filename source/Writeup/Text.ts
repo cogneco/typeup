@@ -9,10 +9,13 @@ module Cogneco.Writeup {
 		merge(other: Text): Text {
 			return new Text(this.value + other.value, this.getRegion().merge(other.getRegion()))
 		}
-		toString(): string {
+		toHtml(variables: { [name: string] : string }): string {
 			return this.value
 		}
-		toHtml(variables: { [name: string] : string }): string {
+		toObject(): any {
+			return { "type": "Text", "value": this.value }
+		}
+		toString(): string {
 			return this.value
 		}
 		static parse(source: Source): Inline {

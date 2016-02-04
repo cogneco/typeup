@@ -6,5 +6,6 @@ module Cogneco.Writeup {
 		}
 		getRegion(): U10sil.Error.Region { return this.region }
 		abstract toHtml(variables: { [name: string] : string }): string
+		abstract toObject(): any
 	}
 }
