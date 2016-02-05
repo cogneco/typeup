@@ -2,5 +2,15 @@
 {
 	"editor.renderWhitespace": true,
 	"editor.insertSpaces": false,
-	"files.trimTrailingWhitespace": true
+	"files.trimTrailingWhitespace": true,
+	"search.exclude": {
+		"build": true,
+		"typings": true,
+		".vscode": true
+	},
+	"files.exclude": {
+		"build": true,
+		"typings": true,
+		".*": true
+	}
 }
