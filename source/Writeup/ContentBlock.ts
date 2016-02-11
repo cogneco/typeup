@@ -24,10 +24,10 @@ module Cogneco.Writeup {
 			}
 		}
 		getContent(): Inline[] { return this.content }
-		toHtml(variables: { [name: string] : string }): string {
+		render(renderer: Renderer): string {
 			var result = ""
 			for (var i = 0; i < this.content.length; i++)
-				result += this.content[i].toHtml(variables)
+				result += this.content[i].render(renderer)
 			return result
 		}
 		toString(): string {

@@ -22,7 +22,7 @@ module Cogneco {
 			var handler = new U10sil.Error.ConsoleHandler()
 			switch (command) {
 				case "json": console.log(Writeup.Document.open(this.commands.shift(), handler).toJson("  ")); break
-				case "html": console.log(Writeup.Document.open(this.commands.shift(), handler).toHtml()); break
+				case "html": console.log(Writeup.Document.open(this.commands.shift(), handler).render()); break
 				case "writeup": console.log(Writeup.Document.open(this.commands.shift(), handler).toString()); break
 				case "self-test": U10sil.Unit.Fixture.run(true); break
 				case "version": console.log("writeup " + this.getVersion()); break

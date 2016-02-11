@@ -11,7 +11,7 @@
 module Cogneco.Writeup {
 	export class Document extends Node {
 		private content: Block[] = []
-		constructor(private location: string, content: Block[], region: U10sil.Error.Region) {
+		constructor(content: Block[], region: U10sil.Error.Region) {
 			super(region)
 			var last: Paragraph
 			for (var i = 0; i < content.length; i++) {
@@ -31,13 +31,13 @@ module Cogneco.Writeup {
 				last = null
 			}
 		}
-		toHtml(): string {
-			var variables: { [name: string] : string } = {};
-			variables["location"] = this.location
+		render(renderer?: Renderer): string {
+			if (!renderer)
+				renderer = new Renderer()
 			var body = ""
 			for (var i = 0; i < this.content.length; i++)
-				body += this.content[i].toHtml(variables)
-			return `<!doctype html><html><head></head><body>${body}</body></html>`
+				body += this.content[i].render(renderer)
+			return renderer.render("document", { "content": body })
 		}
 		toObject(): any {
 			return { "type": "Document", "content": this.content.map(element => element.toObject()) }
@@ -59,7 +59,7 @@ module Cogneco.Writeup {
 		}
 		static parse(reader: U10sil.IO.Reader, handler: U10sil.Error.Handler): Document {
 			var source = new Writeup.Source(reader, handler)
-			return new Document(reader.getResource(), Block.parseAll(source), source.mark())
+			return new Document(Block.parseAll(source), source.mark())
 		}
 		static open(path: string, handler: U10sil.Error.Handler): Document {
 			return Document.parse(U10sil.IO.Reader.open(path, "wup"), handler)

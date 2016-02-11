@@ -1,4 +1,3 @@
-/// <reference path="Tag" />
 
 module Cogneco.Writeup {
 	export class Template {
@@ -6,7 +5,7 @@ module Cogneco.Writeup {
 		description: string
 		output: string
 		dependecies: string[]
-		tags: Tag[]
+		tags: { [key: string]: string }
 		constructor() {
 		}
 	}

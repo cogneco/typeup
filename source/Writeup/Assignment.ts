@@ -1,5 +1,10 @@
+/// <reference path="../../typings/node/node" />
 /// <reference path="Node" />
 /// <reference path="Block" />
+/// <reference path="Template" />
+
+
+var fs = require("fs")
 
 module Cogneco.Writeup {
 	export class Assignment extends Block {
@@ -8,14 +13,14 @@ module Cogneco.Writeup {
 		}
 		getName(): string { return this.name }
 		getValue(): string { return this.value }
-		toHtml(variables: { [name: string]: string }): string {
-			switch(this.name) {
-				case "template":
-					variables[this.name] = this.value
-				break
-				default:
-					variables[this.name] = this.value
-				break
+		render(renderer: Renderer): string {
+			renderer.setVariable(this.name, this.value)
+			if (this.name == "template") {
+				var templatePath = U10sil.Uri.Locator.parse(this.value + ".json")
+				var documentPath = U10sil.Uri.Locator.parse(this.getRegion().getResource())
+				var location = templatePath.resolve(documentPath)
+				var content = fs.readFileSync((location.isRelative() ? "" : "/") + location.getPath().join("/"), "utf-8")
+				renderer.setTemplate(<Template>JSON.parse(content))
 			}
 			return ""
 		}

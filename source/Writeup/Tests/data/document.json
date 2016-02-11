@@ -4,18 +4,9 @@
 	"output": "html",
 	"dependencies": [
 	],
-	"tags": [
-		{
-			"name": "document",
-			"template": "<!doctype html>\n<html>\n\t<head>\n\t\t<title>${title}</title>\n\t</head>\n\t<body>\n\t${content}\n\t</body>\n</html>\n"
-		},
-		{
-			"name": "heading",
-			"template": "<h${level}>\n\t${content}\n</h${level}>\n"
-		},
-		{
-			"name": "paragraph",
-			"template": "<p>\n\t{content}\n</p>\n"
-		}
-	]
+	"tags": {
+		"document": "<!doctype html>\n<html>\n\t<head>\n\t\t<title>${title}</title>\n\t</head>\n\t<body>\n\t${content}\n\t</body>\n</html>\n",
+		"heading": "<h${level}>\n\t${content}\n</h${level}>\n",
+		"paragraph": "<p>\n\t${content}\n</p>\n"
+	}
 }

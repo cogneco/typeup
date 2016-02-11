@@ -9,7 +9,7 @@ module Cogneco.Writeup {
 		merge(other: Text): Text {
 			return new Text(this.value + other.value, this.getRegion().merge(other.getRegion()))
 		}
-		toHtml(variables: { [name: string] : string }): string {
+		render(renderer: Renderer): string {
 			return this.value
 		}
 		toObject(): any {

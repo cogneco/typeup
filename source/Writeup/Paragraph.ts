@@ -6,9 +6,8 @@ module Cogneco.Writeup {
 		constructor(content: Inline[], region: U10sil.Error.Region) {
 			super(content, region)
 		}
-		toHtml(variables: { [name: string] : string }): string {
-			var content = super.toHtml(variables)
-			return `<p>${content}</p>`
+		render(renderer: Renderer): string {
+			return renderer.render("paragraph", { "content": super.render(renderer) })
 		}
 		toObject(): any {
 			return { "type": "Paragraph", "content": this.getContent().map(element => element.toObject()) }

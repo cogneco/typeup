@@ -7,18 +7,8 @@ module Cogneco.Writeup {
 		constructor(private level: number, content: Inline[], region: U10sil.Error.Region) {
 			super(content, region)
 		}
-		toHtml(variables: { [name: string] : string }): string {
-			var result: string
-			var content = super.toHtml(variables)
-			switch (this.level) {
-				case 1: result = `<h1>${content}</h1>`; break
-				case 2: result = `<h2>${content}</h2>`; break
-				case 3: result = `<h3>${content}</h3>`; break
-				case 4: result = `<h4>${content}</h4>`; break
-				case 5: result = `<h5>${content}</h5>`; break
-				case 6: result = `<h6>${content}</h6>`; break
-			}
-			return result
+		render(renderer: Renderer): string {
+			return renderer.render("heading", { "level": this.level.toString(), "content": super.render(renderer) })
 		}
 		toObject(): any {
 			return { "type": "Heading", "level": this.level, "content": this.getContent().map(element => element.toObject()) }
