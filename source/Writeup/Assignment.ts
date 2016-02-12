@@ -17,6 +17,7 @@ module Cogneco.Writeup {
 			renderer.setVariable(this.name, this.value)
 			if (this.name == "template") {
 				var templatePath = U10sil.Uri.Locator.parse(this.value + ".json")
+				renderer.setVariable("template-path", templatePath.getFolder().toString())
 				var documentPath = U10sil.Uri.Locator.parse(this.getRegion().getResource())
 				var location = templatePath.resolve(documentPath)
 				var content = fs.readFileSync((location.isRelative() ? "" : "/") + location.getPath().join("/"), "utf-8")

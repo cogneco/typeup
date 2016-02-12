@@ -5,8 +5,9 @@
 	"dependencies": [
 	],
 	"tags": {
-		"document": "<!doctype html>\n<html>\n\t<head>\n\t\t<title>${title}</title>\n\t</head>\n\t<body>\n\t${content}\n\t</body>\n</html>\n",
-		"heading": "<h${level}>\n\t${content}\n</h${level}>\n",
-		"paragraph": "<p>\n\t${content}\n</p>\n"
+		"document": "<!doctype html>\n<html>\n<head>\n<meta charset='UTF-8'>\n<title>${title}</title>\n<meta name='author' content='${author}'/>\n<meta name='date' content='${date}'/>\n<link rel='stylesheet' type='text/css' href='${template-path}/${class}.css'>\n</head>\n<body>\n<header>${title}</header>\n${content}</body>\n</html>\n",
+		"heading": "<h${level}>${content}</h${level}>\n",
+		"paragraph": "<p>${content}</p>\n",
+		"emphasize": "<em>${content}</em>"
 	}
 }

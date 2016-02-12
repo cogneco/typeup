@@ -1,10 +1,11 @@
 template = document
+class = paper
 title = Document Title
 date = 2015-11-10
 author = Simon Mika
 
 # Header Level 1
-Paragraph A _tarext_ fas afsdfasasd f
+Paragraph A _emphasized text_ a lot of other nonsens.
 
 * unordered list
 * list item 2

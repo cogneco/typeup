@@ -6,9 +6,6 @@ module Cogneco.Writeup {
 		constructor(private value: string, region: U10sil.Error.Region) {
 			super(region)
 		}
-		merge(other: Text): Text {
-			return new Text(this.value + other.value, this.getRegion().merge(other.getRegion()))
-		}
 		render(renderer: Renderer): string {
 			return this.value
 		}
@@ -18,8 +15,20 @@ module Cogneco.Writeup {
 		toString(): string {
 			return this.value
 		}
-		static parse(source: Source): Inline {
-			return source.peek() && source.peek().length > 0 && source.peek() != "\0" && source.peek() != "\n" ? new Text(source.read(), source.mark()) : undefined
+		static parse(source: Source, until: string): Inline[] {
+			var result: Inline[]
+			var value = source.read()
+			if (value == "\\")
+				value = source.read()
+			var region = source.mark()
+			result = Inline.parse(source, until)
+			if (result.length > 0 && result[0] instanceof Text) {
+				value += (<Text>result[0]).value
+				region = region.merge(result[0].getRegion())
+				result[0] = new Text(value, region)
+			} else
+				result = [<Inline>new Text(value, region)].concat(result)
+			return result
 		}
 	}
 	Inline.addParser(Text.parse, -1)

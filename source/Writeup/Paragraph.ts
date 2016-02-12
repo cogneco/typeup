@@ -10,7 +10,9 @@ module Cogneco.Writeup {
 			return renderer.render("paragraph", { "content": super.render(renderer) })
 		}
 		toObject(): any {
-			return { "type": "Paragraph", "content": this.getContent().map(element => element.toObject()) }
+			var result = super.toObject()
+			result["type"] = "Paragraph"
+			return result
 		}
 		merge(other: Paragraph): Paragraph {
 			var result: Inline[] = []
@@ -23,7 +25,7 @@ module Cogneco.Writeup {
 			return new Paragraph(result, this.getRegion().merge(other.getRegion()))
 		}
 		static parse(source: Source): Block {
-			var result = Inline.parseAll(source)
+			var result = Inline.parse(source)
 			return result && result.length > 0 ? new Paragraph(result, source.mark()) : undefined
 		}
 	}

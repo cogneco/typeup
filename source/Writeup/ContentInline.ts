@@ -1,12 +1,11 @@
-/// <reference path="Block" />
 /// <reference path="Inline" />
+/// <reference path="Source" />
 
 module Cogneco.Writeup {
-	export abstract class ContentBlock extends Block {
+	export abstract class ContentInline extends Inline {
 		constructor(private content: Inline[], region: U10sil.Error.Region) {
 			super(region)
 		}
-		getContent(): Inline[] { return this.content }
 		render(renderer: Renderer): string {
 			return this.content.map(c => c.render(renderer)).join("")
 		}

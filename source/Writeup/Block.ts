@@ -3,6 +3,7 @@
 /// <reference path="Inline" />
 // Used via dependency injection in Inline
 /// <reference path="Text" />
+/// <reference path="Emphasize" />
 
 module Cogneco.Writeup {
 	export abstract class Block extends Node {

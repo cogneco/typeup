@@ -11,7 +11,10 @@ module Cogneco.Writeup {
 			return renderer.render("heading", { "level": this.level.toString(), "content": super.render(renderer) })
 		}
 		toObject(): any {
-			return { "type": "Heading", "level": this.level, "content": this.getContent().map(element => element.toObject()) }
+			var result = super.toObject()
+			result["type"] = "Heading"
+			result["level"] = this.level
+			return result
 		}
 		toString() {
 			var result = ""
@@ -22,15 +25,13 @@ module Cogneco.Writeup {
 		}
 		static parse(source: Source): Block {
 			var level = 0
-			while (source.peek() == "#") {
+			while (source.readIf("#"))
 				level++
-				source.read()
-			}
 			var result: Block
 			if (level > 0) {
 				while (source.peek().match(/\s/))
 					source.read()
-				result = new Heading(level, Inline.parseAll(source), source.mark())
+				result = new Heading(level, Inline.parse(source, "\n"), source.mark())
 			}
 			return result
 		}
