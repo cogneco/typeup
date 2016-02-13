@@ -3,7 +3,7 @@
 /// <reference path="../U10sil/IO/Reader" />
 /// <reference path="../U10sil/IO/BufferedReader" />
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export class CommentStripper extends U10sil.IO.Reader {
 		private backend: U10sil.IO.BufferedReader
 		constructor(backend: U10sil.IO.Reader) {

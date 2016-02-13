@@ -1,6 +1,6 @@
 /// <reference path="Block" />
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export class EmptyLine extends Block {
 		constructor(region: U10sil.Error.Region) {
 			super(region)

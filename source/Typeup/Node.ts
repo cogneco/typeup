@@ -2,7 +2,7 @@
 /// <reference path="Renderer" />
 
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export abstract class Node {
 		constructor(private region: U10sil.Error.Region) {
 		}

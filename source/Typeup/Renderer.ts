@@ -1,6 +1,6 @@
 /// <reference path="Template" />
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export class Renderer {
 		private variables: { [name: string]: string } = {}
 		private template: Template

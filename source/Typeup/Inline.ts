@@ -1,7 +1,7 @@
 /// <reference path="Node" />
 /// <reference path="Source" />
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export abstract class Inline extends Node {
 		constructor(region: U10sil.Error.Region) {
 			super(region)

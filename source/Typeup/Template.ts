@@ -1,5 +1,5 @@
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export class Template {
 		name: string
 		description: string

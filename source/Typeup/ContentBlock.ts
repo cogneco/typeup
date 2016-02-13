@@ -1,7 +1,7 @@
 /// <reference path="Block" />
 /// <reference path="Inline" />
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export abstract class ContentBlock extends Block {
 		constructor(private content: Inline[], region: U10sil.Error.Region) {
 			super(region)

@@ -3,7 +3,7 @@
 /// <reference path="U10sil/IO/Reader" />
 /// <reference path="U10sil/IO/FileReader" />
 /// <reference path="U10sil/IO/FolderReader" />
-/// <reference path="Writeup/Document" />
+/// <reference path="Typeup/Document" />
 /// <reference path="U10sil/Test" />
 
 var fs = require("fs")
@@ -21,11 +21,11 @@ module Cogneco {
 		private runHelper(command: string, commands: string[]) {
 			var handler = new U10sil.Error.ConsoleHandler()
 			switch (command) {
-				case "json": console.log(Writeup.Document.open(this.commands.shift(), handler).toJson("  ")); break
-				case "html": console.log(Writeup.Document.open(this.commands.shift(), handler).render()); break
-				case "writeup": console.log(Writeup.Document.open(this.commands.shift(), handler).toString()); break
+				case "json": console.log(Typeup.Document.open(this.commands.shift(), handler).toJson("  ")); break
+				case "html": console.log(Typeup.Document.open(this.commands.shift(), handler).render()); break
+				case "typeup": console.log(Typeup.Document.open(this.commands.shift(), handler).toString()); break
 				case "self-test": U10sil.Unit.Fixture.run(true); break
-				case "version": console.log("writeup " + this.getVersion()); break
+				case "version": console.log("typeup " + this.getVersion()); break
 				case "help": console.log("help"); break
 				default:
 					commands.push(command)

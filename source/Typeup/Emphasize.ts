@@ -1,7 +1,7 @@
 /// <reference path="ContentInline" />
 /// <reference path="Source" />
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export class Emphasize extends ContentInline {
 		constructor(content: Inline[], region: U10sil.Error.Region) {
 			super(content, region)

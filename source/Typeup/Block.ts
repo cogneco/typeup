@@ -5,7 +5,7 @@
 /// <reference path="Text" />
 /// <reference path="Emphasize" />
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export abstract class Block extends Node {
 		constructor(region: U10sil.Error.Region) {
 			super(region)

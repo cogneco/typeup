@@ -6,7 +6,7 @@
 
 var fs = require("fs")
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export class Assignment extends Block {
 		constructor(private name: string, private value: string, region: U10sil.Error.Region) {
 			super(region)

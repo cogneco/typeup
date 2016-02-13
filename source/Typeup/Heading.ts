@@ -2,7 +2,7 @@
 /// <reference path="Inline" />
 /// <reference path="Source" />
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export class Heading extends ContentBlock {
 		constructor(private level: number, content: Inline[], region: U10sil.Error.Region) {
 			super(content, region)

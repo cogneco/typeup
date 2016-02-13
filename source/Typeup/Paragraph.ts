@@ -1,7 +1,7 @@
 /// <reference path="ContentBlock" />
 /// <reference path="Inline" />
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export class Paragraph extends ContentBlock {
 		constructor(content: Inline[], region: U10sil.Error.Region) {
 			super(content, region)

@@ -1,7 +1,7 @@
 /// <reference path="Inline" />
 /// <reference path="Source" />
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export class Text extends Inline {
 		constructor(private value: string, region: U10sil.Error.Region) {
 			super(region)

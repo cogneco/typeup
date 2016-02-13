@@ -3,7 +3,7 @@
 /// <reference path="../U10sil/Error/Handler" />
 /// <reference path="CommentStripper" />
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export class Source extends U10sil.IO.BufferedReader implements U10sil.Error.Handler {
 		constructor(reader: U10sil.IO.Reader, private errorHandler: U10sil.Error.Handler) {
 			super(new CommentStripper(reader))

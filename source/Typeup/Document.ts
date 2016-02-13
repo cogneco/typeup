@@ -8,7 +8,7 @@
 /// <reference path="Assignment" />
 
 
-module Cogneco.Writeup {
+module Cogneco.Typeup {
 	export class Document extends Node {
 		private content: Block[] = []
 		constructor(content: Block[], region: U10sil.Error.Region) {
@@ -58,7 +58,7 @@ module Cogneco.Writeup {
 			return result
 		}
 		static parse(reader: U10sil.IO.Reader, handler: U10sil.Error.Handler): Document {
-			var source = new Writeup.Source(reader, handler)
+			var source = new Typeup.Source(reader, handler)
 			return new Document(Block.parseAll(source), source.mark())
 		}
 		static open(path: string, handler: U10sil.Error.Handler): Document {
