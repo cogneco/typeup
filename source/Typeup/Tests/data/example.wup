@@ -7,11 +7,11 @@ author = Simon Mika
 # Header Level 1
 Paragraph A _emphasized text_ a lot of other nonsens.
 
-* unordered list
-* list item 2
- * sublist
- * sublist item 2
-* last item
+- unordered list
+- list item 2
+	- sublist
+	- sublist item 2
+- last item
 
 Paragraph B
 

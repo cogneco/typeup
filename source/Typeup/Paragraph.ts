@@ -3,8 +3,8 @@
 
 module Cogneco.Typeup {
 	export class Paragraph extends ContentBlock {
-		constructor(content: Inline[], region: U10sil.Error.Region) {
-			super(content, region)
+		constructor(content: Inline[]) {
+			super(content, content.map(content => content.getRegion()).reduce((left, right) => left.merge(right)))
 		}
 		render(renderer: Renderer): string {
 			return renderer.render("paragraph", { "content": super.render(renderer) })
@@ -14,19 +14,16 @@ module Cogneco.Typeup {
 			result["type"] = "Paragraph"
 			return result
 		}
-		merge(other: Paragraph): Paragraph {
-			var result: Inline[] = []
-			var content = this.getContent()
-			for (var i = 0; i < content.length; i++)
-				result.push(content[i])
-			var content = other.getContent()
-			for (var i = 0; i < content.length; i++)
-				result.push(content[i])
-			return new Paragraph(result, this.getRegion().merge(other.getRegion()))
-		}
-		static parse(source: Source): Block {
-			var result = Inline.parse(source)
-			return result && result.length > 0 ? new Paragraph(result, source.mark()) : undefined
+		static parse(source: Source): Block[] {
+			var content = Inline.parse(source)
+			var result: Block[]
+			if (content && content.length > 0) {
+				var next = Block.parse(source)
+				result = (next && next.length > 0 && next[0] instanceof Paragraph) ?
+				[new Paragraph(content.concat((<Paragraph>next[0]).getContent()))] :
+				[<Block>new Paragraph(content)].concat(next)
+			}
+			return result
 		}
 	}
 	Block.addParser(Paragraph.parse, -1)

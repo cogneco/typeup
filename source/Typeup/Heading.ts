@@ -23,15 +23,15 @@ module Cogneco.Typeup {
 			result += super.toString()
 			return result
 		}
-		static parse(source: Source): Block {
+		static parse(source: Source): Block[] {
 			var level = 0
 			while (source.readIf("#"))
 				level++
-			var result: Block
+			var result: Block[]
 			if (level > 0) {
 				while (source.peek().match(/\s/))
 					source.read()
-				result = new Heading(level, Inline.parse(source, "\n"), source.mark())
+				result = [new Heading(level, Inline.parse(source, "\n"), source.mark())]
 			}
 			return result
 		}

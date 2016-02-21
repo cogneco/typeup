@@ -31,8 +31,8 @@ module Cogneco.Typeup {
 		toString() {
 			return this.name + " = " + this.value + "\n"
 		}
-		static parse(source: Source): Block {
-			var result: Block
+		static parse(source: Source): Block[] {
+			var result: Block[]
 			var i = 1
 			while (source.peek(i).charAt(i - 1).match(/[a-z]|[A-Z]|[0-9]|_|-/i))
 				i++
@@ -43,7 +43,7 @@ module Cogneco.Typeup {
 				while (source.peek() != "\n")
 					value += source.read()
 				source.read() // consume "\n"
-				result = new Assignment(name, value, source.mark())
+				result = [new Assignment(name, value, source.mark())]
 			}
 			return result
 		}

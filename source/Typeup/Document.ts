@@ -6,6 +6,7 @@
 /// <reference path="Heading" />
 /// <reference path="EmptyLine" />
 /// <reference path="Assignment" />
+/// <reference path="UnorderedList" />
 
 
 module Cogneco.Typeup {
@@ -13,23 +14,7 @@ module Cogneco.Typeup {
 		private content: Block[] = []
 		constructor(content: Block[], region: U10sil.Error.Region) {
 			super(region)
-			var last: Paragraph
-			for (var i = 0; i < content.length; i++) {
-				if (content[i] instanceof(Paragraph))
-					last = last ? last.merge(<Paragraph>content[i]) : <Paragraph>content[i]
-				else {
-					if (last) {
-						this.content.push(last)
-						last = null
-					}
-					if (!(content[i] instanceof(EmptyLine)))
-						this.content.push(content[i])
-				}
-			}
-			if (last) {
-				this.content.push(last)
-				last = null
-			}
+			this.content = content.filter(block => !(block instanceof(EmptyLine)))
 		}
 		render(renderer?: Renderer): string {
 			if (!renderer)

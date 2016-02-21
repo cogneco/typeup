@@ -8,6 +8,8 @@
 		"document": "<!doctype html>\n<html>\n<head>\n<meta charset='UTF-8'>\n<title>${title}</title>\n<meta name='author' content='${author}'/>\n<meta name='date' content='${date}'/>\n<link rel='stylesheet' type='text/css' href='${template-path}/${class}.css'>\n</head>\n<body>\n<header>${title}</header>\n${content}</body>\n</html>\n",
 		"heading": "<h${level}>${content}</h${level}>\n",
 		"paragraph": "<p>${content}</p>\n",
+		"list item": "<li>${content}</li>\n",
+		"unordered list": "<ul>\n${content}</ul>\n",
 		"emphasize": "<em>${content}</em>"
 	}
 }

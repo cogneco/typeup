@@ -14,11 +14,14 @@ module Cogneco.Typeup {
 		toString(): string {
 			return "\n"
 		}
-		static parse(source: Source): Block {
-			var result: Block
+		static parse(source: Source): Block[] {
+			var result: Block[]
 			if (source.peek() == "\n") {
 				source.read()
-				result = new EmptyLine(source.mark())
+				result = [new EmptyLine(source.mark())]
+				var next = Block.parse(source)
+				if (next && next.length > 0)
+					result = result.concat(next)
 			}
 			return result
 		}
