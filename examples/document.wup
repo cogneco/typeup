@@ -1,4 +1,4 @@
-template = document
+template = templates/document
 class = paper
 title = Document Title
 date = 2015-11-10

@@ -4,6 +4,11 @@ Typeup is a markup language for writing documents. It is inspired by the simplic
 but tries to better support writing longer documents. Typeup is still in very early development
 and only parts of the functionality is implemented yet.
 
+## Examples
+You can find example files here:
+* [document](examples/document.wup)
+* [template](examples/templates/document.json)
+
 ## Benefits
 
 ### Only One Way

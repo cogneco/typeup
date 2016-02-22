@@ -7,7 +7,7 @@
 			"request": "launch",
 			"program": "build/typeup.js",
 			"stopOnEntry": false,
-			"args": ["html", "source/Typeup/Tests/data"],
+			"args": ["html", "./examples"],
 			"cwd": ".",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
@@ -26,7 +26,7 @@
 			"request": "launch",
 			"program": "build/typeup.js",
 			"stopOnEntry": false,
-			"args": ["json", "source/Typeup/Tests/data"],
+			"args": ["json", "./examples"],
 			"cwd": ".",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
