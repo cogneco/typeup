@@ -47,7 +47,7 @@ module Cogneco.Typeup {
 			return new Document(Block.parseAll(source), source.mark())
 		}
 		static open(path: string, handler: U10sil.Error.Handler): Document {
-			return Document.parse(U10sil.IO.Reader.open(path, "wup"), handler)
+			return Document.parse(U10sil.IO.Reader.open(path, "tup"), handler)
 		}
 	}
 }
