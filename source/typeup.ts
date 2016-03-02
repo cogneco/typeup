@@ -1,4 +1,4 @@
-/// <reference path="../typings/node/node" />
+/// <reference path="../typings/main" />
 /// <reference path="U10sil/Error/ConsoleHandler" />
 /// <reference path="U10sil/IO/Reader" />
 /// <reference path="U10sil/IO/FileReader" />
