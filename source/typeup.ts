@@ -7,6 +7,7 @@
 /// <reference path="U10sil/Test" />
 
 var fs = require("fs")
+var cp = require("child_process")
 
 module Cogneco {
 	export class Program {
@@ -18,12 +19,21 @@ module Cogneco {
 				this.commands.push(".")
 			}
 		}
+		private open(path: string): Typeup.Document {
+			return Typeup.Document.open(path, new U10sil.Error.ConsoleHandler())
+		}
 		private runHelper(command: string, commands: string[]) {
-			var handler = new U10sil.Error.ConsoleHandler()
 			switch (command) {
-				case "json": console.log(Typeup.Document.open(this.commands.shift(), handler).toJson("  ")); break
-				case "html": console.log(Typeup.Document.open(this.commands.shift(), handler).render()); break
-				case "typeup": console.log(Typeup.Document.open(this.commands.shift(), handler).toString()); break
+				case "json": console.log(this.open(this.commands.shift()).toJson("  ")); break
+				case "html":
+					var document = this.open(this.commands.shift())
+					fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".html"), document.render())
+					break
+				case "pdf":
+					var document = this.open(this.commands.shift())
+					fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["-", "-o", "-"], { input: document.render() }))
+					break;
+				case "typeup": console.log(this.open(this.commands.shift()).toString()); break
 				case "self-test": U10sil.Unit.Fixture.run(true); break
 				case "version": console.log("typeup " + this.getVersion()); break
 				case "help": console.log("help"); break
