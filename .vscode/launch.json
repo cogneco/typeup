@@ -5,10 +5,10 @@
 			"name": "pdf",
 			"type": "node",
 			"request": "launch",
-			"program": "build/typeup.js",
+			"program": "${workspaceRoot}/build/typeup.js",
 			"stopOnEntry": false,
 			"args": ["pdf", "./examples"],
-			"cwd": ".",
+			"cwd": "${workspaceRoot}",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -18,16 +18,16 @@
 			},
 			"externalConsole": false,
 			"sourceMaps": true,
-			"outDir": "build"
+			"outDir": "${workspaceRoot}/build"
 		},
 		{
 			"name": "html",
 			"type": "node",
 			"request": "launch",
-			"program": "build/typeup.js",
+			"program": "${workspaceRoot}/build/typeup.js",
 			"stopOnEntry": false,
 			"args": ["html", "./examples"],
-			"cwd": ".",
+			"cwd": "${workspaceRoot}",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -37,16 +37,16 @@
 			},
 			"externalConsole": false,
 			"sourceMaps": true,
-			"outDir": "build"
+			"outDir": "${workspaceRoot}/build"
 		},
 		{
 			"name": "json",
 			"type": "node",
 			"request": "launch",
-			"program": "build/typeup.js",
+			"program": "${workspaceRoot}/build/typeup.js",
 			"stopOnEntry": false,
 			"args": ["json", "./examples"],
-			"cwd": ".",
+			"cwd": "${workspaceRoot}",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -56,16 +56,16 @@
 			},
 			"externalConsole": false,
 			"sourceMaps": true,
-			"outDir": "build"
+			"outDir": "${workspaceRoot}/build"
 		},
 		{
 			"name": "self-test",
 			"type": "node",
 			"request": "launch",
-			"program": "build/typeup.js",
+			"program": "${workspaceRoot}/build/typeup.js",
 			"stopOnEntry": false,
 			"args": ["self-test"],
-			"cwd": ".",
+			"cwd": "${workspaceRoot}",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -75,7 +75,7 @@
 			},
 			"externalConsole": false,
 			"sourceMaps": true,
-			"outDir": "build"
+			"outDir": "${workspaceRoot}/build"
 		},
 		{
 			"name": "Attach",
