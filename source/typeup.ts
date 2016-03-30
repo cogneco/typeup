@@ -5,6 +5,7 @@
 /// <reference path="U10sil/IO/FolderReader" />
 /// <reference path="Typeup/Document" />
 /// <reference path="U10sil/Test" />
+/// <reference path="U10sil/Uri/Locator" />
 
 var fs = require("fs")
 var cp = require("child_process")
@@ -31,7 +32,7 @@ module Cogneco {
 					break
 				case "pdf":
 					var document = this.open(this.commands.shift())
-					fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["-", "-o", "-"], { input: document.render() }))
+					fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["-", "-o", "-"], { input: document.render(), cwd: U10sil.Uri.Locator.parse(document.getRegion().getResource()).getFolder().toString() })
 					break;
 				case "typeup": console.log(this.open(this.commands.shift()).toString()); break
 				case "self-test": U10sil.Unit.Fixture.run(true); break
