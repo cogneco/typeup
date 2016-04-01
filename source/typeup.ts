@@ -32,7 +32,7 @@ module Cogneco {
 					break
 				case "pdf":
 					var document = this.open(this.commands.shift())
-					fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["-", "-o", "-"], { input: document.render(), cwd: U10sil.Uri.Locator.parse(document.getRegion().getResource()).getFolder().toString() })
+					fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["-", "-o", "-"], { input: document.render(), cwd: U10sil.Uri.Locator.parse(document.getRegion().getResource()).getFolder().toString() }))
 					break
 				case "typeup": console.log(this.open(this.commands.shift()).toString()); break
 				case "self-test": U10sil.Unit.Fixture.run(true); break
