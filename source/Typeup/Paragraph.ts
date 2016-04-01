@@ -2,7 +2,7 @@
 /// <reference path="Inline" />
 
 module Cogneco.Typeup {
-	export class Paragraph extends ContentBlock {
+	export class Paragraph extends ContentBlock<Inline> {
 		constructor(content: Inline[]) {
 			super(content, content.map(content => content.getRegion()).reduce((left, right) => left.merge(right)))
 		}

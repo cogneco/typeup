@@ -2,11 +2,11 @@
 /// <reference path="Inline" />
 
 module Cogneco.Typeup {
-	export abstract class ContentBlock extends Block {
-		constructor(private content: Inline[], region: U10sil.Error.Region) {
+	export abstract class ContentBlock<T: Node> extends Block {
+		constructor(private content: T[], region: U10sil.Error.Region) {
 			super(region)
 		}
-		getContent(): Inline[] { return this.content }
+		getContent(): T[] { return this.content }
 		render(renderer: Renderer): string {
 			return this.content.map(c => c.render(renderer)).join("")
 		}

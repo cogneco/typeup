@@ -3,7 +3,7 @@
 /// <reference path="Source" />
 
 module Cogneco.Typeup {
-	export class ListItem extends ContentBlock {
+	export class ListItem extends ContentBlock<Inline> {
 		constructor(content: Inline[], region: U10sil.Error.Region) {
 			super(content, region)
 		}
