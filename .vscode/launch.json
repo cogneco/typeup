@@ -5,10 +5,11 @@
 			"name": "pdf",
 			"type": "node",
 			"request": "launch",
-			"program": "${workspaceRoot}/build/typeup.js",
+			"program": "${workspaceRoot}/build/app.js",
 			"stopOnEntry": false,
 			"args": ["pdf", "./examples"],
 			"cwd": "${workspaceRoot}",
+			"preLaunchTask": "build",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -24,10 +25,11 @@
 			"name": "html",
 			"type": "node",
 			"request": "launch",
-			"program": "${workspaceRoot}/build/typeup.js",
+			"program": "${workspaceRoot}/build/app.js",
 			"stopOnEntry": false,
 			"args": ["html", "./examples"],
 			"cwd": "${workspaceRoot}",
+			"preLaunchTask": "build",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -43,10 +45,11 @@
 			"name": "json",
 			"type": "node",
 			"request": "launch",
-			"program": "${workspaceRoot}/build/typeup.js",
+			"program": "${workspaceRoot}/build/app.js",
 			"stopOnEntry": false,
 			"args": ["json", "./examples"],
 			"cwd": "${workspaceRoot}",
+			"preLaunchTask": "build",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -62,10 +65,11 @@
 			"name": "self-test",
 			"type": "node",
 			"request": "launch",
-			"program": "${workspaceRoot}/build/typeup.js",
+			"program": "${workspaceRoot}/build/app.js",
 			"stopOnEntry": false,
 			"args": ["self-test"],
 			"cwd": "${workspaceRoot}",
+			"preLaunchTask": "build",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -76,12 +80,6 @@
 			"externalConsole": false,
 			"sourceMaps": true,
 			"outDir": "${workspaceRoot}/build"
-		},
-		{
-			"name": "Attach",
-			"type": "node",
-			"request": "attach",
-			"port": 5858
 		}
 	]
 }

@@ -1,9 +1,12 @@
-/// <reference path="ContentInline" />
-/// <reference path="Source" />
+import { ContentInline } from "./ContentInline"
+import { Inline } from "./Inline"
+import { Source } from "./Source"
+import { Renderer } from "./Renderer"
+import * as Error from "../U10sil/Error/Region"
 
 module Cogneco.Typeup {
 	export class Emphasize extends ContentInline {
-		constructor(content: Inline[], region: U10sil.Error.Region) {
+		constructor(content: Inline[], region: Error.Region) {
 			super(content, region)
 		}
 		render(renderer: Renderer): string {

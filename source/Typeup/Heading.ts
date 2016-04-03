@@ -1,10 +1,13 @@
-/// <reference path="ContentBlock" />
-/// <reference path="Inline" />
-/// <reference path="Source" />
+import * as Error from "../U10sil/Error/Region"
+import { Source } from "./Source"
+import { Renderer } from "./Renderer"
+import { Block } from "./Block"
+import { Inline } from "./Inline"
+import { ContentBlock } from "./ContentBlock"
 
 module Cogneco.Typeup {
 	export class Heading extends ContentBlock<Inline> {
-		constructor(private level: number, content: Inline[], region: U10sil.Error.Region) {
+		constructor(private level: number, content: Inline[], region: Error.Region) {
 			super(content, region)
 		}
 		render(renderer: Renderer): string {

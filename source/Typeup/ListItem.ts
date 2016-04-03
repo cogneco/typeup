@@ -1,22 +1,23 @@
-/// <reference path="ContentBlock" />
-/// <reference path="Inline" />
-/// <reference path="Source" />
+import * as Error from "../U10sil/Error/Region"
+import { Renderer } from "./Renderer"
+import { Block } from "./Block"
+import { ContentBlock } from "./ContentBlock"
 
-module Cogneco.Typeup {
-	export class ListItem extends ContentBlock<Inline> {
-		constructor(content: Inline[], region: U10sil.Error.Region) {
-			super(content, region)
-		}
-		render(renderer: Renderer): string {
-			return renderer.render("list item", { "content": super.render(renderer) })
-		}
-		toObject(): any {
-			var result = super.toObject()
-			result["type"] = "ListItem"
-			return result
-		}
-		toString(symbol = " - "): string {
-			return symbol + super.toString()
-		}
+export class ListItem extends ContentBlock<Block> {
+	constructor(content: Block[], region: Error.Region) {
+		super(content, region)
+	}
+	render(renderer: Renderer): string {
+		return renderer.render("list item", { "content": super.render(renderer) })
+	}
+	toObject(): any {
+		var result = super.toObject()
+		result["type"] = "ListItem"
+		return result
+	}
+	toString(symbol?: string): string {
+		if (!symbol)
+			symbol = " - "
+		return symbol + super.toString()
 	}
 }

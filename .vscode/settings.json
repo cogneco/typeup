@@ -1,16 +1,20 @@
 // Place your settings in this file to overwrite default and user settings.
 {
+	"editor.tabSize": 2,
 	"editor.renderWhitespace": true,
 	"editor.insertSpaces": false,
 	"files.trimTrailingWhitespace": true,
 	"search.exclude": {
-		"build": true,
+		"node_modules": true,
 		"typings": true,
 		".vscode": true
 	},
 	"files.exclude": {
-		"build": true,
+		"node_modules": true,
 		"typings": true,
-		".*": true
+		".vscode": true,
+		"build": true,
+		"source/tsd.d.ts": true,
+		"**/.git": true
 	}
 }

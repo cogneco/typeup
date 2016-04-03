@@ -1,12 +1,9 @@
-
-module Cogneco.Typeup {
-	export class Template {
-		name: string
-		description: string
-		output: string
-		dependecies: string[]
-		tags: { [key: string]: string }
-		constructor() {
-		}
+export class Template {
+	name: string
+	description: string
+	output: string
+	dependecies: string[]
+	tags: { [key: string]: string }
+	constructor() {
 	}
 }

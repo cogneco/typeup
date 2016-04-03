@@ -1,13 +1,10 @@
-/// <reference path="../U10sil/Error/Region" />
-/// <reference path="Renderer" />
+import * as Error from "../U10sil/Error/Region"
+import { Renderer } from "./Renderer"
 
-
-module Cogneco.Typeup {
-	export abstract class Node {
-		constructor(private region: U10sil.Error.Region) {
-		}
-		getRegion(): U10sil.Error.Region { return this.region }
-		abstract render(renderer: Renderer): string
-		abstract toObject(): any
+export abstract class Node {
+	constructor(private region: Error.Region) {
 	}
+	getRegion(): Error.Region { return this.region }
+	abstract render(renderer: Renderer): string
+	abstract toObject(): any
 }
