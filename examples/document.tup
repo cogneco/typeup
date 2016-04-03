@@ -9,7 +9,13 @@ Paragraph A _emphasized text_ a lot of other nonsens.
 
 - unordered list
 - list item 2
+
+- list item 3
 	- sublist
+	- long list item on
+		several lines
+
+		with an additional paragraph
 	- sublist item 2
 - last item
 

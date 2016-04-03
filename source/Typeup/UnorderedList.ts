@@ -5,6 +5,7 @@ import { Source } from "./Source"
 import { Renderer } from "./Renderer"
 import { ListItem } from "./ListItem"
 import { EmptyLine } from "./EmptyLine"
+import { Paragraph } from "./Paragraph"
 
 export class UnorderedList extends ContentBlock<ListItem> {
 	constructor(content: ListItem[]) {
@@ -14,9 +15,9 @@ export class UnorderedList extends ContentBlock<ListItem> {
 		return renderer.render("unordered list", { "content": this.getContent().map(item => item.render(renderer)).join("") })
 	}
 	toString() {
-		return this.getContent().map(item => item.toString(" - ")).join("\n")
+		return this.getContent().map(item => item.toString("- ")).join("\n")
 	}
-	static parse(source: Source, indent: number): Block[] {
+	static parse(source: Source): Block[] {
 		var peeked = ""
 		var p: string
 		while (p = source.peekIs(peeked + "\t"))
@@ -25,7 +26,7 @@ export class UnorderedList extends ContentBlock<ListItem> {
 		if (source.readIf(peeked + "-")) {
 			while (source.peek().match(/\s/))
 				source.read()
-			var current = new ListItem(Inline.parse(source, "\n"), source.mark())
+			var current = new ListItem(Block.parseAll(source.requirePrefix("\t")), source.mark())
 			var next = Block.parse(source)
 			var index = 0
 			while (next && next.length > 0 && next[index] instanceof EmptyLine)
