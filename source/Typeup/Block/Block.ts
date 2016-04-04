@@ -5,6 +5,7 @@ import * as Error from "../../U10sil/Error/Region"
 // Used via dependency injection in Inline
 import "../Inline/Text"
 import "../Inline/Emphasize"
+import "../Inline/Link"
 
 export abstract class Block extends Node {
 	constructor(region: Error.Region) {
