@@ -17,7 +17,7 @@ export class Paragraph extends ContentBlock<Inline> {
 		return result
 	}
 	static parse(source: Source): Block[] {
-		var content = Inline.parse(source)
+		var content = Inline.parse(source.until("\n"))
 		var result: Block[]
 		if (content && content.length > 0) {
 			var next = Block.parse(source)

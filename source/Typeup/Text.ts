@@ -16,13 +16,13 @@ export class Text extends Inline {
 	toString(): string {
 		return this.value
 	}
-	static parse(source: Source, until: string): Inline[] {
+	static parse(source: Source): Inline[] {
 		var result: Inline[]
 		var value = source.read()
 		if (value == "\\")
 			value = source.read()
 		var region = source.mark()
-		result = Inline.parse(source, until)
+		result = Inline.parse(source)
 		if (result.length > 0 && result[0] instanceof Text) {
 			value += (<Text>result[0]).value
 			region = region.merge(result[0].getRegion())

@@ -21,4 +21,7 @@ export class Source extends IO.BufferedReader implements Error.Handler {
 	requirePrefix(prefix: string): Source {
 		return new Source(new IO.PrefixReader(prefix, this), this.errorHandler)
 	}
+	until(endMark: string): Source {
+		return new Source(new IO.UntilReader(endMark, this), this.errorHandler)
+	}
 }

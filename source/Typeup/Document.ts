@@ -19,7 +19,7 @@ export class Document extends Node {
 	private content: Block[] = []
 	constructor(content: Block[], region: Error.Region) {
 		super(region)
-		this.content = content.filter(block => !(block instanceof(EmptyLine)))
+		this.content = content.filter(block => block && !(block instanceof(EmptyLine)))
 	}
 	render(renderer?: Renderer): string {
 		if (!renderer)

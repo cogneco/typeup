@@ -34,7 +34,7 @@ module Cogneco.Typeup {
 			if (level > 0) {
 				while (source.peek().match(/\s/))
 					source.read()
-				result = [new Heading(level, Inline.parse(source, "\n"), source.mark())]
+				result = [new Heading(level, Inline.parse(source.until("\n")), source.mark())]
 			}
 			return result
 		}

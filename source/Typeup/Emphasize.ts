@@ -20,10 +20,10 @@ module Cogneco.Typeup {
 		toString(): string {
 			return "_" + super.toString() + "_"
 		}
-		static parse(source: Source, until: string): Inline[] {
+		static parse(source: Source): Inline[] {
 			var result: Inline[]
 			if (source.readIf("_")) {
-				result = [new Emphasize(Inline.parse(source, "_"), source.mark())]
+				result = [new Emphasize(Inline.parse(source.until("_")), source.mark())]
 				if (!source.readIf("_"))
 					source.raise("Expected \"_\" as end of emphasize.")
 			}
