@@ -30,6 +30,11 @@ export abstract class Block extends Node {
 		var r: Block[]
 		while ((r = Block.parse(source)) && r.length > 0)
 			result = result.concat(r)
+		Block.filters.forEach(filter => result = result.filter(filter))
 		return result
+	}
+	private static filters: ((block: Block) => boolean)[] = []
+	static addFilter(filter: (block: Block) => boolean) {
+		this.filters.push(filter)
 	}
 }

@@ -29,3 +29,4 @@ export class EmptyLine extends Block {
 	}
 }
 Block.addParser(EmptyLine.parse)
+Block.addFilter(block => block && !(block instanceof(EmptyLine)))

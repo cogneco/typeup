@@ -18,10 +18,13 @@ export class Source extends IO.BufferedReader implements Error.Handler {
 		}
 		this.errorHandler.raise(<Error.Message>message)
 	}
-	requirePrefix(prefix: string): Source {
-		return new Source(new IO.PrefixReader(prefix, this), this.errorHandler)
+	requirePrefix(prefix: string | string[]): Source {
+		return new Source(new IO.PrefixReader(this, prefix), this.errorHandler)
 	}
-	until(endMark: string): Source {
-		return new Source(new IO.UntilReader(endMark, this), this.errorHandler)
+	till(endMark: string | string[]): Source {
+		return new Source(new IO.TillReader(this, endMark), this.errorHandler)
+	}
+	until(endMark: string | string[]): Source {
+		return new Source(new IO.UntilReader(this, endMark), this.errorHandler)
 	}
 }

@@ -3,6 +3,8 @@ import { ContentBlock } from "./ContentBlock"
 import { Inline } from "./Inline"
 import { Source } from "./Source"
 import { Renderer } from "./Renderer"
+import { Text } from "./Text"
+import * as Error from "../U10sil/Error/Message"
 
 export class Paragraph extends ContentBlock<Inline> {
 	constructor(content: Inline[]) {
@@ -22,7 +24,7 @@ export class Paragraph extends ContentBlock<Inline> {
 		if (content && content.length > 0) {
 			var next = Block.parse(source)
 			result = (next && next.length > 0 && next[0] instanceof Paragraph) ?
-			[new Paragraph(content.concat((<Paragraph>next[0]).getContent()))] :
+			[<Block>new Paragraph(content.concat((<Paragraph>next[0]).getContent()))].concat(next.slice(1)) :
 			[<Block>new Paragraph(content)].concat(next)
 		}
 		return result

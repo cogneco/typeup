@@ -23,7 +23,7 @@ module Cogneco.Typeup {
 		static parse(source: Source): Inline[] {
 			var result: Inline[]
 			if (source.readIf("_")) {
-				result = [new Emphasize(Inline.parse(source.until("_")), source.mark())]
+				result = [new Emphasize(Inline.parse(source.till("_")), source.mark())]
 				if (!source.readIf("_"))
 					source.raise("Expected \"_\" as end of emphasize.")
 			}
