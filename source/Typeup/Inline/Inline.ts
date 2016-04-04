@@ -15,7 +15,7 @@ export abstract class Inline extends Node {
 	}
 	static parse(source: Source): Inline[] {
 		var result: Inline[] = []
-		while (source.peek() && source.peek().length > 0 && source.peek() != "\0" && Inline.parsers.some(p => {
+		while (source.peek() && source.peek().length > 0 && source.peek() && Inline.parsers.some(p => {
 				var r = p.parse(source)
 				if (r)
 					result = result.concat(r)

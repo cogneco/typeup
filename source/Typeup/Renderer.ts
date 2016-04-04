@@ -14,9 +14,11 @@ export class Renderer {
 	setTemplate(template: Template) {
 		this.template = template
 	}
-	render(tag: string, locals: { [name: string]: string }) {
-		return this.template.tags[tag].replace(/\${(.*?)}/g, (_, variable) => {
+	render(tag: string, locals: { [name: string]: string }): string {
+		var result: string
+		var template = this.template.tags[tag]
+		return template ? template.replace(/\${(.*?)}/g, (_, variable) => {
 			return locals[variable] ? locals[variable] : this.variables[variable]
-		})
+		}) : this.render("*", { content: ` ERROR: Tag "${tag}" undefined in template ${this.template.name} ` })
 	}
 }

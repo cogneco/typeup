@@ -4,7 +4,7 @@ import { CommentStripper } from "./CommentStripper"
 
 export class Source extends IO.BufferedReader implements Error.Handler {
 	constructor(reader: IO.Reader, private errorHandler: Error.Handler) {
-		super(reader instanceof Source || reader instanceof CommentStripper ? reader : new CommentStripper(reader))
+		super(reader)
 	}
 	raise(message: string | Error.Message, level?: Error.Level, type?: Error.Type, region?: Error.Region): void {
 		if (!(message instanceof Error.Message)) {

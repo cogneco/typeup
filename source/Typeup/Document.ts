@@ -4,6 +4,7 @@ import * as IO from "../U10sil/IO"
 import { Renderer } from "./Renderer"
 import { Node } from "./Node"
 import { Source } from "./Source"
+import { CommentStripper } from "./CommentStripper"
 import { Block } from "./Block/Block"
 import { EmptyLine } from "./Block/EmptyLine"
 import { Paragraph } from "./Block/Paragraph"
@@ -47,7 +48,7 @@ export class Document extends Node {
 		return result
 	}
 	static parse(reader: IO.Reader, handler: Error.Handler): Document {
-		var source = new Source(reader, handler)
+		var source = new Source(new CommentStripper(reader), handler)
 		return new Document(Block.parseAll(source), source.mark())
 	}
 	static open(path: string, handler: Error.Handler): Document {

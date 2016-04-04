@@ -11,12 +11,12 @@ export class CommentStripper extends IO.Reader {
 		return this.backend.isEmpty()
 	}
 	read(): string {
-		switch(this.backend.peek(2)) {
-			case "//":
+		switch(this.backend.peek(3)) {
+			case "// ":
 				while (this.backend.peek() != "\n")
 					this.backend.read()
 				break
-			case "/*":
+			case "/* ":
 				while (this.backend.peek(2) != "*/")
 					this.backend.read()
 				this.backend.read(2)

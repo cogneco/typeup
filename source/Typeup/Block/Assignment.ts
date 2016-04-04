@@ -37,9 +37,9 @@ module Cogneco.Typeup {
 		static parse(source: Source): Block[] {
 			var result: Block[]
 			var i = 1
-			while (source.peek(i).charAt(i - 1).match(/[a-z]|[A-Z]|[0-9]|_|-/i))
+			while (source.peek(i) && source.peek(i).charAt(i - 1).match(/[a-z]|[A-Z]|[0-9]|_|-/i))
 				i++
-			if (source.peek(i + 2).slice(-3) == " = ") {
+			if (source.peek(i + 2) && source.peek(i + 2).slice(-3) == " = ") {
 				var name = source.read(i - 1)
 				source.read(3) // consume " = "
 				var value = ""
