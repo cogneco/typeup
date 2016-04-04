@@ -1,9 +1,9 @@
-import * as Error from "../U10sil/Error/Region"
-import { Source } from "./Source"
-import { Renderer } from "./Renderer"
+import * as Error from "../../U10sil/Error/Region"
+import { Source } from "../Source"
+import { Renderer } from "../Renderer"
 import { Block } from "./Block"
-import { Inline } from "./Inline"
 import { ContentBlock } from "./ContentBlock"
+import { Inline } from "../Inline/Inline"
 
 module Cogneco.Typeup {
 	export class Heading extends ContentBlock<Inline> {

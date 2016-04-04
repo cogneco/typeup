@@ -1,10 +1,10 @@
-import { Node } from "./Node"
-import { Source } from "./Source"
-import { Inline } from "./Inline"
-import * as Error from "../U10sil/Error/Region"
+import { Node } from "../Node"
+import { Source } from "../Source"
+import { Inline } from "../Inline/Inline"
+import * as Error from "../../U10sil/Error/Region"
 // Used via dependency injection in Inline
-import "./Text"
-import "./Emphasize"
+import "../Inline/Text"
+import "../Inline/Emphasize"
 
 export abstract class Block extends Node {
 	constructor(region: Error.Region) {

@@ -1,5 +1,5 @@
-import * as Error from "../U10sil/Error/Region"
-import { Renderer } from "./Renderer"
+import * as Error from "../../U10sil/Error/Region"
+import { Renderer } from "../Renderer"
 import { Block } from "./Block"
 import { ContentBlock } from "./ContentBlock"
 

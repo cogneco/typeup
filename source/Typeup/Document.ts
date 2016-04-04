@@ -3,18 +3,16 @@ import * as IO from "../U10sil/IO"
 
 import { Renderer } from "./Renderer"
 import { Node } from "./Node"
-import { Block } from "./Block"
 import { Source } from "./Source"
-import { EmptyLine } from "./EmptyLine"
-import { Paragraph } from "./Paragraph"
+import { Block } from "./Block/Block"
+import { EmptyLine } from "./Block/EmptyLine"
+import { Paragraph } from "./Block/Paragraph"
 
 // Used via dependency injection in Block
-import "./Paragraph"
-import "./Heading"
-import "./EmptyLine"
-import "./Assignment"
-import "./UnorderedList"
-import "./OrderedList"
+import "./Block/Heading"
+import "./Block/Assignment"
+import "./Block/UnorderedList"
+import "./Block/OrderedList"
 
 export class Document extends Node {
 	constructor(private content: Block[], region: Error.Region) {

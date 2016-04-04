@@ -1,7 +1,7 @@
+import * as Error from "../../U10sil/Error/Region"
+import { Source } from "../Source"
+import { Renderer } from "../Renderer"
 import { Block } from "./Block"
-import { Source } from "./Source"
-import { Renderer } from "./Renderer"
-import * as Error from "../U10sil/Error/Region"
 
 export class EmptyLine extends Block {
 	constructor(region: Error.Region) {

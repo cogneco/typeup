@@ -1,6 +1,6 @@
-import { Node } from "./Node"
-import { Source } from "./Source"
-import * as Error from "../U10sil/Error/Region"
+import * as Error from "../../U10sil/Error/Region"
+import { Node } from "../Node"
+import { Source } from "../Source"
 
 export abstract class Inline extends Node {
 	constructor(region: Error.Region) {

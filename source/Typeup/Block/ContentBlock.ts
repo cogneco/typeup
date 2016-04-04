@@ -1,8 +1,8 @@
-import * as Error from "../U10sil/Error/Region"
-import { Node } from "./Node"
+import * as Error from "../../U10sil/Error/Region"
+import { Node } from "../Node"
+import { Renderer } from "../Renderer"
 import { Block } from "./Block"
-import { Inline } from "./Inline"
-import { Renderer } from "./Renderer"
+import { Inline } from "../Inline/Inline"
 
 export abstract class ContentBlock<T extends Node> extends Block {
 	constructor(private content: T[], region: Error.Region) {

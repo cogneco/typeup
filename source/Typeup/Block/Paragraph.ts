@@ -1,10 +1,9 @@
+import * as Error from "../../U10sil/Error/Message"
+import { Source } from "../Source"
+import { Renderer } from "../Renderer"
 import { Block } from "./Block"
 import { ContentBlock } from "./ContentBlock"
-import { Inline } from "./Inline"
-import { Source } from "./Source"
-import { Renderer } from "./Renderer"
-import { Text } from "./Text"
-import * as Error from "../U10sil/Error/Message"
+import { Inline } from "../Inline/Inline"
 
 export class Paragraph extends ContentBlock<Inline> {
 	constructor(content: Inline[]) {

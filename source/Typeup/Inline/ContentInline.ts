@@ -1,6 +1,6 @@
-import * as Error from "../U10sil/Error/Region"
+import * as Error from "../../U10sil/Error/Region"
+import { Renderer } from "../Renderer"
 import { Inline } from "./Inline"
-import { Renderer } from "./Renderer"
 
 export abstract class ContentInline extends Inline {
 	constructor(private content: Inline[], region: Error.Region) {

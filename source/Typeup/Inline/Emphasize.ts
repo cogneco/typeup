@@ -1,8 +1,8 @@
+import * as Error from "../../U10sil/Error/Region"
+import { Source } from "../Source"
+import { Renderer } from "../Renderer"
 import { ContentInline } from "./ContentInline"
 import { Inline } from "./Inline"
-import { Source } from "./Source"
-import { Renderer } from "./Renderer"
-import * as Error from "../U10sil/Error/Region"
 
 module Cogneco.Typeup {
 	export class Emphasize extends ContentInline {

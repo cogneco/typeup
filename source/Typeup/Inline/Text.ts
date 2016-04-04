@@ -1,7 +1,7 @@
+import * as Error from "../../U10sil/Error/Region"
+import { Source } from "../Source"
+import { Renderer } from "../Renderer"
 import { Inline } from "./Inline"
-import { Source } from "./Source"
-import { Renderer } from "./Renderer"
-import * as Error from "../U10sil/Error/Region"
 
 export class Text extends Inline {
 	constructor(private value: string, region: Error.Region) {
