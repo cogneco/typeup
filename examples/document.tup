@@ -19,6 +19,8 @@ it should.
 
 		with an additional paragraph
 	- sublist item 2
+		1. ordered subsublist item A
+		1. item B
 - last item
 
 Paragraph B

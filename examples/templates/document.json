@@ -10,6 +10,7 @@
 		"paragraph": "<p>${content}</p>\n",
 		"list item": "<li>${content}</li>\n",
 		"unordered list": "<ul>\n${content}</ul>\n",
+		"ordered list": "<ol>\n${content}</ol>\n",
 		"emphasize": "<em>${content}</em>"
 	}
 }

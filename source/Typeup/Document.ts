@@ -14,6 +14,7 @@ import "./Heading"
 import "./EmptyLine"
 import "./Assignment"
 import "./UnorderedList"
+import "./OrderedList"
 
 export class Document extends Node {
 	constructor(private content: Block[], region: Error.Region) {
