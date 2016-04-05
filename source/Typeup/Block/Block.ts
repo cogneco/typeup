@@ -6,6 +6,7 @@ import * as Error from "../../U10sil/Error/Region"
 import "../Inline/Text"
 import "../Inline/Emphasize"
 import "../Inline/Link"
+import "../Inline/Code"
 
 export abstract class Block extends Node {
 	constructor(region: Error.Region) {

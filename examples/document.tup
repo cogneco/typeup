@@ -7,7 +7,7 @@ author = Simon Mika
 # Header Level 1
 Paragraph A _emphasized text_ a lot of [http://example.com other nonsens]. This paragraph spans
 several lines and so
-it should.
+it should. And here is %a small bit of code%.
 
 - unordered list
 - list item 2
@@ -24,6 +24,11 @@ it should.
 - last item
 
 Paragraph B
+
+%% c
+for (int i = 0; i < 10; i++)
+	printf("\n")
+%%
 
 ## Header Level 2
 Paragraph C

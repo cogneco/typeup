@@ -13,6 +13,8 @@
 		"unordered list": "<ul>\n${content}</ul>\n",
 		"ordered list": "<ol>\n${content}</ol>\n",
 		"emphasize": "<em>${content}</em>",
-		"link": "<a href='${target}'>${content}</a>"
+		"link": "<a href='${target}'>${content}</a>",
+		"code": "<code>${content}</code>",
+		"codeblock": "<pre><code>${content}</code></pre>"
 	}
 }
