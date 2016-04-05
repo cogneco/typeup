@@ -3,6 +3,7 @@ import * as IO from "../U10sil/IO/BufferedReader"
 
 export class CommentStripper extends IO.Reader {
 	private backend: IO.BufferedReader
+	private last: string
 	constructor(backend: IO.Reader) {
 		super()
 		this.backend = backend instanceof IO.BufferedReader ? <IO.BufferedReader>backend : new IO.BufferedReader(backend)
@@ -11,18 +12,19 @@ export class CommentStripper extends IO.Reader {
 		return this.backend.isEmpty()
 	}
 	read(): string {
-		switch(this.backend.peek(3)) {
-			case "// ":
-				while (this.backend.peek() != "\n")
-					this.backend.read()
+		switch(this.backend.peek(2)) {
+			case "//":
+				if (this.last != ":")
+					while (this.backend.peek() != "\n")
+						this.backend.read()
 				break
-			case "/* ":
+			case "/*":
 				while (this.backend.peek(2) != "*/")
 					this.backend.read()
 				this.backend.read(2)
 				break
 		}
-		return this.backend.read()
+		return this.last = this.backend.read()
 	}
 	getResource(): string {
 		return this.backend.getResource()
