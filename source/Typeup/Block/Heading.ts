@@ -34,7 +34,9 @@ module Cogneco.Typeup {
 			if (level > 0) {
 				while (source.peek().match(/\s/))
 					source.read()
-				result = [new Heading(level, Inline.parse(source.until("\n")), source.mark())]
+				result = [new Heading(level, Inline.parse(source.till("\n")), source.mark())]
+				if (!source.readIf("\n"))
+					source.raise("Expected newline as end of header.")
 			}
 			return result
 		}
