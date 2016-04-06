@@ -31,7 +31,7 @@ export class Program {
 				break
 			case "pdf":
 				var document = this.open(this.commands.shift())
-				fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["-", "-o", "-"], { input: document.render(), cwd: Uri.Locator.parse(document.getRegion().getResource()).getFolder().toString() }))
+				fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["--javascript", "-", "-o", "-"], { input: document.render(), cwd: Uri.Locator.parse(document.getRegion().getResource()).getFolder().toString() }))
 				break
 			case "typeup": console.log(this.open(this.commands.shift()).toString()); break
 			case "self-test": Unit.Fixture.run(true); break
