@@ -7,7 +7,7 @@ author = Simon Mika
 # Header Level 1
 Paragraph A _emphasized text_ a lot of [http://example.com other nonsens]. This paragraph spans
 several lines and so
-it should. And here is %a small bit of code%.
+it should. And here is %a small bit of code% and another one with a bit of formula: $x^2 + y^2 = z^2$.
 
 - unordered list
 - list item 2
@@ -30,6 +30,9 @@ for (int i = 0; i < 10; i++)
 	printf("\n")
 %%
 An example of what a code block looks like.
+
+$$x^m + y^m = z^m$$
+A formula block with a caption.
 
 ## Header Level 2
 Paragraph C

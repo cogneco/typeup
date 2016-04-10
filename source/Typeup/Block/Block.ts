@@ -7,6 +7,7 @@ import "../Inline/Text"
 import "../Inline/Emphasize"
 import "../Inline/Link"
 import "../Inline/Code"
+import "../Inline/Math"
 
 export abstract class Block extends Node {
 	constructor(region: Error.Region) {
