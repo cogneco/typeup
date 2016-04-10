@@ -31,9 +31,11 @@ module Cogneco.Typeup {
 				if (!source.readIf("\n"))
 					source.raise("Expected newline as end of figure.")
 				var region = source.mark()
-				var result = Block.parse(source)
-				var caption = (result.length > 0 && result[0] instanceof Paragraph) ? <Inline[]>(<Paragraph>result[0]).getContent() : []
-				result[0] = new Figure(image, classes, caption, region)
+				result = Block.parse(source)
+				if (result.length > 0 && result[0] instanceof Paragraph)
+					result[0] = new Figure(image, classes, (<Paragraph>result[0]).getContent(), region)
+				else
+					result.unshift(new Figure(image, classes, [], region))
 			}
 			return result
 		}

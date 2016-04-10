@@ -5,6 +5,9 @@
 <title>Document Title</title>
 <meta name='author' content='Simon Mika'/>
 <meta name='date' content='2015-11-10'/>
+<link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css'>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js'></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <link rel='stylesheet' type='text/css' href='./templates/paper.css'>
 </head>
 <body>
@@ -52,10 +55,13 @@ several lines
 </ul>
 <p>Paragraph B
 </p>
-<pre><code>
-for (int i = 0; i < 10; i++)
+<figure>
+<pre><code>for (int i = 0; i < 10; i++)
 	printf("\n")
 </code></pre>
+<figcaption>An example of what a code block looks like.
+</figcaption>
+</figure>
 <h2>Header Level 2</h2>
 <p>Paragraph C
 </p>
