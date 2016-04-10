@@ -35,6 +35,9 @@ Paragraph C
 
 Paragraph D
 
+!figure https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Polygon_types.svg/300px-Polygon_types.svg.png
+An example of the different definitions of _shape_. The two triangles on the left are congruent, while the third is similar to them. The last triangle is neither [https://en.wikipedia.org/wiki/Similarity_(geometry) similar] nor congruent to any of the others, but it is homeomorphic.
+
 ### Header Level 3
 Paragraph E
 

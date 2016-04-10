@@ -15,6 +15,7 @@
 		"emphasize": "<em>${content}</em>",
 		"link": "<a href='${target}'>${content}</a>",
 		"code": "<code>${content}</code>",
-		"codeblock": "<pre><code>${content}</code></pre>"
+		"codeblock": "<pre><code>\n${content}</code></pre>\n",
+		"figure": "<figure>\n<img src='${source}' class='${classes}' />\n<figcaption>${content}</figcaption>\n</figure>\n"
 	}
 }

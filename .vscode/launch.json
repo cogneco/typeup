@@ -7,7 +7,7 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/build/app.js",
 			"stopOnEntry": false,
-			"args": ["pdf", "./examples"],
+			"args": ["pdf", "./examples/document.tup"],
 			"cwd": "${workspaceRoot}",
 			"preLaunchTask": "build",
 			"runtimeExecutable": null,
@@ -27,27 +27,7 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/build/app.js",
 			"stopOnEntry": false,
-			"args": ["html", "./examples"],
-			"cwd": "${workspaceRoot}",
-			"preLaunchTask": "build",
-			"runtimeExecutable": null,
-			"runtimeArgs": [
-				"--nolazy"
-			],
-			"env": {
-				"NODE_ENV": "development"
-			},
-			"externalConsole": false,
-			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/build"
-		},
-		{
-			"name": "pdf single file",
-			"type": "node",
-			"request": "launch",
-			"program": "${workspaceRoot}/build/app.js",
-			"stopOnEntry": false,
-			"args": ["pdf", "./examples/folder name/document name.tup"],
+			"args": ["html", "./examples/document.tup"],
 			"cwd": "${workspaceRoot}",
 			"preLaunchTask": "build",
 			"runtimeExecutable": null,
@@ -67,7 +47,7 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/build/app.js",
 			"stopOnEntry": false,
-			"args": ["json", "./examples"],
+			"args": ["json", "./examples/document.tup"],
 			"cwd": "${workspaceRoot}",
 			"preLaunchTask": "build",
 			"runtimeExecutable": null,
