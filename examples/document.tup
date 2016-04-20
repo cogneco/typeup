@@ -48,6 +48,9 @@ Paragraph E
 // one line comment
 Paragraph F
 
+!video http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4
+This is a sample of embedded video.
+
 /* Multiline comment
 Bla bla
 */

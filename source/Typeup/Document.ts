@@ -17,6 +17,7 @@ import "./Block/OrderedList"
 import "./Block/CodeBlock"
 import "./Block/MathBlock"
 import "./Block/Figure"
+import "./Block/Video"
 
 export class Document extends Node {
 	constructor(private content: Block[], region: Error.Region) {
