@@ -1,0 +1,14 @@
+sudo: false
+language: node_js
+before_install:
+- npm install
+script:
+- npm run build
+deploy:
+  provider: releases
+  api_key:
+    secure: jBCYxKNpMg8jBsKVvG3K1sQx6lk62Y9zqRcVT+N2M+PlXHxhpgYg5/diHai9AoV7IPjFsiFVG1+d9GUCxAvQ2RnxHH3+oCwUgaKSEOCOXUA3w3WTGhfI2OC1bOIEJ2A4JtDlKDx0P8tJsQOwM3bRiKRnDXLLehlFLIxsAKkw6yh1f/2bpm3ufg3hEf6HIAyzu9M985cLsu9DJmZrFefnhBupriwpB9ulzqyueL/1OJqOCRTbMtwqY0i86SBACPFKmhp771u2SJmfYEqqaTCAS7FZDRxZuFp7rNkvveDFEim4nMxWH5MY3yoS98R0jb26F67Wl7vvWYsHHqDXf4gO4sq6N24kVLEKoIw364XINONk8GAD7m4E/jPiqLu8TU3GD6IdRn5yILJIySBIgbocot4jw7ILg+5HjqoZK0mr9z2qnjJnsujvKgPULKyP2GKGimu+UF0tzvAqBgNMpvDHznDkjWFVWcCUwmSk+tqkO4XN/shN5uX6x7scBJ1Vss8R/LNJY1zzlFw4Olb2Yusgqa0Us/42ukNQL17jeT7aF2onW6a1XrgKSR6mC66ZVfqpNa6DuewRxm5muaLbSq8kYg4v7EElk55q5EJQOcJxaitPVun4d26DLi7OaGlRY6Bn7UwmL6WAqYNWAs2StpXR42dUEb0vaTzkkmMswEjBKwQ=
+  file: bin/app
+  skip_cleanup: true
+  on:
+    repo: cogneco/typeup
