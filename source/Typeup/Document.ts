@@ -1,13 +1,12 @@
 import * as Error from "../U10sil/Error/Handler"
 import * as IO from "../U10sil/IO"
 
+import { File } from "./File"
+
 import { Renderer } from "./Renderer"
-import { Node } from "./Node"
 import { Source } from "./Source"
 import { CommentStripper } from "./CommentStripper"
 import { Block } from "./Block/Block"
-import { EmptyLine } from "./Block/EmptyLine"
-import { Paragraph } from "./Block/Paragraph"
 
 // Used via dependency injection in Block
 import "./Block/Heading"
@@ -18,38 +17,24 @@ import "./Block/CodeBlock"
 import "./Block/MathBlock"
 import "./Block/Figure"
 import "./Block/Video"
+import "./Block/Import"
 
-export class Document extends Node {
-	constructor(private content: Block[], region: Error.Region) {
-		super(region)
+export class Document extends File {
+	constructor(content: Block[], region: Error.Region) {
+		super(content, region)
 	}
 	render(renderer?: Renderer): string {
 		if (!renderer)
 			renderer = new Renderer()
-		var body = ""
-		for (var i = 0; i < this.content.length; i++)
-			body += this.content[i].render(renderer)
-		return renderer.render("document", { "content": body })
+		return renderer.render("document", { "content": super.render(renderer) })
 	}
 	toObject(): any {
-		return { "type": "Document", "content": this.content.map(element => element.toObject()) }
+		return { "type": "Document", "content": super.toObject() }
 	}
 	toJson(indent?: string): string {
 		if (!indent)
 			indent = ""
 		return JSON.stringify(this.toObject(), null, indent)
-	}
-	toString(): string {
-		var result = ""
-		var wasParagraph = false
-		for (var i = 0; i < this.content.length; i++) {
-			var isParagraph = this.content[i] instanceof(Paragraph)
-			if (isParagraph && wasParagraph)
-				result += "\n"
-			result += this.content[i].toString()
-			wasParagraph = isParagraph
-		}
-		return result
 	}
 	static parse(reader: IO.Reader, handler: Error.Handler): Document {
 		var source = new Source(new CommentStripper(reader), handler)
