@@ -23,8 +23,17 @@ module Cogneco.Typeup {
 				renderer.setVariable("template-path", templatePath.getFolder().toString())
 				var documentPath = Uri.Locator.parse(this.getRegion().getResource())
 				var location = templatePath.resolve(documentPath)
-				var content = fs.readFileSync((location.isRelative() ? "" : "/") + location.getPath().join("/"), "utf-8")
-				renderer.setTemplate(<Template>JSON.parse(content))
+				var nativePath = (location.isRelative() ? "" : "/") + location.getPath().join("/")
+				try {
+					var content = fs.readFileSync(nativePath, "utf-8")
+				} catch (error) {
+					console.error(`Failed to open template: ${nativePath}`)
+				}
+				try {
+					renderer.setTemplate(<Template>JSON.parse(content))
+				} catch (error) {
+					console.error(`Failed to parse template: ${nativePath}`)
+				}
 			}
 			return ""
 		}

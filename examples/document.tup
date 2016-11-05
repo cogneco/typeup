@@ -2,7 +2,7 @@ template = templates/document
 class = paper
 title = Document Title
 date = 2015-11-10
-author = Simon Mika
+author = John Doe
 
 # Header Level 1
 Paragraph A _emphasized text_ a lot of [http://example.com other nonsens]. This paragraph spans
