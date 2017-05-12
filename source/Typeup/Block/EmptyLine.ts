@@ -1,4 +1,4 @@
-import * as Error from "../.@cogneco/mend
+import { Error } from "@cogneco/mend"
 import { Source } from "../Source"
 import { Renderer } from "../Renderer"
 import { Block } from "./Block"

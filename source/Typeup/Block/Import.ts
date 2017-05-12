@@ -1,4 +1,4 @@
-import * as Error from "../.@cogneco/mend
+import { Error, Uri } from "@cogneco/mend"
 import { File } from "../File"
 import { Source } from "../Source"
 import { Renderer } from "../Renderer"
@@ -6,7 +6,6 @@ import { Block } from "./Block"
 import { ContentBlock } from "./ContentBlock"
 import { Paragraph } from "./Paragraph"
 import { Inline } from "../Inline/Inline"
-import * as Uri from "../.@cogneco/mend
 
 export class Import extends Block {
 	constructor(private source: string, private content: File, region: Error.Region) {
