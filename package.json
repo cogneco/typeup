@@ -19,5 +19,8 @@
     "@types/node": "^7.0.18",
     "browserify": "^14.3.0",
     "typescript": "^2.3.2"
+  },
+  "dependencies": {
+    "@cogneco/mend": "^1.0.0"
   }
 }

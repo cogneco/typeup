@@ -1,8 +1,5 @@
-import * as Error from "./U10sil/source/Error"
-import * as Uri from "./U10sil/source/Uri"
-import * as Unit from "./U10sil/source/Unit"
-import * as IO from "./U10sil/source/IO"
-import "./U10sil/Test"
+import { Error, Uri, Unit, IO } from "@cogneco/mend"
+import "@cogneco/mend"
 
 import * as fs from "fs"
 import * as cp from "child_process"

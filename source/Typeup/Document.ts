@@ -1,5 +1,4 @@
-import * as Error from "../U10sil/source/Error"
-import * as IO from "../U10sil/source/IO"
+import { Error } from "@cogneco/mend"
 
 import { File } from "./File"
 

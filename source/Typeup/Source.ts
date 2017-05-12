@@ -1,5 +1,4 @@
-import * as Error from "../U10sil/source/Error"
-import * as IO from "../U10sil/source/IO"
+import { Error, IO } from "@cogneco/mend"
 import { CommentStripper } from "./CommentStripper"
 
 export class Source extends IO.BufferedReader implements Error.Handler {

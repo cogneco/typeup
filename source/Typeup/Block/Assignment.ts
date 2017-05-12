@@ -4,8 +4,7 @@ import { Block } from "./Block"
 import { Inline } from "../Inline/Inline"
 import { Template } from "../Template"
 import { Renderer } from "../Renderer"
-import * as Error from "../../U10sil/source/Error"
-import * as Uri from "../../U10sil/source/Uri"
+import { Error, Uri } from "@cogneco/mend"
 
 import * as fs from "fs"
 

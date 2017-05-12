@@ -1,4 +1,4 @@
-import * as Error from "../../U10sil/source/Error"
+import { Error } from "@cogneco/mend"
 import { Node } from "../Node"
 import { Source } from "../Source"
 

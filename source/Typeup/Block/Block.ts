@@ -1,7 +1,7 @@
 import { Node } from "../Node"
 import { Source } from "../Source"
 import { Inline } from "../Inline/Inline"
-import * as Error from "../../U10sil/source/Error"
+import { Error } from "@cogneco/mend"
 // Used via dependency injection in Inline
 import "../Inline/Text"
 import "../Inline/Emphasize"

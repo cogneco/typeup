@@ -1,4 +1,4 @@
-import * as Error from "../../U10sil/source/Error"
+import { Error } from "@cogneco/mend"
 import { Renderer } from "../Renderer"
 import { Block } from "./Block"
 import { ContentBlock } from "./ContentBlock"
