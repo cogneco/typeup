@@ -11,24 +11,24 @@ export class Text extends Inline {
 		return this.value
 	}
 	toObject(): any {
-		return { "type": "Text", "value": this.value }
+		return { type: "Text", value: this.value }
 	}
 	toString(): string {
 		return this.value
 	}
 	static parse(source: Source): Inline[] {
-		var result: Inline[]
-		var value = source.read()
+		let result: Inline[]
+		let value = source.read()
 		if (value == "\\")
 			value = source.read()
-		var region = source.mark()
+		let region = source.mark()
 		result = Inline.parse(source)
 		if (result.length > 0 && result[0] instanceof Text) {
-			value += (<Text>result[0]).value
+			value += (result[0] as Text).value
 			region = region.merge(result[0].getRegion())
 			result[0] = new Text(value, region)
 		} else
-			result = [<Inline>new Text(value, region)].concat(result)
+			result = [new Text(value, region) as Inline].concat(result)
 		return result
 	}
 }

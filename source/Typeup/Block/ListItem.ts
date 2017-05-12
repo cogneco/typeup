@@ -8,11 +8,11 @@ export class ListItem extends ContentBlock<Block> {
 		super(content, region)
 	}
 	render(renderer: Renderer): string {
-		return renderer.render("list item", { "content": super.render(renderer) })
+		return renderer.render("list item", { content: super.render(renderer) })
 	}
 	toObject(): any {
-		var result = super.toObject()
-		result["type"] = "ListItem"
+		const result = super.toObject()
+		result.type = "ListItem"
 		return result
 	}
 	toString(symbol?: string): string {

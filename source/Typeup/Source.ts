@@ -13,9 +13,9 @@ export class Source extends IO.BufferedReader implements Error.Handler {
 				type = Error.Type.Lexical
 			if (!region)
 				region = this.getRegion()
-			message = new Error.Message(<string>message, level, type, region)
+			message = new Error.Message(message as string, level, type, region)
 		}
-		this.errorHandler.raise(<Error.Message>message)
+		this.errorHandler.raise(message as Error.Message)
 	}
 	requirePrefix(prefix: string | string[]): Source {
 		return new Source(new IO.PrefixReader(this, prefix), this.errorHandler)

@@ -10,26 +10,26 @@ export class Heading extends ContentBlock<Inline> {
 		super(content, region)
 	}
 	render(renderer: Renderer): string {
-		return renderer.render("heading", { "level": this.level.toString(), "content": super.render(renderer) })
+		return renderer.render("heading", { level: this.level.toString(), content: super.render(renderer) })
 	}
 	toObject(): any {
-		var result = super.toObject()
-		result["type"] = "Heading"
-		result["level"] = this.level
+		const result = super.toObject()
+		result.type = "Heading"
+		result.level = this.level
 		return result
 	}
 	toString() {
-		var result = ""
-		for (var i = 0; i < this.level; i++)
+		let result = ""
+		for (let i = 0; i < this.level; i++)
 			result += "#"
 		result += super.toString()
 		return result
 	}
 	static parse(source: Source): Block[] {
-		var level = 0
+		let level = 0
 		while (source.readIf("#"))
 			level++
-		var result: Block[]
+		let result: Block[]
 		if (level > 0) {
 			while (source.peek().match(/\s/))
 				source.read()

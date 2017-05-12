@@ -1,4 +1,4 @@
-import { Error } from "@cogneco/mend"
+import { Error, IO } from "@cogneco/mend"
 
 import { File } from "./File"
 
@@ -25,10 +25,10 @@ export class Document extends File {
 	render(renderer?: Renderer): string {
 		if (!renderer)
 			renderer = new Renderer()
-		return renderer.render("document", { "content": super.render(renderer) })
+		return renderer.render("document", { content: super.render(renderer) })
 	}
 	toObject(): any {
-		return { "type": "Document", "content": super.toObject() }
+		return { type: "Document", content: super.toObject() }
 	}
 	toJson(indent?: string): string {
 		if (!indent)
@@ -36,7 +36,7 @@ export class Document extends File {
 		return JSON.stringify(this.toObject(), null, indent)
 	}
 	static parse(reader: IO.Reader, handler: Error.Handler): Document {
-		var source = new Source(new CommentStripper(reader), handler)
+		const source = new Source(new CommentStripper(reader), handler)
 		return new Document(Block.parseAll(source), source.mark())
 	}
 	static open(path: string, handler: Error.Handler): Document {

@@ -1,6 +1,7 @@
 // Place your settings in this file to overwrite default and user settings.
 {
 	"editor.tabSize": 2,
+	"editor.detectIndentation": false,
 	"editor.renderWhitespace": "boundary",
 	"editor.insertSpaces": false,
 	"files.trimTrailingWhitespace": true,
@@ -14,5 +15,11 @@
 		".vscode": false,
 		"build": true,
 		"**/.git": true
-	}
+	},
+	"files.encoding": "utf8",
+	"files.eol": "\n",
+
+	"tslint.enable": true,
+	"tslint.run": "onType",
+	"tslint.configFile": "./.vscode/tslint.json"
 }

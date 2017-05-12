@@ -11,17 +11,17 @@ export class EmptyLine extends Block {
 		return ""
 	}
 	toObject(): any {
-		return { "type": "EmptyLine" }
+		return { type: "EmptyLine" }
 	}
 	toString(): string {
 		return "\n"
 	}
 	static parse(source: Source): Block[] {
-		var result: Block[]
+		let result: Block[]
 		if (source.peek() == "\n") {
 			source.read()
 			result = [new EmptyLine(source.mark())]
-			var next = Block.parse(source)
+			const next = Block.parse(source)
 			if (next && next.length > 0)
 				result = result.concat(next)
 		}
@@ -29,4 +29,4 @@ export class EmptyLine extends Block {
 	}
 }
 Block.addParser(EmptyLine.parse)
-Block.addFilter(block => block && !(block instanceof(EmptyLine)))
+Block.addFilter(block => block && !(block instanceof EmptyLine))

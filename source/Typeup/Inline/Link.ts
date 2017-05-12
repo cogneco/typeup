@@ -10,23 +10,23 @@ export class Link extends ContentInline {
 		super(content, region)
 	}
 	render(renderer: Renderer): string {
-		return renderer.render("link", { "target": this.target, "content": super.render(renderer) })
+		return renderer.render("link", { target: this.target, content: super.render(renderer) })
 	}
 	toObject(): any {
-		var result = super.toObject()
-		result["type"] = "Link"
+		const result = super.toObject()
+		result.type = "Link"
 		return result
 	}
 	toString(): string {
 		return "[" + this.target + " " + super.toString() + "]"
 	}
 	static parse(source: Source): Inline[] {
-		var result: Inline[]
+		let result: Inline[]
 		if (source.readIf("[")) {
-			var target = ""
+			let target = ""
 			while (!source.isEmpty() && !source.peekIs([" ", "]"]))
 				target += source.read()
-			result = [new Link(target, source.readIf(" ") ? Inline.parse(source.till("]")) : [<Inline>new Text(target, source.mark())], source.mark())]
+			result = [new Link(target, source.readIf(" ") ? Inline.parse(source.till("]")) : [new Text(target, source.mark()) as Inline], source.mark())]
 			if (!source.readIf("]"))
 				source.raise("Expected \"]\" as end of link.")
 		}

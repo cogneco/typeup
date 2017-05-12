@@ -9,18 +9,18 @@ export class Emphasize extends ContentInline {
 		super(content, region)
 	}
 	render(renderer: Renderer): string {
-		return renderer.render("emphasize", { "content": super.render(renderer) })
+		return renderer.render("emphasize", { content: super.render(renderer) })
 	}
 	toObject(): any {
-		var result = super.toObject()
-		result["type"] = "Emphasize"
+		const result = super.toObject()
+		result.type = "Emphasize"
 		return result
 	}
 	toString(): string {
 		return "_" + super.toString() + "_"
 	}
 	static parse(source: Source): Inline[] {
-		var result: Inline[]
+		let result: Inline[]
 		if (source.readIf("_")) {
 			result = [new Emphasize(Inline.parse(source.till("_")), source.mark())]
 			if (!source.readIf("_"))

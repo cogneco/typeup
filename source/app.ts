@@ -22,11 +22,11 @@ export class Program {
 		switch (command) {
 			case "json": console.log(this.open(this.commands.shift()).toJson("  ")); break
 			case "html":
-				var document = this.open(this.commands.shift())
+				let document = this.open(this.commands.shift())
 				fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".html"), document.render())
 				break
 			case "pdf":
-				var document = this.open(this.commands.shift())
+				document = this.open(this.commands.shift())
 				fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["--javascript", "-", "-o", "-"], { input: document.render(), cwd: Uri.Locator.parse(document.getRegion().getResource()).getFolder().toString() }))
 				break
 			case "typeup": console.log(this.open(this.commands.shift()).toString()); break
@@ -43,7 +43,7 @@ export class Program {
 			this.defaultCommand = command
 	}
 	run() {
-		var command: string
+		let command: string
 		while (command = this.commands.shift())
 			this.runHelper(command, this.commands)
 	}

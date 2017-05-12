@@ -5,13 +5,13 @@ export class CommentStripper extends IO.Reader {
 	private last: string
 	constructor(backend: IO.Reader) {
 		super()
-		this.backend = backend instanceof IO.BufferedReader ? <IO.BufferedReader>backend : new IO.BufferedReader(backend)
+		this.backend = backend instanceof IO.BufferedReader ? backend as IO.BufferedReader : new IO.BufferedReader(backend)
 	}
 	isEmpty(): boolean {
 		return this.backend.isEmpty()
 	}
 	read(): string {
-		switch(this.backend.peek(2)) {
+		switch (this.backend.peek(2)) {
 			case "//":
 				if (this.last != ":")
 					while (this.backend.peek() != "\n")

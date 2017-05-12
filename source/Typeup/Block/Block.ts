@@ -17,20 +17,20 @@ export abstract class Block extends Node {
 	static addParser(parser: (source: Source) => Block[], priority?: number) {
 		if (!priority)
 			priority = 0
-		Block.parsers.push({ parse: parser, priority: priority})
+		Block.parsers.push({ parse: parser, priority})
 		Block.parsers = Block.parsers.sort((left, right) => right.priority - left.priority)
 	}
 	static parse(source: Source): Block[] {
-		var result: Block[]
-		var i = 0
+		let result: Block[]
+		let i = 0
 		do
 			result = Block.parsers[i++].parse(source)
 		while (!result && i < Block.parsers.length)
 		return result
 	}
 	static parseAll(source: Source): Block[] {
-		var result: Block[] = []
-		var r: Block[]
+		let result: Block[] = []
+		let r: Block[]
 		while ((r = Block.parse(source)) && r.length > 0)
 			result = result.concat(r)
 		Block.filters.forEach(filter => result = result.filter(filter))

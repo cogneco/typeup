@@ -8,7 +8,7 @@ export class Code extends Inline {
 		super(region)
 	}
 	render(renderer: Renderer): string {
-		return renderer.render("code", { "content": this.content })
+		return renderer.render("code", { content: this.content })
 	}
 	toObject(): any {
 		return { type: "code", content: this.content }
@@ -17,7 +17,7 @@ export class Code extends Inline {
 		return "%" + super.toString() + "%"
 	}
 	static parse(source: Source): Inline[] {
-		var result: Inline[]
+		let result: Inline[]
 		if (source.readIf("%")) {
 			result = [new Code(source.till("%").readAll(), source.mark())]
 			if (!source.readIf("%"))

@@ -11,32 +11,32 @@ export class CodeBlock extends ContentBlock<Inline> {
 		super(content, region)
 	}
 	render(renderer: Renderer): string {
-		return renderer.render("codeblock", { "code": this.code, "language": this.language, "content": super.render(renderer) })
+		return renderer.render("codeblock", { code: this.code, language: this.language, content: super.render(renderer) })
 	}
 	toObject(): any {
-		var result = super.toObject()
-		result["type"] = "CodeBlock"
-		result["code"] = this.code
-		result["language"] = this.language
+		const result = super.toObject()
+		result.type = "CodeBlock"
+		result.code = this.code
+		result.language = this.language
 		return result
 	}
 	toString() {
 		return `%% ${this.language}\n${this.code}\n%%\n${super.toString()}`
 	}
 	static parse(source: Source): Block[] {
-		var result: Block[]
+		let result: Block[]
 		if (source.readIf("%%")) {
-			var language = source.till("\n").readAll()
+			const language = source.till("\n").readAll()
 			if (!source.readIf("\n"))
 				source.raise("Expected newline.")
-			var code = source.till("%%").readAll()
+			const code = source.till("%%").readAll()
 			if (!source.readIf("%%"))
 				source.raise("Expected \"%%\" as end of code block.")
 			source.readIf("\n")
-			var region = source.mark()
+			const region = source.mark()
 			result = Block.parse(source)
 			if (result.length > 0 && result[0] instanceof Paragraph)
-				result[0] = new CodeBlock(language, code, (<Paragraph>result[0]).getContent(), region)
+				result[0] = new CodeBlock(language, code, (result[0] as Paragraph).getContent(), region)
 			else
 				result.unshift(new CodeBlock(language, code, [], region))
 		}

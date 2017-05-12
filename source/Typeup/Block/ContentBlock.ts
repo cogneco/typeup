@@ -16,6 +16,6 @@ export abstract class ContentBlock<T extends Node> extends Block {
 		return this.content.map(c => c.toString()).join("")
 	}
 	toObject(): any {
-		return { "content": this.content.map(c => c.toObject()) }
+		return { content: this.content.map(c => c.toObject()) }
 	}
 }

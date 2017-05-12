@@ -15,22 +15,22 @@ export class Import extends Block {
 		return this.content.render(renderer)
 	}
 	toObject(): any {
-		return { "type": "Import", "source": this.source, "content": this.content.toObject() }
+		return { type: "Import", source: this.source, content: this.content.toObject() }
 	}
 	toString() {
 		return `!import ${this.source} \n`
 	}
 	static parse(source: Source): Block[] {
-		var result: Block[]
+		let result: Block[]
 		if (source.readIf("!import ")) {
-			var path = source.till(["\n"]).readAll()
+			const path = source.till(["\n"]).readAll()
 			if (!source.readIf("\n"))
 				source.raise("Expected newline as end of import.")
-			var region = source.mark()
-			var importPath = Uri.Locator.parse(path + ".tup")
-			var currentPath = Uri.Locator.parse(region.getResource())
-			var location = importPath.resolve(currentPath)
-			var content = File.open((location.isRelative() ? "" : "/") + location.getPath().join("/"), source)
+			const region = source.mark()
+			const importPath = Uri.Locator.parse(path + ".tup")
+			const currentPath = Uri.Locator.parse(region.getResource())
+			const location = importPath.resolve(currentPath)
+			const content = File.open((location.isRelative() ? "" : "/") + location.getPath().join("/"), source)
 			result = [ new Import(path, content, region) ]
 		}
 		return result

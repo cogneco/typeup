@@ -8,7 +8,7 @@ export class Math extends Inline {
 		super(region)
 	}
 	render(renderer: Renderer): string {
-		return renderer.render("math", { "content": this.content })
+		return renderer.render("math", { content: this.content })
 	}
 	toObject(): any {
 		return { type: "Math", content: this.content }
@@ -17,7 +17,7 @@ export class Math extends Inline {
 		return "$" + super.toString() + "$"
 	}
 	static parse(source: Source): Inline[] {
-		var result: Inline[]
+		let result: Inline[]
 		if (source.readIf("$")) {
 			result = [new Math(source.till("$").readAll(), source.mark())]
 			if (!source.readIf("$"))
@@ -27,4 +27,3 @@ export class Math extends Inline {
 	}
 }
 Inline.addParser(Math.parse)
-
