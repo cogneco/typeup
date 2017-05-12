@@ -1,21 +1,23 @@
 {
-	"name": "typeup",
-	"description": "Markup for documents.",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"setup": "npm install",
-		"postinstall": "tsd reinstall",
-		"start": "node ./build/app.js",
-		"prestart": "npm run build",
-		"build": "tsc -p ./source && echo '#!/usr/bin/env node' > build/app && browserify --node build/app.js >> build/app && chmod 755 build/app",
-		"predeploy": "npm install && npm run build",
-		"deploy": "sudo cp build/app /usr/local/bin/typeup",
-		"clean": "rm -rf build typings node_modules source/tsd.d.ts"
-	},
-	"dependencies": {
-		"browserify": "^13.0.0",
-		"tsd": "^0.6.5",
-		"typescript": "^1.8.9"
-	}
+  "name": "typeup",
+  "description": "Markup for documents.",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "setup": "npm install",
+    "start": "node ./build/app.js",
+    "prestart": "npm run build",
+    "build": "tsc -p ./source && echo '#!/usr/bin/env node' > build/app && browserify --node build/app.js >> build/app && chmod 755 build/app",
+    "predeploy": "npm install && npm run build",
+    "deploy": "sudo cp build/app /usr/local/bin/typeup",
+    "clean": "rm -rf build typings node_modules source/tsd.d.ts",
+    "dev": "watch 'npm run build' source",
+    "pretest": "npm run build",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.18",
+    "browserify": "^14.3.0",
+    "typescript": "^2.3.2"
+  }
 }

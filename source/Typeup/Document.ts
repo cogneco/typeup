@@ -1,5 +1,5 @@
-import * as Error from "../U10sil/Error/Handler"
-import * as IO from "../U10sil/IO"
+import * as Error from "../U10sil/source/Error"
+import * as IO from "../U10sil/source/IO"
 
 import { File } from "./File"
 

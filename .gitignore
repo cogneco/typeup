@@ -1,5 +1,3 @@
 node_modules
 build
-typings
-source/tsd.d.ts
 *.log

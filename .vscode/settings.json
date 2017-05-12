@@ -11,10 +11,8 @@
 	},
 	"files.exclude": {
 		"node_modules": true,
-		"typings": true,
-		".vscode": true,
+		".vscode": false,
 		"build": true,
-		"source/tsd.d.ts": true,
 		"**/.git": true
 	}
 }

@@ -1,4 +1,4 @@
-import * as Error from "../U10sil/Error/Region"
+import * as Error from "../U10sil/source/Error"
 import { Renderer } from "./Renderer"
 
 export abstract class Node {

@@ -1,4 +1,4 @@
-import * as Error from "../../U10sil/Error/Region"
+import * as Error from "../../U10sil/source/Error"
 import { File } from "../File"
 import { Source } from "../Source"
 import { Renderer } from "../Renderer"
@@ -6,7 +6,7 @@ import { Block } from "./Block"
 import { ContentBlock } from "./ContentBlock"
 import { Paragraph } from "./Paragraph"
 import { Inline } from "../Inline/Inline"
-import * as Uri from "../../U10sil/Uri/Locator"
+import * as Uri from "../../U10sil/source/Uri"
 
 module Cogneco.Typeup {
 	export class Import extends Block {

@@ -4,9 +4,9 @@ import { Block } from "./Block"
 import { Inline } from "../Inline/Inline"
 import { Template } from "../Template"
 import { Renderer } from "../Renderer"
-import * as Error from "../../U10sil/Error/Region"
-import * as Uri from "../../U10sil/Uri/Locator"
-/// <reference path="../../tsd.d.ts" />
+import * as Error from "../../U10sil/source/Error"
+import * as Uri from "../../U10sil/source/Uri"
+
 import * as fs from "fs"
 
 module Cogneco.Typeup {

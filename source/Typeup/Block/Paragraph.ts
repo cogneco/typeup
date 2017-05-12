@@ -1,4 +1,4 @@
-import * as Error from "../../U10sil/Error/Message"
+import * as Error from "../../U10sil/source/Error"
 import { Source } from "../Source"
 import { Renderer } from "../Renderer"
 import { Block } from "./Block"

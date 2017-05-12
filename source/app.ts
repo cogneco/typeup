@@ -1,8 +1,7 @@
-/// <reference path="./tsd.d.ts" />
-import * as Error from "./U10sil/Error/ConsoleHandler"
-import * as Uri from "./U10sil/Uri/Locator"
-import * as Unit from "./U10sil/Unit/Fixture"
-import * as IO from "./U10sil/IO/Reader"
+import * as Error from "./U10sil/source/Error"
+import * as Uri from "./U10sil/source/Uri"
+import * as Unit from "./U10sil/source/Unit"
+import * as IO from "./U10sil/source/IO"
 import "./U10sil/Test"
 
 import * as fs from "fs"

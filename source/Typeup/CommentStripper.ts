@@ -1,5 +1,5 @@
-import * as Error from "../U10sil/Error/Region"
-import * as IO from "../U10sil/IO/BufferedReader"
+import * as Error from "../U10sil/source/Error"
+import * as IO from "../U10sil/source/IO"
 
 export class CommentStripper extends IO.Reader {
 	private backend: IO.BufferedReader

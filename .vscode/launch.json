@@ -9,7 +9,6 @@
 			"stopOnEntry": false,
 			"args": ["pdf", "./examples/document.tup"],
 			"cwd": "${workspaceRoot}",
-			"preLaunchTask": "build",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -18,8 +17,10 @@
 				"NODE_ENV": "development"
 			},
 			"console": "internalConsole",
+			"protocol": "inspector",
+			"preLaunchTask": "build",
 			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/build"
+			"outFiles": [ "${workspaceRoot}/build/**/*.js" ]
 		},
 		{
 			"name": "html",
@@ -29,7 +30,6 @@
 			"stopOnEntry": false,
 			"args": ["html", "./examples/document.tup"],
 			"cwd": "${workspaceRoot}",
-			"preLaunchTask": "build",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -38,8 +38,10 @@
 				"NODE_ENV": "development"
 			},
 			"console": "internalConsole",
+			"protocol": "inspector",
+			"preLaunchTask": "build",
 			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/build"
+			"outFiles": [ "${workspaceRoot}/build/**/*.js" ]
 		},
 		{
 			"name": "json",
@@ -49,7 +51,6 @@
 			"stopOnEntry": false,
 			"args": ["json", "./examples/document.tup"],
 			"cwd": "${workspaceRoot}",
-			"preLaunchTask": "build",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -58,8 +59,10 @@
 				"NODE_ENV": "development"
 			},
 			"console": "internalConsole",
+			"protocol": "inspector",
+			"preLaunchTask": "build",
 			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/build"
+			"outFiles": [ "${workspaceRoot}/build/**/*.js" ]
 		},
 		{
 			"name": "self-test",
@@ -69,7 +72,6 @@
 			"stopOnEntry": false,
 			"args": ["self-test"],
 			"cwd": "${workspaceRoot}",
-			"preLaunchTask": "build",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -78,8 +80,10 @@
 				"NODE_ENV": "development"
 			},
 			"console": "internalConsole",
+			"protocol": "inspector",
+			"preLaunchTask": "build",
 			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/build"
+			"outFiles": [ "${workspaceRoot}/build/**/*.js" ]
 		}
 	]
 }
