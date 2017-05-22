@@ -11,7 +11,7 @@
     "build": "tsc -p ./source && echo '#!/usr/bin/env node' > build/app && browserify --node build/app.js >> build/app && chmod 755 build/app",
     "predeploy": "npm install && npm run build",
     "deploy": "sudo cp build/app /usr/local/bin/typeup",
-    "clean": "rm -rf build typings node_modules source/tsd.d.ts",
+    "clean": "rm -rf build node_modules",
     "dev": "watch 'npm run build' source",
     "pretest": "npm run build",
     "prepublish": "npm run build"

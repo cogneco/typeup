@@ -21,5 +21,9 @@
 
 	"tslint.enable": true,
 	"tslint.run": "onType",
-	"tslint.configFile": "./.vscode/tslint.json"
+	"tslint.configFile": "./.vscode/tslint.json",
+	"licenser.license": "AGPLv3",
+	"licenser.projectName": "TypeUp",
+	"licenser.author": "Simon Mika <simon@mika.se>",
+	"licenser.useSingleLineStyle": true
 }
