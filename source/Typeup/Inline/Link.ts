@@ -24,7 +24,7 @@ export class Link extends ContentInline {
 		let result: Inline[]
 		if (source.readIf("[")) {
 			let target = ""
-			while (!source.isEmpty() && !source.peekIs([" ", "]"]))
+			while (!source.isEmpty && !source.peekIs([" ", "]"]))
 				target += source.read()
 			result = [new Link(target, source.readIf(" ") ? Inline.parse(source.till("]")) : [new Text(target, source.mark()) as Inline], source.mark())]
 			if (!source.readIf("]"))

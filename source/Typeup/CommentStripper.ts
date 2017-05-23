@@ -3,12 +3,21 @@ import { Error, IO } from "@cogneco/mend"
 export class CommentStripper extends IO.Reader {
 	private backend: IO.BufferedReader
 	private last: string
+	get isEmpty(): boolean {
+		return this.backend.isEmpty
+	}
+	get resource(): string {
+		return this.backend.resource
+	}
+	get location(): Error.Location {
+		return this.backend.location
+	}
+	get region(): Error.Region {
+		return this.backend.region
+	}
 	constructor(backend: IO.Reader) {
 		super()
 		this.backend = backend instanceof IO.BufferedReader ? backend as IO.BufferedReader : new IO.BufferedReader(backend)
-	}
-	isEmpty(): boolean {
-		return this.backend.isEmpty()
 	}
 	read(): string {
 		switch (this.backend.peek(2)) {
@@ -24,15 +33,6 @@ export class CommentStripper extends IO.Reader {
 				break
 		}
 		return this.last = this.backend.read()
-	}
-	getResource(): string {
-		return this.backend.getResource()
-	}
-	getLocation(): Error.Location {
-		return this.backend.getLocation()
-	}
-	getRegion(): Error.Region {
-		return this.backend.getRegion()
 	}
 	mark(): Error.Region {
 		return this.backend.mark()

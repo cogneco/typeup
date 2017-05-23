@@ -23,11 +23,11 @@ export class Program {
 			case "json": console.log(this.open(this.commands.shift()).toJson("  ")); break
 			case "html":
 				let document = this.open(this.commands.shift())
-				fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".html"), document.render())
+				fs.writeFileSync(document.getRegion().resource.replace(/\.tup$/, ".html"), document.render())
 				break
 			case "pdf":
 				document = this.open(this.commands.shift())
-				fs.writeFileSync(document.getRegion().getResource().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["--javascript", "-", "-o", "-"], { input: document.render(), cwd: Uri.Locator.parse(document.getRegion().getResource()).getFolder().toString() }))
+				fs.writeFileSync(document.getRegion().resource.replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["--javascript", "-", "-o", "-"], { input: document.render(), cwd: Uri.Locator.parse(document.getRegion().resource).folder.toString() }))
 				break
 			case "typeup": console.log(this.open(this.commands.shift()).toString()); break
 			case "self-test": Unit.Fixture.run(true); break

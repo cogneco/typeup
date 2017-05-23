@@ -18,10 +18,10 @@ export class Assignment extends Block {
 		renderer.setVariable(this.name, this.value)
 		if (this.name == "template") {
 			const templatePath = Uri.Locator.parse(this.value + ".json")
-			renderer.setVariable("template-path", templatePath.getFolder().toString())
-			const documentPath = Uri.Locator.parse(this.getRegion().getResource())
+			renderer.setVariable("template-path", templatePath.folder.toString())
+			const documentPath = Uri.Locator.parse(this.getRegion().resource)
 			const location = templatePath.resolve(documentPath)
-			const nativePath = (location.isRelative() ? "" : "/") + location.getPath().join("/")
+			const nativePath = (location.isRelative ? "" : "/") + location.path.join("/")
 			let content: string
 			try {
 				content = fs.readFileSync(nativePath, "utf-8")

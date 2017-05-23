@@ -28,9 +28,9 @@ export class Import extends Block {
 				source.raise("Expected newline as end of import.")
 			const region = source.mark()
 			const importPath = Uri.Locator.parse(path + ".tup")
-			const currentPath = Uri.Locator.parse(region.getResource())
+			const currentPath = Uri.Locator.parse(region.resource)
 			const location = importPath.resolve(currentPath)
-			const content = File.open((location.isRelative() ? "" : "/") + location.getPath().join("/"), source)
+			const content = File.open((location.isRelative ? "" : "/") + location.path.join("/"), source)
 			result = [ new Import(path, content, region) ]
 		}
 		return result

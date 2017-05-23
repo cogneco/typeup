@@ -19,15 +19,14 @@
 	"showOutput": "silent",
 	"tasks": [
 		{
-			"taskName": "setup"
-		},
-		{
 			"taskName": "build",
 			"isBuildCommand": true,
 			"problemMatcher": [ "$tsc", "$tslint5" ]
 		},
 		{
-			"taskName": "start"
+			"taskName": "test",
+			"isTestCommand": true,
+			"problemMatcher": [ "$tsc", "$tslint5" ]
 		},
 		{
 			"taskName": "clean"

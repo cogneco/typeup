@@ -12,7 +12,7 @@ export class Source extends IO.BufferedReader implements Error.Handler {
 			if (!type)
 				type = Error.Type.Lexical
 			if (!region)
-				region = this.getRegion()
+				region = this.region
 			message = new Error.Message(message as string, level, type, region)
 		}
 		this.errorHandler.raise(message as Error.Message)

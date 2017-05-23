@@ -14,6 +14,7 @@
     "clean": "rm -rf build node_modules",
     "dev": "watch 'npm run build' source",
     "pretest": "npm run build",
+    "test": "node ./build/app.js self-test",
     "prepublish": "npm run build"
   },
   "devDependencies": {
@@ -23,6 +24,6 @@
     "typescript": "^2.3.2"
   },
   "dependencies": {
-    "@cogneco/mend": "^1.0.0"
+    "@cogneco/mend": "^1.2.1"
   }
 }
