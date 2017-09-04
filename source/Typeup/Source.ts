@@ -21,9 +21,9 @@ export class Source extends IO.BufferedReader implements Error.Handler {
 		return new Source(new IO.PrefixReader(this, prefix), this.errorHandler)
 	}
 	till(endMark: string | string[]): Source {
-		return new Source(new IO.TillReader(this, endMark), this.errorHandler)
+		return new Source(IO.TillReader.open(this, endMark), this.errorHandler)
 	}
 	until(endMark: string | string[]): Source {
-		return new Source(new IO.UntilReader(this, endMark), this.errorHandler)
+		return new Source(IO.UntilReader.open(this, endMark), this.errorHandler)
 	}
 }

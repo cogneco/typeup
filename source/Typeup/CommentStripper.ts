@@ -17,7 +17,7 @@ export class CommentStripper extends IO.Reader {
 	}
 	constructor(backend: IO.Reader) {
 		super()
-		this.backend = backend instanceof IO.BufferedReader ? backend as IO.BufferedReader : new IO.BufferedReader(backend)
+		this.backend = backend instanceof IO.BufferedReader ? backend as IO.BufferedReader : IO.BufferedReader.create(backend)
 	}
 	read(): string {
 		switch (this.backend.peek(2)) {
