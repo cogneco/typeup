@@ -1,5 +1,4 @@
 import { Error, Uri, Unit, IO } from "@cogneco/mend"
-import "@cogneco/mend"
 
 import * as fs from "fs"
 import * as cp from "child_process"
