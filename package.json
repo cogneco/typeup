@@ -7,7 +7,7 @@
     "setup": "npm install",
     "start": "node ./build/app.js",
     "prestart": "npm run build",
-		"prebuild": "tslint --config .vscode/tslint.json --project source/tsconfig.json",
+    "prebuild": "tslint --config .vscode/tslint.json --project source/tsconfig.json",
     "build": "tsc -p ./source && echo '#!/usr/bin/env node' > build/app && browserify --node build/app.js >> build/app && chmod 755 build/app",
     "predeploy": "npm install && npm run build",
     "deploy": "sudo cp build/app /usr/local/bin/typeup",
