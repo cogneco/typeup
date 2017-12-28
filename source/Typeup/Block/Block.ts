@@ -38,6 +38,6 @@ export abstract class Block extends Node {
 	}
 	private static filters: ((block: Block) => boolean)[] = []
 	static addFilter(filter: (block: Block) => boolean) {
-		this.filters.push(filter)
+		Block.filters.push(filter)
 	}
 }
