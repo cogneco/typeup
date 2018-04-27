@@ -5,6 +5,9 @@
 		"noImplicitAny": true,
 		"removeComments": true,
 		"preserveConstEnums": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitThis": true,
+		"strictNullChecks": true,
 		"sourceMap": true,
 		"outDir": "../build/"
 	},

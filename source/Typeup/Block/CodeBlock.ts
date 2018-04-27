@@ -23,18 +23,18 @@ export class CodeBlock extends ContentBlock<Inline> {
 	toString() {
 		return `%% ${this.language}\n${this.code}\n%%\n${super.toString()}`
 	}
-	static parse(source: Source): Block[] {
-		let result: Block[]
+	static parse(source: Source): Block[] | undefined {
+		let result: Block[] | undefined
 		if (source.readIf("%%")) {
-			const language = source.till("\n").readAll()
+			const language = source.till("\n").readAll() || ""
 			if (!source.readIf("\n"))
 				source.raise("Expected newline.")
-			const code = source.till("%%").readAll()
+			const code = source.till("%%").readAll() || ""
 			if (!source.readIf("%%"))
 				source.raise("Expected \"%%\" as end of code block.")
 			source.readIf("\n")
 			const region = source.mark()
-			result = Block.parse(source)
+			result = Block.parse(source) || []
 			if (result.length > 0 && result[0] instanceof Paragraph)
 				result[0] = new CodeBlock(language, code, (result[0] as Paragraph).getContent(), region)
 			else

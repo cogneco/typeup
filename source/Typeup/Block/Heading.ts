@@ -25,17 +25,17 @@ export class Heading extends ContentBlock<Inline> {
 		result += super.toString()
 		return result
 	}
-	static parse(source: Source): Block[] {
+	static parse(source: Source): Block[] | undefined {
 		let level = 0
 		while (source.readIf("#"))
 			level++
-		let result: Block[]
+		let result: Block[] | undefined
 		if (level > 0) {
-			while (source.peek().match(/\s/))
+			while ((source.peek() || "").match(/\s/))
 				source.read()
-			result = [new Heading(level, Inline.parse(source.till("\n")), source.mark())]
+			result = [new Heading(level, Inline.parse(source.till("\n")) || [], source.mark())]
 			if (!source.readIf("\n"))
-				source.raise("Expected newline as end of header.")
+				source.raise("Expected newline as end of heading.")
 		}
 		return result
 	}

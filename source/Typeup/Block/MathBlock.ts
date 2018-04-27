@@ -22,16 +22,16 @@ export class MathBlock extends ContentBlock<Inline> {
 	toString() {
 		return `$$\n${this.math}\n%%\n${super.toString()}`
 	}
-	static parse(source: Source): Block[] {
-		let result: Block[]
+	static parse(source: Source): Block[] | undefined {
+		let result: Block[] | undefined
 		if (source.readIf("$$")) {
 			source.readIf("\n")
-			const math = source.till("$$").readAll()
+			const math = source.till("$$").readAll() || ""
 			if (!source.readIf("$$"))
 				source.raise("Expected \"$$\" as end of math block.")
 			source.readIf("\n")
 			const region = source.mark()
-			result = Block.parse(source)
+			result = Block.parse(source) || []
 			if (result.length > 0 && result[0] instanceof Paragraph)
 				result[0] = new MathBlock(math, (result[0] as Paragraph).getContent(), region)
 			else

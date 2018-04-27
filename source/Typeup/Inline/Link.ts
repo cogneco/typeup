@@ -20,13 +20,11 @@ export class Link extends ContentInline {
 	toString(): string {
 		return "[" + this.target + " " + super.toString() + "]"
 	}
-	static parse(source: Source): Inline[] {
-		let result: Inline[]
+	static parse(source: Source): Inline[] | undefined {
+		let result: Inline[] | undefined
 		if (source.readIf("[")) {
-			let target = ""
-			while (!source.isEmpty && !source.peekIs([" ", "]"]))
-				target += source.read()
-			result = [new Link(target, source.readIf(" ") ? Inline.parse(source.till("]")) : [new Text(target, source.mark()) as Inline], source.mark())]
+			const target = source.till([" ", "]"]).readAll() || ""
+			result = [new Link(target, source.readIf(" ") ? Inline.parse(source.till("]")) || [] : [new Text(target, source.mark()) as Inline], source.mark())]
 			if (!source.readIf("]"))
 				source.raise("Expected \"]\" as end of link.")
 		}

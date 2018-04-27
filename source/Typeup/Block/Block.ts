@@ -13,27 +13,27 @@ export abstract class Block extends Node {
 	constructor(region: Error.Region) {
 		super(region)
 	}
-	private static parsers: { parse: ((source: Source) => Block[]), priority: number }[] = []
-	static addParser(parser: (source: Source) => Block[], priority?: number) {
+	private static parsers: { parse: ((source: Source) => Block[] | undefined), priority: number }[] = []
+	static addParser(parser: (source: Source) => Block[] | undefined, priority?: number) {
 		if (!priority)
 			priority = 0
 		Block.parsers.push({ parse: parser, priority})
 		Block.parsers = Block.parsers.sort((left, right) => right.priority - left.priority)
 	}
-	static parse(source: Source): Block[] {
-		let result: Block[]
+	static parse(source: Source): Block[] | undefined {
+		let result: Block[] | undefined
 		let i = 0
 		do
 			result = Block.parsers[i++].parse(source)
 		while (!result && i < Block.parsers.length)
 		return result
 	}
-	static parseAll(source: Source): Block[] {
-		let result: Block[] = []
-		let r: Block[]
+	static parseAll(source: Source): Block[] | undefined {
+		let result: Block[] | undefined
+		let r: Block[] | undefined
 		while ((r = Block.parse(source)) && r.length > 0)
-			result = result.concat(r)
-		Block.filters.forEach(filter => result = result.filter(filter))
+			result = result ? result.concat(r) : r
+		Block.filters.forEach(filter => result = result && result.filter(filter))
 		return result
 	}
 	private static filters: ((block: Block) => boolean)[] = []

@@ -1,4 +1,4 @@
-import { Error, IO } from "@cogneco/mend"
+import { Error, IO, Uri } from "@cogneco/mend"
 
 import { File } from "./File"
 
@@ -35,11 +35,16 @@ export class Document extends File {
 			indent = ""
 		return JSON.stringify(this.toObject(), null, indent)
 	}
-	static parse(reader: IO.Reader, handler: Error.Handler): Document {
-		const source = new Source(new CommentStripper(reader), handler)
-		return new Document(Block.parseAll(source), source.mark())
+	static parse(reader: IO.Reader | undefined, handler: Error.Handler): Document | undefined {
+		let result: Document | undefined
+		if (reader) {
+			const source = new Source(new CommentStripper(reader), handler)
+			result = new Document(Block.parseAll(source) || [], source.mark())
+		}
+		return result
 	}
-	static open(path: string, handler: Error.Handler): Document {
-		return Document.parse(IO.Reader.open(path, "tup"), handler)
+	static open(path: string | undefined, handler: Error.Handler): Document | undefined {
+		const locator = Uri.Locator.parse(path)
+		return locator ? Document.parse(IO.Reader.open(locator), handler) : undefined
 	}
 }

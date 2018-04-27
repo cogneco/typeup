@@ -22,15 +22,15 @@ export class Figure extends ContentBlock<Inline> {
 	toString() {
 		return `!figure ${this.source} ${this.classes}\n${super.toString()}`
 	}
-	static parse(source: Source): Block[] {
-		let result: Block[]
+	static parse(source: Source): Block[] | undefined {
+		let result: Block[] | undefined
 		if (source.readIf("!figure ")) {
-			const image = source.till([" ", "\n"]).readAll()
-			const classes = source.readIf(" ") ? source.till("\n").readAll().split(" ") : []
+			const image = source.till([" ", "\n"]).readAll() || ""
+			const classes = source.readIf(" ") ? (source.till("\n").readAll() || "").split(" ") : []
 			if (!source.readIf("\n"))
 				source.raise("Expected newline as end of figure.")
 			const region = source.mark()
-			result = Block.parse(source)
+			result = Block.parse(source) || []
 			if (result.length > 0 && result[0] instanceof Paragraph)
 				result[0] = new Figure(image, classes, (result[0] as Paragraph).getContent(), region)
 			else

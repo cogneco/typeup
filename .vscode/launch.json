@@ -2,41 +2,22 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"type": "node",
+			"request": "launch",
 			"name": "pdf",
-			"type": "node",
-			"request": "launch",
 			"program": "${workspaceRoot}/build/app.js",
-			"stopOnEntry": false,
 			"args": ["pdf", "./examples/document.tup"],
-			"cwd": "${workspaceRoot}",
-			"runtimeExecutable": null,
-			"runtimeArgs": [
-				"--nolazy"
-			],
-			"env": {
-				"NODE_ENV": "development"
-			},
-			"console": "internalConsole",
 			"protocol": "inspector",
 			"preLaunchTask": "build",
 			"sourceMaps": true,
 			"outFiles": [ "${workspaceRoot}/build/**/*.js" ]
 		},
 		{
+			"type": "node",
+			"request": "launch",
 			"name": "html",
-			"type": "node",
-			"request": "launch",
 			"program": "${workspaceRoot}/build/app.js",
-			"stopOnEntry": false,
 			"args": ["html", "./examples/document.tup"],
-			"cwd": "${workspaceRoot}",
-			"runtimeExecutable": null,
-			"runtimeArgs": [
-				"--nolazy"
-			],
-			"env": {
-				"NODE_ENV": "development"
-			},
 			"console": "internalConsole",
 			"protocol": "inspector",
 			"preLaunchTask": "build",
@@ -44,20 +25,11 @@
 			"outFiles": [ "${workspaceRoot}/build/**/*.js" ]
 		},
 		{
+			"type": "node",
+			"request": "launch",
 			"name": "json",
-			"type": "node",
-			"request": "launch",
 			"program": "${workspaceRoot}/build/app.js",
-			"stopOnEntry": false,
 			"args": ["json", "./examples/document.tup"],
-			"cwd": "${workspaceRoot}",
-			"runtimeExecutable": null,
-			"runtimeArgs": [
-				"--nolazy"
-			],
-			"env": {
-				"NODE_ENV": "development"
-			},
 			"console": "internalConsole",
 			"protocol": "inspector",
 			"preLaunchTask": "build",
@@ -65,20 +37,12 @@
 			"outFiles": [ "${workspaceRoot}/build/**/*.js" ]
 		},
 		{
-			"name": "self-test",
 			"type": "node",
 			"request": "launch",
+			"name": "self-test",
 			"program": "${workspaceRoot}/build/app.js",
 			"stopOnEntry": false,
 			"args": ["self-test"],
-			"cwd": "${workspaceRoot}",
-			"runtimeExecutable": null,
-			"runtimeArgs": [
-				"--nolazy"
-			],
-			"env": {
-				"NODE_ENV": "development"
-			},
 			"console": "internalConsole",
 			"protocol": "inspector",
 			"preLaunchTask": "build",

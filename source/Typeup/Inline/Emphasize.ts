@@ -19,10 +19,10 @@ export class Emphasize extends ContentInline {
 	toString(): string {
 		return "_" + super.toString() + "_"
 	}
-	static parse(source: Source): Inline[] {
-		let result: Inline[]
+	static parse(source: Source): Inline[] | undefined {
+		let result: Inline[] | undefined
 		if (source.readIf("_")) {
-			result = [new Emphasize(Inline.parse(source.till("_")), source.mark())]
+			result = [new Emphasize(Inline.parse(source.till("_")) || [], source.mark())]
 			if (!source.readIf("_"))
 				source.raise("Expected \"_\" as end of emphasize.")
 		}

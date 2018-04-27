@@ -11,7 +11,7 @@ export class Video extends ContentBlock<Inline> {
 		super(content, region)
 	}
 	private getType(): string {
-		let result: string
+		let result: string | undefined
 		const match = this.source.match(/\.([a-z,A-Z,0-9]+)$/)
 		if (match && match.length > 1)
 			switch (match[1]) {
@@ -24,7 +24,7 @@ export class Video extends ContentBlock<Inline> {
 				default:
 					break
 			}
-		return result
+		return result || ""
 	}
 	render(renderer: Renderer): string {
 		return renderer.render("video", { source: this.source, type: this.getType(), classes: this.classes.join(" 	"), content: super.render(renderer) })
@@ -38,19 +38,19 @@ export class Video extends ContentBlock<Inline> {
 	toString() {
 		return `!video ${this.source} ${this.classes}\n${super.toString()}`
 	}
-	static parse(source: Source): Block[] {
-		let result: Block[]
+	static parse(source: Source): Block[] | undefined {
+		let result: Block[] | undefined
 		if (source.readIf("!video ")) {
-			const image = source.till([" ", "\n"]).readAll()
-			const classes = source.readIf(" ") ? source.till("\n").readAll().split(" ") : []
+			const video = source.till([" ", "\n"]).readAll() || ""
+			const classes = source.readIf(" ") ? (source.till("\n").readAll() || "").split(" ") : []
 			if (!source.readIf("\n"))
 				source.raise("Expected newline as end of video.")
 			const region = source.mark()
-			result = Block.parse(source)
+			result = Block.parse(source) || []
 			if (result.length > 0 && result[0] instanceof Paragraph)
-				result[0] = new Video(image, classes, (result[0] as Paragraph).getContent(), region)
+				result[0] = new Video(video, classes, (result[0] as Paragraph).getContent(), region)
 			else
-				result.unshift(new Video(image, classes, [], region))
+				result.unshift(new Video(video, classes, [], region))
 		}
 		return result
 	}

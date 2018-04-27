@@ -1,4 +1,4 @@
-import { Error, IO } from "@cogneco/mend"
+import { Error, IO, Uri } from "@cogneco/mend"
 
 import { Renderer } from "./Renderer"
 import { Node } from "./Node"
@@ -33,11 +33,16 @@ export class File extends Node {
 		}
 		return result
 	}
-	static parse(reader: IO.Reader, handler: Error.Handler): File {
-		const source = new Source(new CommentStripper(reader), handler)
-		return new File(Block.parseAll(source), source.mark())
+	static parse(reader: IO.Reader | undefined, handler: Error.Handler): File | undefined {
+		let result: File | undefined
+		if (reader) {
+			const source = new Source(new CommentStripper(reader), handler)
+			result = new File(Block.parseAll(source) || [], source.mark())
+		}
+		return result
 	}
-	static open(path: string, handler: Error.Handler): File {
-		return File.parse(IO.Reader.open(path, "tup"), handler)
+	static open(path: string, handler: Error.Handler): File | undefined {
+		const locator = Uri.Locator.parse(path)
+		return locator ? File.parse(IO.Reader.open(locator), handler) : undefined
 	}
 }

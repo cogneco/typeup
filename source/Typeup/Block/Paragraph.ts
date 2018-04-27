@@ -17,11 +17,11 @@ export class Paragraph extends ContentBlock<Inline> {
 		result.type = "Paragraph"
 		return result
 	}
-	static parse(source: Source): Block[] {
+	static parse(source: Source): Block[] | undefined {
 		const content = Inline.parse(source.until("\n"))
-		let result: Block[]
+		let result: Block[] | undefined
 		if (content && content.length > 0) {
-			const next = Block.parse(source)
+			const next = Block.parse(source) || []
 			result = (next && next.length > 0 && next[0] instanceof Paragraph) ?
 			[new Paragraph(content.concat((next[0] as Paragraph).getContent())) as Block].concat(next.slice(1)) :
 			[new Paragraph(content) as Block].concat(next)

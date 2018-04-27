@@ -17,16 +17,16 @@ export class OrderedList extends ContentBlock<ListItem> {
 	toString() {
 		return this.getContent().map(item => item.toString("1. ")).join("\n")
 	}
-	static parse(source: Source): Block[] {
+	static parse(source: Source): Block[] | undefined {
 		let peeked = ""
-		let p: string
+		let p: string | undefined
 		while (p = source.peekIs(peeked + "\t"))
 			peeked = p
-		let result: Block[]
+		let result: Block[] | undefined
 		if (source.readIf(peeked + "1.")) {
-			while (source.peek().match(/\s/))
+			while ((source.peek() || "").match(/\s/))
 				source.read()
-			const current = new ListItem(Block.parseAll(source.requirePrefix("\t")), source.mark())
+			const current = new ListItem(Block.parseAll(source.requirePrefix("\t")) || [], source.mark())
 			const next = Block.parse(source)
 			let index = 0
 			while (next && next.length > 0 && next[index] instanceof EmptyLine)

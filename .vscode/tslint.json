@@ -16,7 +16,9 @@
 		"one-line": [ false ],
 		"no-conditional-assignment": false,
 		"array-type": [ false ],
-		"no-empty": false
+		"no-empty": false,
+		"radix": false,
+		"interface-name": false
 	},
 	"jsRules": {
 		"curly": false,
@@ -34,7 +36,8 @@
 		"one-line": [ false ],
 		"no-conditional-assignment": false,
 		"array-type": [ false ],
-		"no-empty": false
+		"no-empty": false,
+		"radix": false
 	},
 	"rulesDirectory": [
 	]

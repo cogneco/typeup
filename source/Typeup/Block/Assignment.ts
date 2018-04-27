@@ -18,20 +18,20 @@ export class Assignment extends Block {
 		renderer.setVariable(this.name, this.value)
 		if (this.name == "template") {
 			const templatePath = Uri.Locator.parse(this.value + ".json")
-			renderer.setVariable("template-path", templatePath.folder.toString())
-			const documentPath = Uri.Locator.parse(this.getRegion().resource)
-			const location = templatePath.resolve(documentPath)
+			renderer.setVariable("template-path", templatePath ? templatePath.folder.toString() : "")
+			const documentPath = this.getRegion().resource
+			const location = templatePath ? templatePath.resolve(documentPath) : documentPath || new Uri.Locator()
 			const nativePath = (location.isRelative ? "" : "/") + location.path.join("/")
 			let content: string
 			try {
 				content = fs.readFileSync(nativePath, "utf-8")
+				try {
+					renderer.setTemplate(JSON.parse(content) as Template)
+				} catch (error) {
+					console.error(`Failed to parse template: ${nativePath}`)
+				}
 			} catch (error) {
 				console.error(`Failed to open template: ${nativePath}`)
-			}
-			try {
-				renderer.setTemplate(JSON.parse(content) as Template)
-			} catch (error) {
-				console.error(`Failed to parse template: ${nativePath}`)
 			}
 		}
 		return ""
@@ -42,19 +42,24 @@ export class Assignment extends Block {
 	toString() {
 		return this.name + " = " + this.value + "\n"
 	}
-	static parse(source: Source): Block[] {
-		let result: Block[]
+	static parse(source: Source): Block[] | undefined {
+		let result: Block[] | undefined
 		let i = 1
-		while (source.peek(i) && source.peek(i).charAt(i - 1).match(/[a-z]|[A-Z]|[0-9]|_|-/i))
+		let peeked: string | undefined
+		while ((peeked = source.peek(i)) && peeked.charAt(i - 1).match(/[a-z]|[A-Z]|[0-9]|_|-/i))
 			i++
-		if (source.peek(i + 2) && source.peek(i + 2).slice(-3) == " = ") {
+		if ((peeked = source.peek(i + 2)) && peeked.slice(-3) == " = ") {
 			const name = source.read(i - 1)
-			source.read(3) // consume " = "
-			let value = ""
-			while (source.peek() != "\n")
-				value += source.read()
-			source.read() // consume "\n"
-			result = [new Assignment(name, value, source.mark())]
+			if (!name)
+				source.raise("Missing name of variable to assign to.", Error.Level.Recoverable)
+			else {
+				source.read(3) // consume " = "
+				let value = ""
+				while (source.peek() != "\n")
+					value += source.read()
+				source.read() // consume "\n"
+				result = [new Assignment(name, value, source.mark())]
+			}
 		}
 		return result
 	}

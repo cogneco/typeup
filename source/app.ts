@@ -14,26 +14,33 @@ export class Program {
 			this.commands.push(".")
 		}
 	}
-	private open(path: string): Document {
+	private open(path: string | undefined): Document | undefined {
 		return Document.open(path, new Error.ConsoleHandler())
 	}
-	private runHelper(command: string, commands: string[]) {
+	private runHelper(command: string | undefined, commands: string[]) {
 		switch (command) {
-			case "json": console.log(this.open(this.commands.shift()).toJson("  ")); break
+			case "json":
 			case "html":
-				let document = this.open(this.commands.shift())
-				fs.writeFileSync(document.getRegion().resource.replace(/\.tup$/, ".html"), document.render())
-				break
 			case "pdf":
-				document = this.open(this.commands.shift())
-				fs.writeFileSync(document.getRegion().resource.replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["--javascript", "-", "-o", "-"], { input: document.render(), cwd: Uri.Locator.parse(document.getRegion().resource).folder.toString() }))
+			case "typeup":
+				const path = this.commands.shift()
+				const document = this.open(path)
+				if (!document)
+					console.log(`Unable to open document "${ path }".`)
+				else
+				switch (command) {
+					case "json": console.log(document.toJson("  ")); break
+					case "html": fs.writeFileSync(document.getRegion().resource.toString().replace(/\.tup$/, ".html"), document.render()); break
+					case "pdf": fs.writeFileSync(document.getRegion().resource.toString().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["--javascript", "-", "-o", "-"], { input: document.render(), cwd: (document.getRegion().resource || new Uri.Locator()).folder.toString() })); break
+					case "typeup": console.log(document.toString()); break
+				}
 				break
-			case "typeup": console.log(this.open(this.commands.shift()).toString()); break
 			case "self-test": Unit.Fixture.run(true); break
 			case "version": console.log("typeup " + this.getVersion()); break
 			case "help": console.log("help"); break
 			default:
-				commands.push(command)
+				if (command)
+					commands.push(command)
 				command = undefined
 				this.runHelper(this.defaultCommand, commands)
 				break
@@ -42,7 +49,7 @@ export class Program {
 			this.defaultCommand = command
 	}
 	run() {
-		let command: string
+		let command: string | undefined
 		while (command = this.commands.shift())
 			this.runHelper(command, this.commands)
 	}

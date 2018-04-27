@@ -16,8 +16,8 @@ export class EmptyLine extends Block {
 	toString(): string {
 		return "\n"
 	}
-	static parse(source: Source): Block[] {
-		let result: Block[]
+	static parse(source: Source): Block[] | undefined {
+		let result: Block[] | undefined
 		if (source.peek() == "\n") {
 			source.read()
 			result = [new EmptyLine(source.mark())]

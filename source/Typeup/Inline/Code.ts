@@ -16,10 +16,10 @@ export class Code extends Inline {
 	toString(): string {
 		return "%" + super.toString() + "%"
 	}
-	static parse(source: Source): Inline[] {
-		let result: Inline[]
+	static parse(source: Source): Inline[] | undefined {
+		let result: Inline[] | undefined
 		if (source.readIf("%")) {
-			result = [new Code(source.till("%").readAll(), source.mark())]
+			result = [new Code(source.till("%").readAll() || "", source.mark())]
 			if (!source.readIf("%"))
 				source.raise("Expected \"%\" as end of inline code.")
 		}
