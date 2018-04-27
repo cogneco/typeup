@@ -17,6 +17,8 @@ import "./Block/MathBlock"
 import "./Block/Figure"
 import "./Block/Video"
 import "./Block/Import"
+import "./Block/Chapter"
+import "./Block/Section"
 
 export class Document extends File {
 	constructor(content: Block[], region: Error.Region) {

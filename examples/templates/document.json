@@ -19,6 +19,8 @@
 		"figure": "<figure>\n<img src='${source}' class='${classes}' />\n<figcaption>${content}</figcaption>\n</figure>\n",
 		"video": "<figure>\n<video controls class='${classes}'><source src='${source}' type='${type}'>\n<figcaption>${content}</figcaption>\n</figure>\n",
 		"math": "\\(${content}\\)",
-		"mathblock": "<figure>\n\\[${math}\\]\n<figcaption>${content}</figcaption>\n</figure>\n"
+		"mathblock": "<figure>\n\\[${math}\\]\n<figcaption>${content}</figcaption>\n</figure>\n",
+		"chapter": "<section class='chapter'>\n${content}</section>\n",
+		"section": "<section class='section'>\n${content}</section>\n"
 	}
 }

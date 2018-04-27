@@ -54,5 +54,14 @@ This is a sample of embedded video.
 /* Multiline comment
 Bla bla
 */
+===
+# First Header in New Chapter
+Another paragraph.
+---
+And a paragraph within a section.
+---
+Another section.
+===
+Another Chapter
 
 !import subdocument
