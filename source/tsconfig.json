@@ -13,6 +13,7 @@
 		"moduleResolution": "node"
 	},
 	"files": [
+		"../@types/mathjax-node.d.ts",
 		"app.ts"
 	],
 	"typeAcquisition": {
