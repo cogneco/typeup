@@ -26,8 +26,8 @@ export class Video extends ContentBlock<Inline> {
 			}
 		return result || ""
 	}
-	render(renderer: Renderer): string {
-		return renderer.render("video", { source: this.source, type: this.getType(), classes: this.classes.join(" 	"), content: super.render(renderer) })
+	async render(renderer: Renderer): Promise<string> {
+		return renderer.render("video", { source: this.source, type: this.getType(), classes: this.classes.join(" 	"), content: await super.render(renderer) })
 	}
 	toObject(): any {
 		const result = super.toObject()

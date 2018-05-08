@@ -9,8 +9,8 @@ export class Link extends ContentInline {
 	constructor(private target: string, content: Inline[], region: Error.Region) {
 		super(content, region)
 	}
-	render(renderer: Renderer): string {
-		return renderer.render("link", { target: this.target, content: super.render(renderer) })
+	async render(renderer: Renderer): Promise<string> {
+		return renderer.render("link", { target: this.target, content: await super.render(renderer) })
 	}
 	toObject(): any {
 		const result = super.toObject()

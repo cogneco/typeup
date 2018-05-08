@@ -9,8 +9,8 @@ export class Heading extends ContentBlock<Inline> {
 	constructor(private level: number, content: Inline[], region: Error.Region) {
 		super(content, region)
 	}
-	render(renderer: Renderer): string {
-		return renderer.render("heading", { level: this.level.toString(), content: super.render(renderer) })
+	async render(renderer: Renderer): Promise<string> {
+		return renderer.render("heading", { level: this.level.toString(), content: await super.render(renderer) })
 	}
 	toObject(): any {
 		const result = super.toObject()

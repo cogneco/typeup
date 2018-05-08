@@ -10,8 +10,8 @@ export class Figure extends ContentBlock<Inline> {
 	constructor(private source: string, private classes: string[], content: Inline[], region: Error.Region) {
 		super(content, region)
 	}
-	render(renderer: Renderer): string {
-		return renderer.render("figure", { source: this.source, classes: this.classes.join(" 	"), content: super.render(renderer) })
+	async render(renderer: Renderer): Promise<string> {
+		return renderer.render("figure", { source: this.source, classes: this.classes.join(" 	"), content: await super.render(renderer) })
 	}
 	toObject(): any {
 		const result = super.toObject()

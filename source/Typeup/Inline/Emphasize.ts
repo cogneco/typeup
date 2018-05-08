@@ -8,8 +8,8 @@ export class Emphasize extends ContentInline {
 	constructor(content: Inline[], region: Error.Region) {
 		super(content, region)
 	}
-	render(renderer: Renderer): string {
-		return renderer.render("emphasize", { content: super.render(renderer) })
+	async render(renderer: Renderer): Promise<string> {
+		return renderer.render("emphasize", { content: await super.render(renderer) })
 	}
 	toObject(): any {
 		const result = super.toObject()

@@ -7,7 +7,7 @@ export class Code extends Inline {
 	constructor(private content: string, region: Error.Region) {
 		super(region)
 	}
-	render(renderer: Renderer): string {
+	async render(renderer: Renderer): Promise<string> {
 		return renderer.render("code", { content: this.content })
 	}
 	toObject(): any {

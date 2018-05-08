@@ -7,7 +7,7 @@ export class Text extends Inline {
 	constructor(private value: string, region: Error.Region) {
 		super(region)
 	}
-	render(renderer: Renderer): string {
+	async render(renderer: Renderer): Promise<string> {
 		return this.value
 	}
 	toObject(): any {

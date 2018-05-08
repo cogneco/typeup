@@ -11,7 +11,7 @@ export class Import extends Block {
 	constructor(private source: string, private content: File, region: Error.Region) {
 		super(region)
 	}
-	render(renderer: Renderer): string {
+	async render(renderer: Renderer): Promise<string> {
 		return this.content.render(renderer)
 	}
 	toObject(): any {

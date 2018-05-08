@@ -9,8 +9,8 @@ export class Paragraph extends ContentBlock<Inline> {
 	constructor(content: Inline[]) {
 		super(content, content.map(c => c.getRegion()).reduce((left, right) => left.merge(right)))
 	}
-	render(renderer: Renderer): string {
-		return renderer.render("paragraph", { content: super.render(renderer) })
+	async render(renderer: Renderer): Promise<string> {
+		return renderer.render("paragraph", { content: await super.render(renderer) })
 	}
 	toObject(): any {
 		const result = super.toObject()

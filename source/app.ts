@@ -17,7 +17,7 @@ export class Program {
 	private open(path: string | undefined): Document | undefined {
 		return Document.open(path, new Error.ConsoleHandler())
 	}
-	private runHelper(command: string | undefined, commands: string[]) {
+	private async runHelper(command: string | undefined, commands: string[]): Promise<void> {
 		switch (command) {
 			case "json":
 			case "html":
@@ -29,10 +29,18 @@ export class Program {
 					console.log(`Unable to open document "${ path }".`)
 				else
 				switch (command) {
-					case "json": console.log(document.toJson("  ")); break
-					case "html": fs.writeFileSync(document.getRegion().resource.toString().replace(/\.tup$/, ".html"), document.render()); break
-					case "pdf": fs.writeFileSync(document.getRegion().resource.toString().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["--javascript", "-", "-o", "-"], { input: document.render(), cwd: (document.getRegion().resource || new Uri.Locator()).folder.toString() })); break
-					case "typeup": console.log(document.toString()); break
+					case "json":
+						console.log(document.toJson("  "))
+						break
+					case "html":
+						fs.writeFileSync(document.getRegion().resource.toString().replace(/\.tup$/, ".html"), await document.render())
+						break
+					case "pdf":
+						fs.writeFileSync(document.getRegion().resource.toString().replace(/\.tup$/, ".pdf"), cp.execFileSync("prince", ["--javascript", "-", "-o", "-"], { input: await document.render(), cwd: (document.getRegion().resource || new Uri.Locator()).folder.toString() }))
+						break
+					case "typeup":
+						console.log(document.toString())
+						break
 				}
 				break
 			case "self-test": Unit.Fixture.run(true); break
@@ -42,16 +50,16 @@ export class Program {
 				if (command)
 					commands.push(command)
 				command = undefined
-				this.runHelper(this.defaultCommand, commands)
+				await this.runHelper(this.defaultCommand, commands)
 				break
 		}
 		if (command)
 			this.defaultCommand = command
 	}
-	run() {
+	async run(): Promise<void> {
 		let command: string | undefined
 		while (command = this.commands.shift())
-			this.runHelper(command, this.commands)
+			await this.runHelper(command, this.commands)
 	}
 	getVersion(): string {
 		return "0.1"

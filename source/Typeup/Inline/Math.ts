@@ -7,8 +7,8 @@ export class Math extends Inline {
 	constructor(private content: string, region: Error.Region) {
 		super(region)
 	}
-	render(renderer: Renderer): string {
-		return renderer.render("math", { content: this.content })
+	async render(renderer: Renderer): Promise<string> {
+		return renderer.render("math", { content: await this.content })
 	}
 	toObject(): any {
 		return { type: "Math", content: this.content }

@@ -10,8 +10,8 @@ export class Chapter extends ContentBlock<Block> {
 	constructor(content: Block[], region: Error.Region) {
 		super(content, region)
 	}
-	render(renderer: Renderer): string {
-		return renderer.render("chapter", { content: super.render(renderer) })
+	async render(renderer: Renderer): Promise<string> {
+		return renderer.render("chapter", { content: await super.render(renderer) })
 	}
 	toObject(): any {
 		const result = super.toObject()

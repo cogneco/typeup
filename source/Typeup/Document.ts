@@ -24,10 +24,10 @@ export class Document extends File {
 	constructor(content: Block[], region: Error.Region) {
 		super(content, region)
 	}
-	render(renderer?: Renderer): string {
+	async render(renderer?: Renderer): Promise<string> {
 		if (!renderer)
 			renderer = new Renderer()
-		return renderer.render("document", { content: super.render(renderer) })
+		return renderer.render("document", { content: await super.render(renderer) })
 	}
 	toObject(): any {
 		return { type: "Document", content: super.toObject() }

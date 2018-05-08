@@ -18,12 +18,16 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@types/node": "^8.0.26",
+    "@types/node": "^10.0.4",
     "browserify": "^16.2.0",
-    "tslint": "^5.9.1",
+    "tslint": "^5.10.0",
     "typescript": "^2.8.3"
   },
   "dependencies": {
-    "@cogneco/mend": "^1.5.13"
+    "@cogneco/mend": "^1.5.13",
+    "bufferutil": "^3.0.5",
+    "mathjax-node": "^2.1.0",
+    "node": "^10.0.0",
+    "utf-8-validate": "^4.0.2"
   }
 }

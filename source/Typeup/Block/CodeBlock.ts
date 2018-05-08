@@ -10,8 +10,8 @@ export class CodeBlock extends ContentBlock<Inline> {
 	constructor(private language: string, private code: string, content: Inline[], region: Error.Region) {
 		super(content, region)
 	}
-	render(renderer: Renderer): string {
-		return renderer.render("codeblock", { code: this.code, language: this.language, content: super.render(renderer) })
+	async render(renderer: Renderer): Promise<string> {
+		return renderer.render("codeblock", { code: this.code, language: this.language, content: await super.render(renderer) })
 	}
 	toObject(): any {
 		const result = super.toObject()

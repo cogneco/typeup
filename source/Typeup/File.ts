@@ -12,10 +12,10 @@ export class File extends Node {
 	constructor(private content: Block[], region: Error.Region) {
 		super(region)
 	}
-	render(renderer: Renderer): string {
+	async render(renderer: Renderer): Promise<string> {
 		let result = ""
 		for (const c of this.content)
-			result += c.render(renderer)
+			result += await c.render(renderer)
 		return result
 	}
 	toObject(): any {

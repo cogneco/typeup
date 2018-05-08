@@ -10,8 +10,8 @@ export class MathBlock extends ContentBlock<Inline> {
 	constructor(private math: string, content: Inline[], region: Error.Region) {
 		super(content, region)
 	}
-	render(renderer: Renderer): string {
-		return renderer.render("mathblock", { math: this.math, content: super.render(renderer) })
+	async render(renderer: Renderer): Promise<string> {
+		return renderer.render("mathblock", { math: this.math, content: await super.render(renderer) })
 	}
 	toObject(): any {
 		const result = super.toObject()

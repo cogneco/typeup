@@ -11,8 +11,8 @@ export class UnorderedList extends ContentBlock<ListItem> {
 	constructor(content: ListItem[]) {
 		super(content, content.map(c => c.getRegion()).reduce((left, right) => left.merge(right)))
 	}
-	render(renderer: Renderer): string {
-		return renderer.render("unordered list", { content: this.getContent().map(item => item.render(renderer)).join("") })
+	async render(renderer: Renderer): Promise<string> {
+		return renderer.render("unordered list", { content: (await Promise.all(this.getContent().map(async item => item.render(renderer)))).join("") })
 	}
 	toString() {
 		return this.getContent().map(item => item.toString("- ")).join("\n")

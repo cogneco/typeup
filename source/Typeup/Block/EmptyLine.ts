@@ -7,7 +7,7 @@ export class EmptyLine extends Block {
 	constructor(region: Error.Region) {
 		super(region)
 	}
-	render(render: Renderer): string {
+	async render(render: Renderer): Promise<string> {
 		return ""
 	}
 	toObject(): any {

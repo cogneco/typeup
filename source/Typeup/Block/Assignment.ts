@@ -14,7 +14,7 @@ export class Assignment extends Block {
 	}
 	getName(): string { return this.name }
 	getValue(): string { return this.value }
-	render(renderer: Renderer): string {
+	async render(renderer: Renderer): Promise<string> {
 		renderer.setVariable(this.name, this.value)
 		if (this.name == "template") {
 			const templatePath = Uri.Locator.parse(this.value + ".json")

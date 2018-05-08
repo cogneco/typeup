@@ -6,8 +6,8 @@ export abstract class ContentInline extends Inline {
 	constructor(private content: Inline[], region: Error.Region) {
 		super(region)
 	}
-	render(renderer: Renderer): string {
-		return this.content.map(c => c.render(renderer)).join("")
+	async render(renderer: Renderer): Promise<string> {
+		return (await Promise.all(this.content.map(async c => c.render(renderer)))).join("")
 	}
 	toString(): string {
 		return this.content.map(c => c.toString()).join("")
