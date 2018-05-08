@@ -6,12 +6,29 @@ import { ContentBlock } from "./ContentBlock"
 import { Paragraph } from "./Paragraph"
 import { Inline } from "../Inline/Inline"
 
+import * as MathJaxNode from "mathjax-node"
+
 export class MathBlock extends ContentBlock<Inline> {
 	constructor(private math: string, content: Inline[], region: Error.Region) {
 		super(content, region)
 	}
 	async render(renderer: Renderer): Promise<string> {
-		return renderer.render("mathblock", { math: this.math, content: await super.render(renderer) })
+		MathJaxNode.config({
+			MathJax: {
+			},
+		})
+		MathJaxNode.start()
+		const html = await new Promise<string>((resolve, reject) => MathJaxNode.typeset({
+			math: this.math,
+			format: "inline-TeX",
+			mml: true,
+		}, data => {
+			if (data.errors)
+				reject(data.errors)
+			else
+				resolve(data.mml)
+		}))
+		return renderer.render("mathblock", { html, math: this.math, content: await super.render(renderer) })
 	}
 	toObject(): any {
 		const result = super.toObject()
