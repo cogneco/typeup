@@ -6,10 +6,10 @@ and only parts of the functionality is yet implemented.
 
 ## Examples
 You can find example files here:
-* [document as TypeUp source](./document.tup)
-* [document as PDF](./document.pdf)
-* [document as HTML](./document.html)
-* [template](./templates/document.json)
+* [document as TypeUp source](document.tup)
+* [document as PDF](document.pdf)
+* [document as HTML](document.html)
+* [template](templates/document.json)
 
 ## Benefits
 
