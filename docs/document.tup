@@ -1,4 +1,4 @@
-template = templates/document
+template = http://typeup.cogneco.com/
 class = paper
 title = Document Title
 date = 2015-11-10
