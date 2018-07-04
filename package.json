@@ -1,8 +1,10 @@
 {
   "name": "typeup",
   "description": "Markup for documents.",
-  "version": "0.1.0",
-  "private": true,
+	"version": "0.1.1",
+	"bin": {
+		"typeup": "build/app"
+	},
   "scripts": {
     "setup": "npm install",
     "start": "node ./build/app.js",
