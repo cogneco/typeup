@@ -65,3 +65,10 @@ Another section.
 Another Chapter
 
 !import subdocument
+
+# Table
+
+| Header 1 | Header 2 |
+|----------|---------:|
+| Cell 1   | Cell 2   |
+This is a table with a caption.

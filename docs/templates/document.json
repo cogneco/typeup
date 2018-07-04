@@ -21,6 +21,10 @@
 		"math": "${html}",
 		"mathblock": "<figure>\n${html}\n<figcaption>${content}</figcaption>\n</figure>\n",
 		"chapter": "<section class='chapter'>\n${content}</section>\n",
-		"section": "<section class='section'>\n${content}</section>\n"
+		"section": "<section class='section'>\n${content}</section>\n",
+		"table": "<table class='${classes}'>\n${rows}<caption>${content}</caption>\n</table>\n",
+		"table row": "<tr>${content}</tr>\n",
+		"table header": "<th>${content}</th>",
+		"table cell": "<td>${content}</td>"
 	}
 }
