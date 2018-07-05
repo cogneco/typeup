@@ -1,16 +1,16 @@
 {
   "name": "typeup",
   "description": "Markup for documents.",
-	"version": "0.1.1",
-	"bin": {
-		"typeup": "build/app"
-	},
+  "version": "0.1.1",
+  "bin": {
+    "typeup": "build/app"
+  },
   "scripts": {
     "setup": "npm install",
     "start": "node ./build/app.js",
     "prestart": "npm run build",
     "prebuild": "tslint --config .vscode/tslint.json --project source/tsconfig.json",
-    "build": "tsc -p ./source && echo '#!/usr/bin/env node' > build/app && browserify --node build/app.js >> build/app && chmod 755 build/app",
+    "build": "tsc -p ./source && echo '#!/usr/bin/env node' > build/app && rollup build/app.js --format cjs >> build/app && chmod 755 build/app",
     "predeploy": "npm install && npm run build",
     "deploy": "sudo cp build/app /usr/local/bin/typeup",
     "clean": "rm -rf build node_modules",
@@ -21,9 +21,9 @@
   },
   "devDependencies": {
     "@types/node": "^10.5.1",
-    "browserify": "^16.2.2",
     "tslint": "^5.10.0",
-    "typescript": "^2.9.2"
+    "typescript": "^2.9.2",
+    "rollup": "^0.62.0"
   },
   "dependencies": {
     "@cogneco/mend": "^1.5.13",
