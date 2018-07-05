@@ -62,7 +62,7 @@ export class Program {
 			await this.runHelper(command, this.commands)
 	}
 	getVersion(): string {
-		return "0.1.1"
+		return "0.1.2"
 	}
 }
 new Program(process.argv).run()
