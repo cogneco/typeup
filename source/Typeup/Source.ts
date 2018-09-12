@@ -1,5 +1,4 @@
 import { Error, IO } from "@cogneco/mend"
-import { CommentStripper } from "./CommentStripper"
 
 export class Source extends IO.BufferedReader implements Error.Handler {
 	constructor(reader: IO.Reader, private errorHandler: Error.Handler) {

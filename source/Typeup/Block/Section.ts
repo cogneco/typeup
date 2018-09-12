@@ -3,8 +3,6 @@ import { Source } from "../Source"
 import { Renderer } from "../Renderer"
 import { Block } from "./Block"
 import { ContentBlock } from "./ContentBlock"
-import { Paragraph } from "./Paragraph"
-import { Inline } from "../Inline/Inline"
 import { Chapter } from "./Chapter"
 
 export class Section extends ContentBlock<Block> {

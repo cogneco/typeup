@@ -1,6 +1,5 @@
 import { Node } from "../Node"
 import { Source } from "../Source"
-import { Inline } from "../Inline/Inline"
 import { Error } from "@cogneco/mend"
 // Used via dependency injection in Inline
 import "../Inline/Text"

@@ -1,11 +1,8 @@
 import { Error } from "@cogneco/mend"
 import { Renderer } from "../Renderer"
-import { Block } from "./Block"
 import { ContentBlock } from "./ContentBlock"
 import { Source } from "../Source"
-import { Inline } from "../Inline/Inline"
 import { TableCell } from "./TableCell"
-import { Table } from "./Table"
 
 export class TableRow extends ContentBlock<TableCell> {
 	constructor(content: TableCell[], region: Error.Region) {

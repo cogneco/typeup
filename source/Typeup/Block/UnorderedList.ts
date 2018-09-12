@@ -1,11 +1,9 @@
-import { Inline } from "../Inline/Inline"
 import { Source } from "../Source"
 import { Block } from "./Block"
 import { ContentBlock } from "./ContentBlock"
 import { Renderer } from "../Renderer"
 import { ListItem } from "./ListItem"
 import { EmptyLine } from "./EmptyLine"
-import { Paragraph } from "./Paragraph"
 
 export class UnorderedList extends ContentBlock<ListItem> {
 	constructor(content: ListItem[]) {

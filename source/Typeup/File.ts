@@ -5,7 +5,6 @@ import { Node } from "./Node"
 import { Source } from "./Source"
 import { CommentStripper } from "./CommentStripper"
 import { Block } from "./Block/Block"
-import { EmptyLine } from "./Block/EmptyLine"
 import { Paragraph } from "./Block/Paragraph"
 
 export class File extends Node {

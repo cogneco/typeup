@@ -1,6 +1,5 @@
 import { Error } from "@cogneco/mend"
 import { Renderer } from "../Renderer"
-import { Block } from "./Block"
 import { ContentBlock } from "./ContentBlock"
 import { Inline } from "../Inline/Inline"
 import { Source } from "../Source"
