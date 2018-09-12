@@ -15,7 +15,7 @@
 		"emphasize": "<em>${content}</em>",
 		"link": "<a href='${target}'>${content}</a>",
 		"code": "<code>${content}</code>",
-		"codeblock": "<figure>\n<pre><code>${code}</code></pre>\n<figcaption>${content}</figcaption>\n</figure>\n",
+		"codeblock": "<figure>\n<pre><code class='${language}'>${code}</code></pre>\n<figcaption>${content}</figcaption>\n</figure>\n",
 		"figure": "<figure>\n<img src='${source}' class='${classes}' />\n<figcaption>${content}</figcaption>\n</figure>\n",
 		"video": "<figure>\n<video controls class='${classes}'><source src='${source}' type='${type}'>\n<figcaption>${content}</figcaption>\n</figure>\n",
 		"math": "${html}",

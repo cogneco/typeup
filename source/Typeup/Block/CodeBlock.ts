@@ -26,7 +26,7 @@ export class CodeBlock extends ContentBlock<Inline> {
 	static parse(source: Source): Block[] | undefined {
 		let result: Block[] | undefined
 		if (source.readIf("%%")) {
-			const language = source.till("\n").readAll() || ""
+			const language = (source.till("\n").readAll() || "").trim()
 			if (!source.readIf("\n"))
 				source.raise("Expected newline.")
 			const code = source.till("%%").readAll() || ""

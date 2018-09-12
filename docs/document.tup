@@ -34,6 +34,11 @@ An example of what a code block looks like.
 $$x^m + y^m = z^m$$
 A formula block with a caption.
 
+%%
+A code block without language specifier.
+%%
+A code block without any language specifier.
+
 ## Header Level 2
 Paragraph C
 
