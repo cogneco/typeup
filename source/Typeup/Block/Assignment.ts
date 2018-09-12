@@ -7,6 +7,7 @@ import { Renderer } from "../Renderer"
 import { Error, Uri } from "@cogneco/mend"
 
 import * as fs from "fs"
+import * as path from "path"
 
 export class Assignment extends Block {
 	constructor(private name: string, private value: string, region: Error.Region) {
@@ -21,7 +22,7 @@ export class Assignment extends Block {
 			renderer.setVariable("template-path", templatePath ? templatePath.folder.toString() : "")
 			const documentPath = this.getRegion().resource
 			const location = templatePath ? templatePath.resolve(documentPath) : documentPath || new Uri.Locator()
-			const nativePath = (location.isRelative ? "" : "/") + location.path.join("/")
+			const nativePath = (location.isRelative ? "" : path.sep) + location.path.join(path.sep)
 			let content: string
 			try {
 				content = fs.readFileSync(nativePath, "utf-8")
