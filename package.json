@@ -15,8 +15,6 @@
     "deploy": "sudo cp build/app /usr/local/bin/typeup",
     "clean": "rm -rf build node_modules",
     "dev": "watch 'npm run build' source",
-    "pretest": "npm run build",
-    "test": "node ./build/app.js self-test",
     "prepublish": "npm run build"
   },
   "devDependencies": {

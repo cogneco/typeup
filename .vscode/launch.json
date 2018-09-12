@@ -35,19 +35,6 @@
 			"preLaunchTask": "build",
 			"sourceMaps": true,
 			"outFiles": [ "${workspaceRoot}/build/**/*.js" ]
-		},
-		{
-			"type": "node",
-			"request": "launch",
-			"name": "self-test",
-			"program": "${workspaceRoot}/build/app.js",
-			"stopOnEntry": false,
-			"args": ["self-test"],
-			"console": "internalConsole",
-			"protocol": "inspector",
-			"preLaunchTask": "build",
-			"sourceMaps": true,
-			"outFiles": [ "${workspaceRoot}/build/**/*.js" ]
 		}
 	]
 }
