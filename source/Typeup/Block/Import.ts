@@ -3,9 +3,6 @@ import { File } from "../File"
 import { Source } from "../Source"
 import { Renderer } from "../Renderer"
 import { Block } from "./Block"
-import { ContentBlock } from "./ContentBlock"
-import { Paragraph } from "./Paragraph"
-import { Inline } from "../Inline/Inline"
 
 export class Import extends Block {
 	constructor(private source: string, private content: File, region: Error.Region) {

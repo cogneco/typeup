@@ -18,7 +18,8 @@
 		"array-type": [ false ],
 		"no-empty": false,
 		"radix": false,
-		"interface-name": false
+		"interface-name": false,
+		"no-misused-new": false
 	},
 	"jsRules": {
 		"curly": false,
