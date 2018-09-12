@@ -1,4 +1,4 @@
-import { Error, Uri, Unit, IO } from "@cogneco/mend"
+import { Error, Uri } from "@cogneco/mend"
 
 import * as fs from "fs"
 import * as cp from "child_process"
@@ -43,7 +43,6 @@ export class Program {
 						break
 				}
 				break
-			case "self-test": Unit.Fixture.run(true); break
 			case "version": console.log("typeup " + this.getVersion()); break
 			case "help": console.log("help"); break
 			default:
