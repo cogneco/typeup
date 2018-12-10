@@ -8,6 +8,7 @@ import { Error, Uri } from "@cogneco/mend"
 
 import * as fs from "fs"
 import * as path from "path"
+import fetch from "node-fetch"
 
 export class Assignment extends Block {
 	constructor(private name: string, private value: string, region: Error.Region) {
@@ -18,21 +19,42 @@ export class Assignment extends Block {
 	async render(renderer: Renderer): Promise<string> {
 		renderer.setVariable(this.name, this.value)
 		if (this.name == "template") {
-			const templatePath = Uri.Locator.parse(this.value + ".json")
-			renderer.setVariable("template-path", templatePath ? templatePath.folder.toString() : "")
+			const templateUri = Uri.Locator.parse(this.value + ".json")
+			renderer.setVariable("template-path", templateUri ? templateUri.folder.toString() : "")
+
 			const documentPath = this.getRegion().resource
-			const location = templatePath ? templatePath.resolve(documentPath) : documentPath || new Uri.Locator()
-			const nativePath = (location.isRelative ? "" : path.sep) + location.path.join(path.sep)
-			let content: string
-			try {
-				content = fs.readFileSync(nativePath, "utf-8")
-				try {
-					renderer.setTemplate(JSON.parse(content) as Template)
-				} catch (error) {
-					console.error(`Failed to parse template: ${nativePath}`)
-				}
-			} catch (error) {
-				console.error(`Failed to open template: ${nativePath}`)
+			const location = templateUri ? templateUri.resolve(documentPath) : documentPath || new Uri.Locator()
+			switch (location.scheme.toString()) {
+				case "":
+				case "file":
+					const nativePath = (location.isRelative ? "" : path.sep) + location.path.join(path.sep)
+					let content: string
+					try {
+							content = fs.readFileSync(nativePath, "utf-8")
+							try {
+								renderer.setTemplate(JSON.parse(content) as Template)
+							} catch (error) {
+								console.error(`Failed to parse template: ${location.toString()}`)
+							}
+						} catch (error) {
+							console.error(`Failed to open template: ${location.toString()}`)
+					}
+					break
+				case "http":
+				case "https":
+					let template: Template | undefined
+					try {
+						const response = await fetch(location.toString())
+						template = (await response.json()) as Template
+					} catch (error) {
+						console.error(`Failed to fetch template: ${location.toString()}`)
+					}
+					if (template)
+						renderer.setTemplate(template)
+					break
+				default:
+					console.error(`No handler for template URL scheme: ${location.toString()}`)
+					break
 			}
 		}
 		return ""
