@@ -6,8 +6,8 @@ and only parts of the functionality is yet implemented.
 
 ## Examples
 You can find example files here:
-* [document](examples/document.wup)
-* [template](examples/templates/document.json)
+* [document](docs/document.tup)
+* [template](dacs/templates/document.json)
 
 ## Benefits
 
@@ -45,7 +45,7 @@ and only parts of the functionality is yet implemented.
 
 ## Examples
 You can find example files here:
-* [document](docs/document.wup)
+* [document](docs/document.tup)
 * [template](docs/templates/document.json)
 
 ## Benefits
