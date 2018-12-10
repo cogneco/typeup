@@ -14,8 +14,7 @@
     "predeploy": "npm install && npm run build",
     "deploy": "sudo cp build/app /usr/local/bin/typeup",
     "clean": "rm -rf build node_modules",
-    "dev": "watch 'npm run build' source",
-    "prepublish": "npm run build"
+    "dev": "watch 'npm run build' source"
   },
   "devDependencies": {
     "@types/node-fetch": "^2.1.4",
