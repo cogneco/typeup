@@ -43,6 +43,6 @@
 	"rulesDirectory": [
 	],
 	"linterOptions": {
-		"exclude": [ "package.json"]
+		"exclude": [ "../**/*.json"]
 	}
 }
