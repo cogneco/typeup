@@ -3,30 +3,28 @@
   "description": "Markup for documents.",
   "version": "0.1.8",
   "bin": {
-    "typeup": "build/app"
+    "typeup": "build/source/app.js"
   },
+  "preferGlobal": true,
   "scripts": {
     "setup": "npm install",
-    "start": "node ./build/app.js",
+    "start": "node ./build/source/app.js",
     "prestart": "npm run build",
-    "prebuild": "tslint --config .vscode/tslint.json --project source/tsconfig.json",
-    "build": "tsc -p ./source && echo '#!/usr/bin/env node' > build/app && rollup build/app.js --format cjs >> build/app && chmod 755 build/app",
-    "predeploy": "npm install && npm run build",
-    "deploy": "sudo cp build/app /usr/local/bin/typeup",
+    "prebuild": "tslint --config .vscode/tslint.json --exclude '*.json' --project source/tsconfig.json",
+    "build": "tsc -p ./source",
     "clean": "rm -rf build node_modules",
     "dev": "watch 'npm run build' source"
   },
   "devDependencies": {
     "@types/node-fetch": "^2.1.4",
-    "rollup": "^0.65.2",
-    "tslint": "^5.10.0",
-    "typescript": "^3.0.3"
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.2"
   },
   "dependencies": {
-    "@cogneco/mend": "^1.6.6",
+    "@cogneco/mend": "^1.7.3",
     "bufferutil": "^4.0.0",
     "mathjax-node": "^2.1.1",
-    "node": "^10.5.0",
+    "node": "^11.4.0",
     "node-fetch": "^2.3.0",
     "utf-8-validate": "^5.0.1"
   }

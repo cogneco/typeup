@@ -5,6 +5,7 @@ export class CommentStripper extends IO.Reader {
 	private last: string | undefined
 	get readable(): boolean { return this.backend.readable }
 	get opened(): boolean { return this.backend.opened }
+	get tabSize(): number { return this.backend.tabSize }
 	get isEmpty(): Promise<boolean> {
 		return this.backend.isEmpty
 	}

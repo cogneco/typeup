@@ -41,5 +41,8 @@
 		"radix": false
 	},
 	"rulesDirectory": [
-	]
+	],
+	"linterOptions": {
+		"exclude": [ "package.json"]
+	}
 }

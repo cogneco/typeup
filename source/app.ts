@@ -1,9 +1,12 @@
+#!/usr/bin/env node
 import { Error, Uri } from "@cogneco/mend"
 
 import * as fs from "fs"
 import * as cp from "child_process"
 
 import { Document } from "./Typeup/Document"
+
+import * as p from "../package.json"
 
 export class Program {
 	private defaultCommand = "html"
@@ -43,7 +46,7 @@ export class Program {
 						break
 				}
 				break
-			case "version": console.log("typeup " + this.getVersion()); break
+			case "version": console.log("TypeUp " + this.getVersion()); break
 			case "help": console.log("help"); break
 			default:
 				if (command)
@@ -61,7 +64,7 @@ export class Program {
 			await this.runHelper(command, this.commands)
 	}
 	getVersion(): string {
-		return "0.1.2"
+		return p.version
 	}
 }
 new Program(process.argv).run()
