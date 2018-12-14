@@ -11,10 +11,9 @@
 		".vscode": true
 	},
 	"files.exclude": {
-		"node_modules": true,
 		".vscode": false,
-		"build": true,
-		"**/.git": true
+		"**/.git": true,
+		"node_modules": true
 	},
 	"files.encoding": "utf8",
 	"files.eol": "\n",
