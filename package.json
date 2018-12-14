@@ -1,7 +1,7 @@
 {
   "name": "typeup",
   "description": "Markup for documents.",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "bin": {
     "typeup": "build/source/app.js"
   },
