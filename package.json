@@ -23,8 +23,8 @@
     "mathjax-node": "^2.1.1",
     "node-fetch": "^2.3.0",
     "utf-8-validate": "^5.0.1"
-	},
-	"engines": {
+  },
+  "engines": {
     "node": ">10"
-	}
+  }
 }
