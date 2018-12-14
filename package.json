@@ -2,10 +2,7 @@
   "name": "typeup",
   "description": "Markup for documents.",
   "version": "0.1.11",
-  "bin": {
-    "typeup": "build/source/app.js"
-  },
-  "preferGlobal": true,
+  "bin": "build/source/app.js",
   "scripts": {
     "setup": "npm install",
     "start": "node ./build/source/app.js",
@@ -24,8 +21,10 @@
     "@cogneco/mend": "^1.7.3",
     "bufferutil": "^4.0.0",
     "mathjax-node": "^2.1.1",
-    "node": "^11.4.0",
     "node-fetch": "^2.3.0",
     "utf-8-validate": "^5.0.1"
-  }
+	},
+	"engines": {
+    "node": ">10"
+	}
 }
