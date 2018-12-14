@@ -1,7 +1,7 @@
 {
   "name": "typeup",
   "description": "Markup for documents.",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "bin": "build/source/app.js",
   "scripts": {
     "setup": "npm install",
