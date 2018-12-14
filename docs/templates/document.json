@@ -2,8 +2,6 @@
 	"name": "document",
 	"description": "Document template used for testing.",
 	"output": "html",
-	"dependencies": [
-	],
 	"tags": {
 		"*": "<h1><code>${content}</code></h1>",
 		"document": "<!doctype html>\n<html>\n<head>\n<meta charset='UTF-8'>\n<title>${title}</title>\n<meta name='author' content='${author}'/>\n<meta name='date' content='${date}'/>\n<link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css'>\n<script src='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js'></script>\n<script>hljs.initHighlightingOnLoad();</script>\n<link rel='stylesheet' type='text/css' href='${template-path}/${class}.css'>\n</head>\n<body>\n<header><h1>${title}</h1></header>\n${content}</body>\n</html>\n",
