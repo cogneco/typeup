@@ -3,9 +3,9 @@
   "description": "Markup for documents.",
   "version": "0.1.12",
   "bin": {
-		"typeup": "build/source/app.js"
-	},
-	"main": "build/source/app.js",
+    "typeup": "build/source/app.js"
+  },
+  "main": "build/source/app.js",
   "scripts": {
     "setup": "npm install",
     "start": "node ./build/source/app.js",
